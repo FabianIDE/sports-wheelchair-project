@@ -1,14 +1,8 @@
-<<<<<<< HEAD
-# A Noisy Wheelchair
-
-By tha weetzel
-
-
-=======
 #Weelchair tracking for basketball players
 
 #Daniel, Fabian and Max
->>>>>>> 44c8ff2085d020e0755c52c11a57975a09802f83
+
+#changing by max test test 
 
 Wheelchair Design Platform is a repository that contains some resources to help
 designers and developers speak the same language, and work together towards
