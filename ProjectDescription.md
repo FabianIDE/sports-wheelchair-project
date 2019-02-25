@@ -24,6 +24,7 @@ To archieve the project goal, data will be collected using the following sensors
 
 __*INPUT*__
 * Speedometer
+The speedometer collects data by counting the amount of revelations of the wheels during a certain time. 
 * Orientation sensor
 * Pressure sensors
 ##* Arduino HR sensor  
