@@ -33,3 +33,5 @@ With a pressure sensor the weight of the player can be determined, which, in com
 
 * OPTIONAL: Arduino HR sensor
 An expansion, if time allows, is to use heartrate data to more reliably predict the energy usage of the sporter.
+
+*Of the sensors above, the speedometer (Hall sensor + magnet) and the Arduino HR sensor are not in the list. *
