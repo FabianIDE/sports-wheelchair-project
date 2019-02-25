@@ -1,7 +1,6 @@
-# Wheelchair things
+#Weelchair tracking for basketball players
 
-By Daniël
-
+#Daniel, Fabian and Max
 
 Wheelchair Design Platform is a repository that contains some resources to help
 designers and developers speak the same language, and work together towards
