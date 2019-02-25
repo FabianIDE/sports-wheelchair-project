@@ -12,8 +12,7 @@ void setup() {
 
   Serial.begin(9600); // setting baud speed for Serial (a baud is a pulse)
 
-  // 'print' on the Serial port, i.e send a message through the serial port
-  Serial.println("Lets start using the button!");
+
 }
 
 void loop() {
