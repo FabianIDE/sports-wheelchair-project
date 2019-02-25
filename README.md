@@ -2,6 +2,7 @@
 
 #Daniel, Fabian and Max
 
+
 Wheelchair Design Platform is a repository that contains some resources to help
 designers and developers speak the same language, and work together towards
 addressing relevant challenges for wheelchair users. It is a collection of
