@@ -2,11 +2,6 @@
 
 #Daniel, Fabian and Max
 
-#changing by max test test
-
-#editing omdat daniel dat wil
-
-#edig door daniel hah
 
 Wheelchair Design Platform is a repository that contains some resources to help
 designers and developers speak the same language, and work together towards
