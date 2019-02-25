@@ -1,4 +1,4 @@
-## Project description
+## PROJECT DESCRIPTION
 *by Max, Fabian and Daniël*
 
 Creating a smart sports wheelchair which monitors and measures the position and energy consumed of a player in real time, providing valuable insights for both player and coach.
@@ -17,7 +17,7 @@ __*OPTIONAL EXPANTION*__
 * Webapp showing the live position and direction of players
 
 
-## Sensors
+## SENSORS
 
 To archieve the project goal, data will be collected using the following sensors.
 
