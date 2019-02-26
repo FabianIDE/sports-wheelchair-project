@@ -4,6 +4,8 @@
 #include <utility/imumaths.h>
 
 float angle = 0;
+float AngleBaseY = 0;
+float AngleDeltaY = 0;
 
 /* This driver reads raw data from the BNO055
 
@@ -51,6 +53,13 @@ void setup(void)
   //Serial.println(" C");
   //Serial.println("");
 
+imu::Vector<3> euler = bno.getVector(Adafruit_BNO055::VECTOR_EULER);
+  AngleBaseY = euler.y();
+    //Serial.print("AngleBaseY=");
+    //Serial.println(AngleBaseY);
+
+  
+
   bno.setExtCrystalUse(true);
 
  // Serial.println("Calibration status values: 0=uncalibrated, 3=fully calibrated");
@@ -81,9 +90,12 @@ void loop(void)
   //Serial.print(" Z: ");
   //Serial.print(euler.z());
   //Serial.println("\t\t");
+
+AngleDeltaY = AngleBaseY-euler.y();
+
   
   Serial.print("button-led-0c7a,");
-  Serial.println(euler.y());
+  Serial.println(AngleDeltaY);
 
   /*
   // Quaternion data
