@@ -2,6 +2,8 @@
 
 #Daniel, Fabian and Max
 
+#Project description
+Creating a smart sports wheelchair which monitors and measures the position and energy consumed of a player in real time, providing valuable insights for both player and coach.
 
 Wheelchair Design Platform is a repository that contains some resources to help
 designers and developers speak the same language, and work together towards
