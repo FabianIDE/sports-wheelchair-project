@@ -66,7 +66,7 @@ if my_thing.find_property_by_name("Heartrate monitor") is None:
     print(my_property.to_json())
 
 # Retrieve the property
-my_property = my_thing.find_property_by_name("Heartrate monitor")
+my_property = my_thing.find_property_by_name("heartrate-monitor-32b0")
 
 # Show the property
 print(my_property.to_json())
