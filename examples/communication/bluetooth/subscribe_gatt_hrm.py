@@ -53,12 +53,12 @@ my_thing.read()
 print(my_thing.to_json())
 
 # If we have no properties, let's create a random one
-if my_thing.find_property_by_name("heartrate-monitor-0319") is None:
+if my_thing.find_property_by_name("Heart Rate Monitor") is None:
     # By specifying a property type, the DCD Hub will
     # automatically generate the property dimensions
     # (in this case, 3 generic dimensions)
     my_property = my_thing.create_property(
-        name="Heartrate monitor",
+        name="Heart Rate Monitor",
         property_type=PropertyType.ONE_DIMENSION)
 
     # Let's have a look at the property, it should
@@ -66,7 +66,7 @@ if my_thing.find_property_by_name("heartrate-monitor-0319") is None:
     print(my_property.to_json())
 
 # Retrieve the property
-my_property = my_thing.find_property_by_name("heartrate-monitor-0319")
+my_property = my_thing.find_property_by_name("Heart Rate Monitor")
 
 # Show the property
 print(my_property.to_json())
