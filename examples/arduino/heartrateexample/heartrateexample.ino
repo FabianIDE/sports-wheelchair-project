@@ -102,9 +102,9 @@ void setup(void)
   // ble.setInterCharWriteDelay(5); // 5 ms
 
   /* Change the device name to make it easier to find */
-  Serial.println(F("Setting device name to 'Bluefruit HRM': "));
+  Serial.println(F("Setting device name to 'Bluefruit_sportswheelchair': "));
 
-  if (! ble.sendCommandCheckOK(F("AT+GAPDEVNAME=Bluefruit HRM")) ) {
+  if (! ble.sendCommandCheckOK(F("AT+GAPDEVNAME=Bluefruit_sportswheelchair")) ) {
     error(F("Could not set device name?"));
   }
 
