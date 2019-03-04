@@ -37,7 +37,22 @@ With a pressure sensor the weight of the player can be determined, which, in com
 * OPTIONAL: Arduino HR sensor
 An expansion, if time allows, is to use heartrate data to more reliably predict the energy usage of the sporter.
 
-*Of the sensors above, the speedometer (Hall sensor + magnet) and the Arduino HR sensor are not in the list. *
+*Of the sensors above, the speedometer (Hall sensor + magnet) and the Arduino HR sensor are not in the list.*
+
+
+## ACTUATORS
+
+To communicate the gained insights back to the user, the wheelchair will use certain actuators to notify the user.
+
+__*OUTPUT*__
+* RGB LED ring (Neopixel)
+To display fatigue, heart rate and more, an LED ring will be used, preferably Adafruit's Neopixel ring. The ease of the Neopixel is that it is expandable to almost infinite length while still using only three cables (positive, ground and data) and thus three pins on the Arduino. A disadvantage is that it can only be controlled by the Arduino, not for the Pi.
+With the Neopixel ring, it is possible to create patterns of colored LED's, which allow for easy communication to the end user.
+
+* Speaker
+A speaker can be used to send the user audio signals regarding the performance at a certain time. For example, when a player's hearthrate exceeds a certain treshold for a prolonged time.
+
+*Of the actuators above, the RGB LED Ring can be provided by us if neccesairy.*
 
 
 
@@ -54,6 +69,10 @@ An expansion, if time allows, is to use heartrate data to more reliably predict 
 
 
 
+
+
+
+-----------------------------------------------------------------------------------
 
 Wheelchair Design Platform is a repository that contains some resources to help
 designers and developers speak the same language, and work together towards
