@@ -59,7 +59,7 @@ if my_thing.find_property_by_name("My heart rate measurement") is None:
     # (in this case, 3 generic dimensions)
     my_property = my_thing.create_property(
         name="Heartrate monitor",
-        property_type=PropertyType.ONE_DIMENSIONS)
+        property_type=PropertyType.ONE_DIMENSION)
 
     # Let's have a look at the property, it should
     # contains the name, a unique id and the dimensions
