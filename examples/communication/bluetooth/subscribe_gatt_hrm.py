@@ -58,15 +58,15 @@ if my_thing.find_property_by_name("My heart rate measurement") is None:
     # automatically generate the property dimensions
     # (in this case, 3 generic dimensions)
     my_property = my_thing.create_property(
-        name="My left wheel orientation",
-        property_type=PropertyType.THREE_DIMENSIONS)
+        name="Heartrate monitor",
+        property_type=PropertyType.ONE_DIMENSIONS)
 
     # Let's have a look at the property, it should
     # contains the name, a unique id and the dimensions
     print(my_property.to_json())
 
 # Retrieve the property
-my_property = my_thing.find_property_by_name("My left wheel orientation")
+my_property = my_thing.find_property_by_name("Heartrate monitor")
 
 # Show the property
 print(my_property.to_json())
