@@ -16,7 +16,7 @@ THING_TOKEN = os.environ['THING_TOKEN']
 BLUETOOTH_DEVICE_MAC = os.environ['BLUETOOTH_DEVICE_MAC']
 
 # UUID of the GATT characteristic to subscribe
-GATT_CHARACTERISTIC = "0x2A37"
+GATT_CHARACTERISTIC = "2A37"
 
 # Many devices, e.g. Fitbit, use random addressing, this is required to connect.
 ADDRESS_TYPE = pygatt.BLEAddressType.random
