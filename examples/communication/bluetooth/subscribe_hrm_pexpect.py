@@ -19,7 +19,7 @@ def hexStrToInt(hexstr):
     return val
 
 #put your hrm mac address here
-hrmMacAddress = "e9:aa:88:b4:b6:bc"
+hrmMacAddress = "C5:46:4C:2F:AD:C6"
 
 #access your thing in the hub from this program
 load_dotenv()
@@ -106,6 +106,3 @@ while True:
         # Unsubscribe from characteristic before exiting program
         child.sendline("char-write-req 0x000f 0000")
         exit(0)
-
-
-    
