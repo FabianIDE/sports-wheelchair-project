@@ -34,7 +34,7 @@ void setup() {
   Serial.begin(9600);
   ring.begin();
   ring.show();
-  
+
   if(!bno.begin()) // initialise sensor
   {
     while(1);
@@ -47,11 +47,15 @@ for(int i=0;i<NUMring;i++){                       // LED startup animation -- RE
 ringDO(0,50,0,0);
 delay(20);
 ringDO(0,25,0,0);
-  
+
   bno.setExtCrystalUse(true);
 }
 
 void loop() {
+
+// add property marker
+Serial.print("chair-base-99fa")
+Serial.print( F(",") );
 
 imu::Vector<3> euler = bno.getVector(Adafruit_BNO055::VECTOR_EULER);
 Serial.print(euler.x());
@@ -93,13 +97,13 @@ for(int i=0;i<NUMring;i++){                       // for each LED, set color
     else{
       ring.setPixelColor(i, ring.Color(0,20,0,0));
     }
-    
+
   }
   ring.show();*/
 
-  
 
-delay(BNO055_SAMPLERATE_DELAY_MS); 
+
+delay(BNO055_SAMPLERATE_DELAY_MS);
 
 }
 
