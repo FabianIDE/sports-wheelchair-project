@@ -13,7 +13,7 @@ from dcd.entities.property_type import PropertyType
 load_dotenv()
 THING_ID = os.environ['THING_ID']
 THING_TOKEN = os.environ['THING_TOKEN']
-BLUETOOTH_DEVICE_MAC = os.environ['BLUETOOTH_DEVICE_MAC']
+BLUETOOTH_DEVICE_MAC = os.environ['BLUETOOTH_DEVICE_MAC_HRM']
 
 # UUID of the GATT characteristic to subscribe
 GATT_CHARACTERISTIC = "2A37"

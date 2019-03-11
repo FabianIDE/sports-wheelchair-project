@@ -100,7 +100,7 @@ void setup(void) {
   ble.verbose(true);
 
   // Change the device name to fit its purpose
-  if (! ble.sendCommandCheckOK(F("AT+GAPDEVNAME=Noisy Left Wheel")) ) {
+  if (! ble.sendCommandCheckOK(F("AT+GAPDEVNAME=sportswheelchair")) ) {
     error(F("Could not set device name."));
   }
 
@@ -126,21 +126,20 @@ void setup(void) {
 
 void orientation() {
   // Get Quaternion data (no 'Gimbal Lock' like with Euler angles)
-  imu::Quaternion quat = bno.getQuat();
-  float quatX = quat.x();
-  float quatY = quat.y();
-  float quatZ = quat.z();
-  
+  imu::Vector<3> euler = bno.getVector(Adafruit_BNO055::VECTOR_EULER);
+  float eulerX = euler.x();
+  float eulerY = euler.y();
+ // float quatZ = euler.z();
+
   // Command is sent when \n (\r) or println is called
   // AT+GATTCHAR=CharacteristicID,value
   ble.print( F("AT+GATTCHAR=") );
   ble.print( orientationCharId );
   ble.print( F(",") );
-  ble.print(String(quatX));
+  ble.print(String(eulerX));
   ble.print( F(",") );
-  ble.print(String(quatY));
-  ble.print( F(",") );
-  ble.println(String(quatZ));
+  ble.println(String(eulerY));
+
 }
 
 
