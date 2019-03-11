@@ -131,6 +131,6 @@ def serial_to_property_values():
     # Finally, we call this method again
     serial_to_property_values()
 
-serial_to_property_values()
+# serial_to_property_values()
 
 # serial code end
