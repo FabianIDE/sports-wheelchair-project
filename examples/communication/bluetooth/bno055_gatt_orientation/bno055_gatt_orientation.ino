@@ -129,7 +129,7 @@ void orientation() {
   imu::Vector<3> euler = bno.getVector(Adafruit_BNO055::VECTOR_EULER);
   float eulerX = euler.x();
   float eulerY = euler.y();
- // float quatZ = euler.z();
+  float eulerZ = euler.z();
 
   // Command is sent when \n (\r) or println is called
   // AT+GATTCHAR=CharacteristicID,value
@@ -138,7 +138,9 @@ void orientation() {
   ble.print( F(",") );
   ble.print(String(eulerX));
   ble.print( F(",") );
-  ble.println(String(eulerY));
+  ble.print(String(eulerY));
+  ble.print( F(",") );
+  ble.println(String(eulerZ));
 
 }
 
