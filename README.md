@@ -6,6 +6,17 @@
 
 Creating a smart sports wheelchair which monitors and measures the position and energy consumed of a player in real time, providing valuable insights for both player and coach.
 
+#steps as defined on 08.03.2019
+
+1.  Measure rotation of the right wheel.
+2.  Measure rotation of whole wheelchair.
+3.  Combine both measurements to define movement of both wheels.
+4.  Use the movement of both wheels to determine how much energy is used by the user.
+5.  Measure the heartrate of the user.
+6.  Combine the collected data to define how much energy the user has spend so far.   
+7.  Use the LED ring to display this data to the user
+
+
 __*INPUT*__
 * Relative Position (speed, acceleration)
 * Orientation
