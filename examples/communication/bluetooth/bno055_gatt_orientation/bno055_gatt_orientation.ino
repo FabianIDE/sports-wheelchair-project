@@ -128,8 +128,10 @@ void orientation() {
   // Get Quaternion data (no 'Gimbal Lock' like with Euler angles)
   imu::Vector<3> euler = bno.getVector(Adafruit_BNO055::VECTOR_EULER);
   float eulerX = euler.x();
-  float eulerY = euler.y();
-  float eulerZ = euler.z();
+  
+  imu::Vector<3> Gyro = bno.getVector(Adafruit_BNO055::VECTOR_GYROSCOPE);
+  float GyroZ = Gyro.z();
+  
 
   // Command is sent when \n (\r) or println is called
   // AT+GATTCHAR=CharacteristicID,value
@@ -138,9 +140,11 @@ void orientation() {
   ble.print( F(",") );
   ble.print(String(eulerX));
   ble.print( F(",") );
-  ble.print(String(eulerY));
-  ble.print( F(",") );
-  ble.println(String(eulerZ));
+  ble.println(String(GyroZ));
+  
+  
+  //ble.println(String(eulerY));
+ 
 
 }
 
