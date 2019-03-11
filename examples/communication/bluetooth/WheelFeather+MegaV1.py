@@ -14,6 +14,9 @@ import time
 from dotenv import load_dotenv
 import os
 
+import serial
+
+
 # DCD Hub
 from dcd.entities.thing import Thing
 from dcd.entities.property_type import PropertyType
@@ -91,13 +94,15 @@ left_wheel.subscribe(GATT_CHARACTERISTIC_ORIENTATION,
 # Register our Keyboard handler to exit
 signal.signal(signal.SIGINT, keyboard_interrupt_handler)
 
+
+
+
 #serial code start
 
-  
 # Start reading the serial port
 ser = serial.Serial(
     port = os.environ['SERIAL'],
-    baudrate = 9600,
+    baudrate = 115200,
     timeout = 2)
 
 # Read the next line from the serial port
