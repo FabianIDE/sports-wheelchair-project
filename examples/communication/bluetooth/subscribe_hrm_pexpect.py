@@ -68,7 +68,7 @@ print("Searchinf for HRM")
 print("Connecting...")
 
 # The number of times you want to retry connecting before you give up
-RETRY_CONNECTION = 1
+RETRY_CONNECTION = 2
 
 while True:
     try:
