@@ -102,7 +102,7 @@ signal.signal(signal.SIGINT, keyboard_interrupt_handler)
 # Start reading the serial port
 ser = serial.Serial(
     port = os.environ['SERIAL'],
-    baudrate = 115200,
+    baudrate = 9600,
     timeout = 2)
 
 # Read the next line from the serial port
@@ -112,6 +112,8 @@ def serial_to_property_values():
     line_bytes = ser.readline()
     # If the line is not empty
     if len(line_bytes) > 0:
+
+        print('serial data found!')
         # Convert the bytes into string
         line = line_bytes.decode('utf-8')
         # Split the string using commas as separator, we get a list of strings
@@ -128,7 +130,7 @@ def serial_to_property_values():
             print('Warning: unknown property ' + property_id)
     # Finally, we call this method again
     serial_to_property_values()
-
+    print(values.pop(1) + values.pop(2))
 serial_to_property_values()
 
 # serial code end
