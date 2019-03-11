@@ -113,7 +113,7 @@ def serial_to_property_values():
     # If the line is not empty
     if len(line_bytes) > 0:
 
-        print('serial data found!')
+        print('SERIAL DATA FOUND!')
         # Convert the bytes into string
         line = line_bytes.decode('utf-8')
         # Split the string using commas as separator, we get a list of strings
@@ -130,7 +130,7 @@ def serial_to_property_values():
             print('Warning: unknown property ' + property_id)
     # Finally, we call this method again
     serial_to_property_values()
-    print(values.pop(1) + values.pop(2))
+
 serial_to_property_values()
 
 # serial code end
