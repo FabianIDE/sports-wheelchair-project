@@ -61,6 +61,7 @@ void setup(void)
 {
   Serial.begin(9600);
   //Serial.println("Orientation Sensor Raw Data Test"); Serial.println("");
+bno.setMode(Adafruit_BNO055::OPERATION_MODE_NDOF);
 
   /* Initialise the sensor */
   if(!bno.begin())
@@ -115,23 +116,24 @@ void loop(void) {
   Serial.print( F(",") );
   Serial.println(String(quatZ));
   */
-
   imu::Vector<3> euler = bno.getVector(Adafruit_BNO055::VECTOR_EULER);
-Serial.print("eulerdata");
-Serial.print(euler.y());
-Serial.print( F(",") );
+//Serial.print("eulerdata");
 Serial.print(euler.x());
 Serial.print( F(",") );
-Serial.print(euler.z());
-Serial.print( F(",") );
+Serial.println(euler.y());
+//Serial.print( F(",") );
+//Serial.print(euler.z());
+//Serial.println( F(",") );
 
-
+/*
 imu::Vector<3> Gyro = bno.getVector(Adafruit_BNO055::VECTOR_GYROSCOPE);
 Serial.print(Gyro.y());
 Serial.print( F(",") );
 Serial.print(Gyro.x());
 Serial.print( F(",") );
 Serial.println(Gyro.z());
+*/
+
   // Delay before next measurement update
   delay(BNO055_SAMPLERATE_DELAY_MS);
 }
