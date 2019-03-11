@@ -88,7 +88,7 @@ void setup(void) {
   initSensor();
 
   // Perform a factory reset to make sure everything is in a known state
-  if (! ble.factoryReset() ){
+  if (!ble.factoryReset() ){
        error(F("Couldn't factory reset."));
   }
 
