@@ -117,7 +117,7 @@ void loop(void) {
   */
 
   imu::Vector<3> euler = bno.getVector(Adafruit_BNO055::VECTOR_EULER);
-Serial.print("eulerdata");
+//Serial.print("eulerdata");
 Serial.print(euler.y());
 Serial.print( F(",") );
 Serial.print(euler.x());
@@ -132,6 +132,7 @@ Serial.print( F(",") );
 Serial.print(Gyro.x());
 Serial.print( F(",") );
 Serial.println(Gyro.z());
+
   // Delay before next measurement update
   delay(BNO055_SAMPLERATE_DELAY_MS);
 }
