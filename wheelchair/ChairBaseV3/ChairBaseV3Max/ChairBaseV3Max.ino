@@ -31,7 +31,7 @@ void loop()
 //  rotation();
 
     imu::Vector<3> euler = bno.getVector(Adafruit_BNO055::VECTOR_EULER);
-    wheel_angle_poll  = euler.x();
+    wheel_angle_poll  = euler.y();
 
 // wheel moving backwards
     if (wheel_angle_previous<100 && wheel_angle_poll>200) 

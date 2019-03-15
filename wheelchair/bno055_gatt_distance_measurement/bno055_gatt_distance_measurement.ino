@@ -28,6 +28,14 @@
 
 #include "BluefruitConfig.h"
 
+float wheel_angle_poll;
+float wheel_angle_difference = 0;
+float wheel_angle_total = 0;
+float wheel_angle_original = 0;
+float wheel_angle_previous = 0;
+float wheel_angle_rotation = 0;
+float wheel_distance = 0;
+
 #if SOFTWARE_SERIAL_AVAILABLE
   #include <SoftwareSerial.h>
 #endif
@@ -69,6 +77,11 @@ void initSensor(void) {
 
 // Sets up the HW an the BLE module (this function is called
 // automatically on startup)
+
+
+
+
+
 void setup(void) {
   delay(500);
   boolean success;
@@ -124,21 +137,27 @@ void setup(void) {
   ble.reset();
 }
 
+
+
+
+
+
 void orientation() {
 
 // get rotation of the wheel and determine total rotations
-  imu::Vector<3> euler = bno.getVector(Adafruit_BNO055::VECTOR_EULER);
+
+    imu::Vector<3> euler = bno.getVector(Adafruit_BNO055::VECTOR_EULER);
     wheel_angle_poll  = euler.x();
 
 // wheel moving backwards
-    if (wheel_angle_previous<100 && wheel_angle_poll>200)
+    if (wheel_angle_previous<100 && wheel_angle_poll>200) 
       {
         wheel_angle_difference = 360-wheel_angle_poll+wheel_angle_previous;
                 Serial.println ("backward");
       }
 
 // wheel moving forwards
-    else if (wheel_angle_previous>200 && wheel_angle_poll<100)
+    else if (wheel_angle_previous>200 && wheel_angle_poll<100) 
       {
         wheel_angle_difference = -1*(wheel_angle_poll+360-wheel_angle_previous);
         Serial.println ("forward");
@@ -147,9 +166,12 @@ void orientation() {
      else {
           wheel_angle_difference = wheel_angle_previous - wheel_angle_poll;
      }
-
+    
 
     wheel_angle_rotation = (wheel_angle_rotation + wheel_angle_difference);
+
+    wheel_distance = -1*wheel_angle_rotation/360*1,850;
+  
 
 
   // Get Gyro data
@@ -162,18 +184,20 @@ void orientation() {
   ble.print( F("AT+GATTCHAR=") );
   ble.print( orientationCharId );
   ble.print( F(",") );
-  ble.print(String(wheel_angle_rotation);
+  ble.print(String(wheel_distance));
   ble.print( F(",") );
   ble.println(String(GyroZ));
 
 
   //ble.println(String(eulerY));
 
-
+  wheel_angle_previous = wheel_angle_poll;
 
 
 
 }
+
+
 
 
 void loop(void) {
