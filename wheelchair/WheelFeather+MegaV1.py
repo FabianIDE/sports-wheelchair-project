@@ -96,44 +96,44 @@ signal.signal(signal.SIGINT, keyboard_interrupt_handler)
 
 
 
-
-#serial code start
-
-# Start reading the serial port
-ser = serial.Serial(
-    port = os.environ['SERIAL'],
-    baudrate = 9600,
-    timeout = 2)
-
-# Read the next line from the serial port
-# and update the property values
-def serial_to_property_values():
-    # Read one line
-    line_bytes = ser.readline()
-    # If the line is not empty
-    if len(line_bytes) > 0:
-
-        print('SERIAL DATA FOUND!')
-        # Convert the bytes into string
-        line = line_bytes.decode('utf-8')
-        # Split the string using commas as separator, we get a list of strings
-        values = line.split(',')
-        # Use the first element of the list as property id
-        property_id = values.pop(0)
-        # Get the property from the thing
-        prop = my_thing.properties[property_id]
-        # If we find the property, we update the values (rest of the list)
-        if prop is not None:
-            prop.update_values([float(x) for x in values])
-        # Otherwise, we show a warning
-        else:
-            print('Warning: unknown property ' + property_id)
-
-    else:
-        print('NO SERIAL DATA')
-    # Finally, we call this method again
-    serial_to_property_values()
-
-serial_to_property_values()
-
-# serial code end
+#
+# #serial code start
+#
+# # Start reading the serial port
+# ser = serial.Serial(
+#     port = os.environ['SERIAL'],
+#     baudrate = 9600,
+#     timeout = 2)
+#
+# # Read the next line from the serial port
+# # and update the property values
+# def serial_to_property_values():
+#     # Read one line
+#     line_bytes = ser.readline()
+#     # If the line is not empty
+#     if len(line_bytes) > 0:
+#
+#         print('SERIAL DATA FOUND!')
+#         # Convert the bytes into string
+#         line = line_bytes.decode('utf-8')
+#         # Split the string using commas as separator, we get a list of strings
+#         values = line.split(',')
+#         # Use the first element of the list as property id
+#         property_id = values.pop(0)
+#         # Get the property from the thing
+#         prop = my_thing.properties[property_id]
+#         # If we find the property, we update the values (rest of the list)
+#         if prop is not None:
+#             prop.update_values([float(x) for x in values])
+#         # Otherwise, we show a warning
+#         else:
+#             print('Warning: unknown property ' + property_id)
+#
+#     else:
+#         print('NO SERIAL DATA')
+#     # Finally, we call this method again
+#     serial_to_property_values()
+#
+# serial_to_property_values()
+#
+# # serial code end
