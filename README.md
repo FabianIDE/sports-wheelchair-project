@@ -4,7 +4,7 @@
 ## PROJECT DESCRIPTION
 *by Max, Fabian and Daniël*
 
-Creating a smart sports wheelchair which monitors and measures the position and energy consumed of a player in real time, providing valuable insights for both player and coach during training exercises.
+The goal of this project is to create a smart sports wheelchair which is able to monitor the consumed energy of a wheelchair basketball player in real time. This provides valuable insights for player and coach during training exercises.
 
 #steps as defined on 08.03.2019
 
@@ -19,16 +19,16 @@ Creating a smart sports wheelchair which monitors and measures the position and 
 
 __*INPUT*__
 * Relative Position (speed, acceleration)
-* Orientation
+* Rotation
 * Weight
+* Heartbeat
 
 __*OUTPUT*__
 * Basic information on Grafana
-* LED strip indicating fatigue or calorie counter
+* LED strip indicating fatigue and heartbeat
 
 __*OPTIONAL EXPANTION*__
-* Heartrate
-* Webapp showing the live position and direction of players
+* A webapp showing the live position and direction of players
 
 
 ## SENSORS
@@ -45,8 +45,8 @@ The orientation sensor consists of a gyroscope, accelerometers and magnetometers
 * Pressure sensors
 With a pressure sensor the weight of the player can be determined, which, in combination with the sensors above, can be used for calculations in energy usage.
 
-* OPTIONAL: Arduino HR sensor
-An expansion, if time allows, is to use heartrate data to more reliably predict the energy usage of the sporter.
+* Heartrate sensor
+An expansion on the wheelchair project is a heartrate monitor wearable. This can be placed on the arm of the athlete in order to more reliably predict the energy usage.
 
 *Of the sensors above, the speedometer (Hall sensor + magnet) and the Arduino HR sensor are not in the list.*
 
