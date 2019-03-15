@@ -13,6 +13,7 @@ import time
 
 from dotenv import load_dotenv
 import os
+
 import serial
 
 # required for HRM
@@ -238,8 +239,6 @@ def serial_to_property_values():
         else:
             print('Warning: unknown property ' + property_id)
 
-    else:
-        print('NO SERIAL DATA')
     # Finally, we call this method again
     serial_to_property_values()
 
