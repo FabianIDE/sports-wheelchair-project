@@ -1,4 +1,4 @@
-// libraries for NeoPixel
+0// libraries for NeoPixel
 #include <Adafruit_NeoPixel.h>
 #ifdef __AVR__
   #include <avr/power.h>
@@ -29,6 +29,7 @@ int32_t orientationCharId;
 Adafruit_NeoPixel ring = Adafruit_NeoPixel(NUMring, PINring, NEO_RGBW + NEO_KHZ800);
 
 int pixON = 0;
+unsigned long HR_int = 0;
 
 void setup() {
   Serial.begin(9600);
@@ -100,6 +101,15 @@ for(int i=0;i<NUMring;i++){                       // for each LED, set color
 
   }
   ring.show();*/
+
+// HR flash
+
+
+if(Serial.available() > 0){
+  String HR = Serial.readString();
+  HR_int = HR.toInt()/60;
+}
+
 
 
 
