@@ -57,11 +57,11 @@ To communicate the gained insights back to the user, the wheelchair will use cer
 
 __*OUTPUT*__
 * RGB LED ring (Neopixel)
-To display fatigue, heart rate and more, an LED ring will be used, preferably Adafruit's Neopixel ring. The ease of the Neopixel is that it is expandable to almost infinite length while still using only three cables (positive, ground and data) and thus three pins on the Arduino. A disadvantage is that it can only be controlled by the Arduino, not for the Pi.
-With the Neopixel ring, it is possible to create patterns of colored LED's, which allow for easy communication to the end user.
+To display fatigue, heart rate and more, an LED ring will be used, preferably Adafruit's Neopixel ring. The ease of the Neopixel is that it is expandable to almost infinite length while still using only three cables (positive, ground and data) and thus three pins on the Arduino. A disadvantage is that it can only be controlled by the Arduino, not for the Raspberry Pi.
+With the Neopixel ring, it is possible to create patterns of coloured LED's, which allow for easy communication to the end user.
 
 * Speaker
-A speaker can be used to send the user audio signals regarding the performance at a certain time. For example, when a player's hearthrate exceeds a certain treshold for a prolonged time.
+A speaker can be used to send the user audio signals regarding the performance at a certain time. For example, when a player's heartrate exceeds a certain threshold for a prolonged time.
 
 *Of the actuators above, the RGB LED Ring can be provided by us if neccesairy.*
 
