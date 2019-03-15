@@ -125,26 +125,53 @@ void setup(void) {
 }
 
 void orientation() {
-  // Get Quaternion data (no 'Gimbal Lock' like with Euler angles)
+
+// get rotation of the wheel and determine total rotations
   imu::Vector<3> euler = bno.getVector(Adafruit_BNO055::VECTOR_EULER);
-  float eulerX = euler.x();
-  
+    wheel_angle_poll  = euler.x();
+
+// wheel moving backwards
+    if (wheel_angle_previous<100 && wheel_angle_poll>200)
+      {
+        wheel_angle_difference = 360-wheel_angle_poll+wheel_angle_previous;
+                Serial.println ("backward");
+      }
+
+// wheel moving forwards
+    else if (wheel_angle_previous>200 && wheel_angle_poll<100)
+      {
+        wheel_angle_difference = -1*(wheel_angle_poll+360-wheel_angle_previous);
+        Serial.println ("forward");
+      }
+
+     else {
+          wheel_angle_difference = wheel_angle_previous - wheel_angle_poll;
+     }
+
+
+    wheel_angle_rotation = (wheel_angle_rotation + wheel_angle_difference);
+
+
+  // Get Gyro data
   imu::Vector<3> Gyro = bno.getVector(Adafruit_BNO055::VECTOR_GYROSCOPE);
   float GyroZ = Gyro.z();
-  
+
 
   // Command is sent when \n (\r) or println is called
   // AT+GATTCHAR=CharacteristicID,value
   ble.print( F("AT+GATTCHAR=") );
   ble.print( orientationCharId );
   ble.print( F(",") );
-  ble.print(String(eulerX));
+  ble.print(String(wheel_angle_rotation);
   ble.print( F(",") );
   ble.println(String(GyroZ));
-  
-  
+
+
   //ble.println(String(eulerY));
- 
+
+
+
+
 
 }
 
