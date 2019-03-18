@@ -39,6 +39,7 @@ def serial_to_property_values():
     # If the line is not empty
     if len(line_bytes) > 0:
         # Convert the bytes into string
+        print('SERIAL DATA FOUND!')
         line = line_bytes.decode('utf-8')
         # Split the string using commas as separator, we get a list of strings
         values = line.split(',')
