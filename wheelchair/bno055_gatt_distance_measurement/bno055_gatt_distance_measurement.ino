@@ -153,14 +153,14 @@ void orientation() {
     if (wheel_angle_previous<100 && wheel_angle_poll>200) 
       {
         wheel_angle_difference = 360-wheel_angle_poll+wheel_angle_previous;
-                Serial.println ("backward");
+                //Serial.println ("backward");
       }
 
 // wheel moving forwards
     else if (wheel_angle_previous>200 && wheel_angle_poll<100) 
       {
         wheel_angle_difference = -1*(wheel_angle_poll+360-wheel_angle_previous);
-        Serial.println ("forward");
+        //Serial.println ("forward");
       }
 
      else {
