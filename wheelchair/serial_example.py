@@ -54,6 +54,5 @@ def serial_to_property_values():
         else:
             print('Warning: unknown property ' + property_id)
     # Finally, we call this method again
-    serial_to_property_values()
 
 serial_to_property_values()
