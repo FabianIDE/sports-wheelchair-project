@@ -14,6 +14,8 @@ import time
 from dotenv import load_dotenv
 import os
 
+from threading import Thread
+
 import serial
 
 # DCD Hub
@@ -72,12 +74,15 @@ def keyboard_interrupt_handler(signal_num, frame):
     """Make sure we close our program properly"""
     print("Exiting...".format(signal_num))
     left_wheel.unsubscribe(GATT_CHARACTERISTIC_ORIENTATION)
+    ser.close()
     exit(0)
 
 
 # Instantiate a thing with its credential, then read its properties from the DCD Hub
 my_thing = Thing(thing_id=THING_ID, token=THING_TOKEN)
 my_thing.read()
+
+print(my_thing.to_json())
 
 # Start a BLE adapter
 bleAdapter = pygatt.GATTToolBackend()
@@ -86,20 +91,11 @@ bleAdapter.start()
 # Use the BLE adapter to connect to our device
 left_wheel = bleAdapter.connect(BLUETOOTH_DEVICE_MAC_WHEEL, address_type=ADDRESS_TYPE)
 
-# Subscribe to the GATT service
-left_wheel.subscribe(GATT_CHARACTERISTIC_ORIENTATION,
-                     callback=handle_orientation_data)
+
 
 # Register our Keyboard handler to exit
 signal.signal(signal.SIGINT, keyboard_interrupt_handler)
 
-
-# start serial code
-
-
-# We can read the details of our thing,
-# i.e. retrieving its information from the hub
-my_thing.read()
 # Start reading the serial port
 ser = serial.Serial(
     port = os.environ['SERIAL'],
@@ -137,5 +133,19 @@ def serial_to_property_values():
         except:
             print('Could not parse: ' + line)
 
-while True:
-    serial_to_property_values()
+
+def start_gatt():
+    # Subscribe to the GATT service
+    left_wheel.subscribe(GATT_CHARACTERISTIC_ORIENTATION,
+                         callback=handle_orientation_data)
+
+def start_serial():
+    while True:
+        serial_to_property_values()
+
+
+thread_gatt = Thread(target=start_gatt)
+thread_gatt.start()
+
+thread_serial = Thread(target=start_serial)
+thread_serial.start()
