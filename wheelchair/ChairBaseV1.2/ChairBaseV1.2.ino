@@ -120,14 +120,12 @@ if(Serial.available() > 0){                   // Read serial port
   
   if (ledOFF && timer > delayer){               // if the flash is not active and current time > delay
     ledOFF = false;
-    digitalWrite(13, HIGH);
     ringDO(0,255,0,0,0,12);                          // flash LED
     timeoffset = millis();                      // set timestamp last flash
     timer = 0;                                  // reset timer
   }
   if(ledOFF == false && timer > ontime){        // turn the LED off after 'ontime' seconds
     ledOFF = true;
-    digitalWrite(13, LOW);
     ringDO(0,25,0,0,0,12);
   }
 
