@@ -117,8 +117,6 @@ def serial_to_property_values():
     if len(line_bytes) > 0:
         # Convert the bytes into string
 
-        #print('SERIAL DATA FOUND!')
-
         line = line_bytes.decode('utf-8')
         # Split the string using commas as separator, we get a list of strings
         values = line.split(',')
@@ -127,7 +125,7 @@ def serial_to_property_values():
             property_id = values.pop(0)
             # Get the property from the thing
             prop = my_thing.properties[property_id]
-            print(values)
+            print('Serial data found:' + values)
             # If we find the property, we update the values (rest of the list)
             if prop is not None:
                 prop.update_values([float(x) for x in values])
