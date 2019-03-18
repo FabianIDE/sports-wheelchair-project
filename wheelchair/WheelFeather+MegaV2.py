@@ -117,17 +117,14 @@ def serial_to_property_values():
     # If the line is not empty
     if len(line_bytes) > 0:
         # Convert the bytes into string
-        print('SERIAL DATA FOUND')
 
         line = line_bytes.decode('utf-8')
         # Split the string using commas as separator, we get a list of strings
         values = line.split(',')
-        print('values split')
 
         try:
             # Use the first element of the list as property id
             property_serial_id = values.pop(0)
-            print('property name taken')
             # Get the property from the thing
             find_or_create("Chair base", PropertyType.THREE_DIMENSIONS).update_values([float(x) for x in values])
 
