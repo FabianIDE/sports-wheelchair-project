@@ -48,11 +48,13 @@ def serial_to_property_values():
         # Get the property from the thing
         prop = my_thing.properties[property_id]
         # If we find the property, we update the values (rest of the list)
+        print(property_id)
         if prop is not None:
             prop.update_values([float(x) for x in values])
         # Otherwise, we show a warning
         else:
             print('Warning: unknown property ' + property_id)
     # Finally, we call this method again
+    serial_to_property_values()
 
 serial_to_property_values()
