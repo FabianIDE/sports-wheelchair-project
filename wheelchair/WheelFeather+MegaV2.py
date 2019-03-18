@@ -121,7 +121,6 @@ def serial_to_property_values():
             # Use the first element of the list as property id
             property_serial_id = values.pop(0)
             print('property name taken')
-            print('Serial data found:' + values)
             # Get the property from the thing
             find_or_create("Chair base", PropertyType.THREE_DIMENSIONS).update_values([float(x) for x in values])
 
