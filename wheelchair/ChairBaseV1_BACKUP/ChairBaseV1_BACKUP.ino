@@ -29,7 +29,6 @@ int32_t orientationCharId;
 Adafruit_NeoPixel ring = Adafruit_NeoPixel(NUMring, PINring, NEO_RGBW + NEO_KHZ800);
 
 int pixON = 0;
-unsigned long HR_int = 0;
 
 void setup() {
   Serial.begin(9600);
@@ -59,14 +58,14 @@ Serial.print("chair-base-99fa");
 Serial.print( F(",") );
 
 imu::Vector<3> euler = bno.getVector(Adafruit_BNO055::VECTOR_EULER);
-Serial.println(euler.x());
-//Serial.print( F(",") );
-//Serial.print(euler.y());
-//Serial.print( F(",") );
+Serial.print(euler.x());
+Serial.print( F(",") );
+Serial.print(euler.y());
+Serial.print( F(",") );
 
 
 imu::Vector<3> Gyro = bno.getVector(Adafruit_BNO055::VECTOR_GYROSCOPE);
-//Serial.println(Gyro.x());
+Serial.println(Gyro.x());
 
 //Left Right warning light
 
@@ -101,15 +100,6 @@ for(int i=0;i<NUMring;i++){                       // for each LED, set color
 
   }
   ring.show();*/
-
-// HR flash
-
-
-if(Serial.available() > 0){
-  String HR = Serial.readString();
-  HR_int = HR.toInt()/60;
-}
-
 
 
 
