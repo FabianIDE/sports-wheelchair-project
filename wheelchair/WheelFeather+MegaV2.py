@@ -110,7 +110,7 @@ ser = serial.Serial(
     port = os.environ['SERIAL'],
     baudrate = 9600,
     timeout = 2)
-sleep(2)
+time.sleep(2)
 
 # Read the next line from the serial port
 # and update the property values
