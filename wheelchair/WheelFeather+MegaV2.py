@@ -177,7 +177,7 @@ my_property_HRM = my_thing.find_property_by_name("My heart rate measurement 1")
 child = pexpect.spawn("sudo gatttool -t random -b {0} -I".format(hrmMacAddress) )
 
 #Connect to hrm
-print("Searchinf for HRM")
+print("Searching for HRM")
 print("Connecting...")
 
 # The number of times you want to retry connecting before you give up
@@ -222,7 +222,7 @@ def start_HRM():
             child.expect("Notification handle = 0x000e value: ", timeout=5)
             child.expect("\r\n", timeout=5)
             print(child.before)
-            intvalue = [hexStrToInt(child.before)]
+            intvalue = hexStrToInt(child.before)
             #print statement to check the hrm reading
             print(intvalue)
             #udate new readings to grafana
