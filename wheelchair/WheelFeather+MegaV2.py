@@ -124,9 +124,7 @@ def serial_to_property_values():
             print('Serial data found:' + values)
             # Get the property from the thing
             find_or_create("Chair base", PropertyType.THREE_DIMENSIONS).update_values([float(x) for x in values])
-            # Otherwise, we show a warning
-            else:
-                print('Warning: unknown property ' + property_serial_id)
+
         except:
             print('Could not parse: ' + line)
 
