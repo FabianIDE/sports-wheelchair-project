@@ -50,21 +50,21 @@ void loop()
   if (ledOFF && timer > delayer){               // if the flash is not active and current time > delay
     ledOFF = false;
     digitalWrite(13, HIGH);
-    ringDO(0,255,0,0);                          // flash LED
+    ringDO(0,255,0,0,1,12);                          // flash LED
     timeoffset = millis();                      // set timestamp last flash
     timer = 0;                                  // reset timer
   }
   if(ledOFF == false && timer > ontime){        // turn the LED off after 'ontime' seconds
     ledOFF = true;
     digitalWrite(13, LOW);
-    ringDO(0,80,0,0);
+    ringDO(0,80,0,0,1,12);
   }
   
 }
 
 
-void ringDO(int g, int r, int b, int w){
-  for(int i=0;i<NUMring;i++){                       // for each LED, set color
+void ringDO(int g, int r, int b, int w, int beginled, int endled){
+  for(int i=beginled-1;i<endled-1;i++){                       // for each LED, set color
     ring.setPixelColor(i, ring.Color(g,r,b,w));
   }
   ring.show();
