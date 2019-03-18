@@ -15,6 +15,7 @@ float angle = 0;
 float AngleBaseY = 0;
 float AngleDeltaY = 0;
 
+
 #define BNO055_SAMPLERATE_DELAY_MS (100)
 
 Adafruit_BNO055 bno = Adafruit_BNO055(55);
@@ -55,7 +56,7 @@ ringDO(0,25,0,0);
 void loop() {
 
 // add property marker
-Serial.print("chair-base-99fa");
+Serial.print("chair-base-15e3");
 Serial.print( F(",") );
 
 imu::Vector<3> euler = bno.getVector(Adafruit_BNO055::VECTOR_EULER);
