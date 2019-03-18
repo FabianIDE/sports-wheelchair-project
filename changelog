@@ -2,22 +2,54 @@ Changelog for the sports wheelchair project.
 
 Most updated versions
 
-bno055_gatt_orientation.Arduino     1.0.0
-Chairbase.ino                       1.0.0
+WheelFeather+Mega.py                2.0.0
+BluefruitConfig.h                   1.0.0
+WheelFeatherEulerx_Gyroz.ino        1.0.0
+Subscribe_GATT_orientation.py       1.0.0   REDUNDANT
+bno055_gatt_orientation.ino         1.0.0   REDUNDANT
+Chairbase.ino                       3.0.0 
 subscribe_hrm_pexpect.py            1.0.1
-wieldraaiing.ino                    2.0.0
-Arduino_code_BNO055.Arduino         1.1.0
+wieldraaiing.ino                    2.0.0   REDUNDANT
+Arduino_code_BNO055.Arduino         1.1.0   REDUNDANT
 subscribe_gatt_hrm.py               1.0.4
-DC-1561_magnetic_surface_mount.ino  1.0.0
+DC-1561_magnetic_surface_mount.ino  1.0.0   REDUNDANT
 readme.md                           1.1.0
-serial_example.py                   1.0.0
+serial_example.py                   1.0.0   REDUNDANT
 Heartrateexample.ino                1.1.0
-wheeliemeter.ino                    1.0.0
+wheeliemeter.ino                    1.0.0   REDUNDANT
 project description                 1.0.0   REDUNDANT
 
+2019.03.18  CHANGED Chairbase.ino 3.0.0
+  Added heartrate display by LED ring.
 
-2019.03.11  bno055_gatt_orientation.Arduino 1.0.0
-  Allows connection between Adafruit_bluefruit and raspberry pi.
+2019.03.18  CHANGED WheelFeather+Mega.py 2.0.0 (WheelFeather+MegaV1.py)
+  Fixed numerous connectivity issues.
+  Confirmed working prototype.
+
+2019.03.11 CHANGED ChairBase.ino 2.1.0
+  Added property marker.
+
+2019.03.11 ADDED WheelFeather+Mega.py 1.0.0 (WheelFeather+MegaV1.py)
+  Added code which allows the Arduino Mega and Adafruit Bluefruit to simultaneously transfer data to the Raspberry Pi.
+  Replaced Subscribe_GATT_orientation, serial_example.py.
+  Imported serial library
+  CODE IS NOT TESTED
+
+2019.03.11 CHANGED ChairBase.ino 2.0.0 (ChairBaseV1.ino)
+  Changed functionality to display movement to the right or movement to the left.
+
+2019.03.11 ADDED BluefruitConfig.h 1.0.0
+  Enabled Bluefruit pins by changing to correct settings.
+
+2019.03.11 ADDED WheelFeatherEulerx_Gyroz.ino 1.0.0 (WheelFeatherEulerx_Gyroz_V1.ino)
+  Enabled bluetooth communication of Euler.x() and Gyro.z() data between Adafruit feather and Raspberry Pi.
+  Replaced wheeliemeter, DC-1561_magnetic_surface_mount,Arduino_code_BNO055, wielverdraaiing, bno055_gatt_orientation.
+
+2019.03.11  ADDED Subscribe_GATT_orientation.py 1.0.0
+  Enabled the transfer of orientation data between Arduino and Raspberry Pi.
+
+  2019.03.11  bno055_gatt_orientation.Arduino 1.0.0
+  Allowed connection between Adafruit_bluefruit and Raspberry Pi.
 
 2019.03.11  ADDED Chairbase.ino 1.0.0 (ChairBaseV1.ino)
   Added LED colour display possibilities.
@@ -29,38 +61,38 @@ project description                 1.0.0   REDUNDANT
   Added IMU gyroscope measurement outputs.
 
 2019.03.11  CHANGED subscribe_gatt_hrm.py 1.0.8
-  Changes bluetooth name.
+  Changed bluetooth device name.
 
 2019.03.11  CHANGED wielverdraaiing.ino 2.1.0
-  Change the output to print euler.x() and euler.y().
+  Changed the output to print euler.x() and euler.y().
 
 2019.03.11  CHANGED wielverdraaiing.ino 2.0.0 (wielverdraaiingV2.ino)
-  Change the use of quaternations to the use of euler angles.
+  Changed the use of quaternations to the use of euler angles.
 
 2019.03.08  FIXED subscribe_hrm_pexpect.py 1.0.1
-  Change "RETRY_CONNECTION = 1" to "RETRY_CONNECTION = 2".
+  Changed "RETRY_CONNECTION = 1" to "RETRY_CONNECTION = 2".
 
 2019.03.08  CHANGED Arduino_code_BNO055.ino 1.1.0
   Added functionality which allows a LED ring to display the euler.x() angle.
 
 2019.03.08  ADDED wieldraaiing.ino 1.0.0
-  Enables rotation measurement of the right wheelchair wheel.
+  Enabled rotation measurement of the right wheelchair wheel.
   The meaning of outputted data is unclear.
 
 2019.03.08 ADDED subscribe_hrm_pexpect.py 1.0.0
-  Subscribes to the heartrate monitor.
+  Subscribed to the heartrate monitor.
   Corrected the MAC address.
 
 2019.03.08 ADDED Arduino_code_BNO055.Arduino 1.0.0
-  Enables IMU to output quaternion based angles in X,Y,Z direction.
+  Enabled IMU to output quaternion based angles in X,Y,Z direction.
   The meaning of outputted data is unclear.
 
 2019.03.05 FIXED subscribe_gatt_hrm.py 1.0.4
-  Changes GATT charactericts.
+  Changed GATT charactericts.
 
 2019.03.04 FIXED subscribe_gatt_hrm.py 1.0.3
-  Solve naming issues
-  Solve GATT charactericts.
+  Solved naming issues
+  Solved GATT charactericts.
 
 2019.03.04 ADDED README.md 1.1.0
   Added actuator description.
@@ -72,12 +104,11 @@ project description                 1.0.0   REDUNDANT
   Changed the property_type to "ONE_DIMENSION".
 
 2019.03.04  ADDED subscribe_gatt_hrm.py 1.0.0
-  Enables communication between heartrate monitor and raspberry pi.
+  Enabled communication between heartrate monitor and Raspberry Pi.
   Changed name to "Heartrate monitor"
-  Changed property_type to "ONE DIMENSIONS"
 
 2019.03.04  ADDED DC-1561_magnetic_surface_mount.ino 1.0.0
-  Enables wheel rotation measurement by logging magnet passages.
+  Enabled wheel rotation measurement by logging magnet passages.
 
 2019.03.04  ADDED readme.md 1.0.0
   Converted project description to readme.md.
@@ -86,15 +117,15 @@ project description                 1.0.0   REDUNDANT
   Changed the name of used Adafruit_bluefruit to Bluefruit_sportswheelchair.
 
 2019.03.04  ADDED serial_example.py 1.0.0
-  Enables communication between Arduino and DCD HUB using raspberry pi.
+  Enabled communication between Arduino and DCD HUB using Raspberry Pi.
 
 2019.03.04  ADDED Heartrateexample.ino 1.0.0
-  Enables bluetooth connection for Adafruit_bluefruit.
-  Measures heartrate from heartrate monitor.
+  Enabled bluetooth connection for Adafruit_bluefruit.
+  Measured heartrate from heartrate monitor.
 
 2019.02.26  ADDED Wheeliemeter.ino 1.0.0
-  Measures euler.y from BNO055.
-  Measures button press.
+  Measured euler.y from BNO055.
+  Measured button press.
 
 2019.02.25  ADDED project description 1.0.0
-  Defines goals and required materials.
+  Defined goals and required materials.
