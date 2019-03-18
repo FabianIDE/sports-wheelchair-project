@@ -78,7 +78,9 @@ def keyboard_interrupt_handler(signal_num, frame):
     print("Exiting...".format(signal_num))
     left_wheel.unsubscribe(GATT_CHARACTERISTIC_ORIENTATION)
     ser.close()
+    child.sendline("char-write-req 0x000f 0000")
     exit(0)
+
 
 
 # Instantiate a thing with its credential, then read its properties from the DCD Hub
@@ -107,7 +109,8 @@ signal.signal(signal.SIGINT, keyboard_interrupt_handler)
 ser = serial.Serial(
     port = os.environ['SERIAL'],
     baudrate = 9600,
-    timeout = 2)
+    timeout = 2
+    write_timeout = 0)
 
 # Read the next line from the serial port
 # and update the property values
@@ -224,6 +227,8 @@ def start_HRM():
             print(intvalue)
             #udate new readings to grafana
             my_property_HRM.update_values(intvalue)
+            ser.write(intvalue.encode())
+            print("HRM sent to arduino")
         except KeyboardInterrupt:
             print("Exiting...")
             # Unsubscribe from characteristic before exiting program
