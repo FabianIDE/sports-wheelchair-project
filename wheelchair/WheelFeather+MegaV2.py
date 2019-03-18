@@ -227,7 +227,7 @@ def start_HRM():
             #udate new readings to grafana
             my_property_HRM.update_values(intvalue)
             ser.write(intvalue)
-            print("HRM sent to arduino")
+            print("HRM sent to arduino" + intvalue)
         except KeyboardInterrupt:
             print("Exiting...")
             # Unsubscribe from characteristic before exiting program
