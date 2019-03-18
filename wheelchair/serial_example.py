@@ -24,7 +24,7 @@ my_thing = Thing(thing_id=THING_ID, token=THING_TOKEN)
 # We can read the details of our thing,
 # i.e. retrieving its information from the hub
 my_thing.read()
-
+print('Read Thing')
 # Start reading the serial port
 ser = serial.Serial(
     port = os.environ['SERIAL'],
@@ -36,6 +36,7 @@ ser = serial.Serial(
 def serial_to_property_values():
     # Read one line
     line_bytes = ser.readline()
+    print('line read: ' + line_bytes)
     # If the line is not empty
     if len(line_bytes) > 0:
         # Convert the bytes into string
@@ -43,18 +44,20 @@ def serial_to_property_values():
         line = line_bytes.decode('utf-8')
         # Split the string using commas as separator, we get a list of strings
         values = line.split(',')
-        # Use the first element of the list as property id
-        property_id = values.pop(0)
-        # Get the property from the thing
-        prop = my_thing.properties[property_id]
-        # If we find the property, we update the values (rest of the list)
-        print(property_id)
-        if prop is not None:
-            prop.update_values([float(x) for x in values])
-        # Otherwise, we show a warning
-        else:
-            print('Warning: unknown property ' + property_id)
-    # Finally, we call this method again
-    serial_to_property_values()
+        try:
+            # Use the first element of the list as property id
+            property_id = values.pop(0)
+            # Get the property from the thing
+            prop = my_thing.properties[property_id]
+            # If we find the property, we update the values (rest of the list)
+            print(property_id)
+            if prop is not None:
+                prop.update_values([float(x) for x in values])
+            # Otherwise, we show a warning
+            else:
+                print('Warning: unknown property ' + property_id)
+        except:
+            print('Could not parse: ' + line)
 
-serial_to_property_values()
+while True:
+    serial_to_property_values()
