@@ -110,6 +110,7 @@ ser = serial.Serial(
     port = os.environ['SERIAL'],
     baudrate = 9600,
     timeout = 2)
+sleep(2)
 
 # Read the next line from the serial port
 # and update the property values
@@ -226,8 +227,8 @@ def start_HRM():
             print(intvalue)
             #udate new readings to grafana
             my_property_HRM.update_values(intvalue)
-            ser.write(str(intvalue+',').encode())
-            #ser.write(",".encode())
+            ser.write(str(intvalue).encode())
+            ser.write(",".encode()) # this one gave no errors
 
         #    ser.write(','.encode())
             print("HRM sent to arduino")
