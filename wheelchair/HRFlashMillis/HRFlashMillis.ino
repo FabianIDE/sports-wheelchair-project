@@ -19,7 +19,7 @@ unsigned long timeoffset = 0;
 bool ledOFF = true;
 unsigned long delayer = 2000;
 unsigned long HR_int = 0;
-unsigned long ontime = 200;
+unsigned long ontime = 200;                     // time the LED is on at blinking
 
 void setup()
 {
@@ -33,28 +33,28 @@ void setup()
 
 void loop()
 {
-  if(Serial.available() > 0){
+  if(Serial.available() > 0){                   // Read serial port
     String HR = Serial.readStringUntil(',');
-    HR_int = HR.toInt()*1000;
-    unsigned long tussen = HR_int/60;
-    delayer = 1000000/tussen;
+    HR_int = HR.toInt()*1000;                   // long & int discard anything beyond the decimal point, so before dividing multiply by 1000 
+    unsigned long tussen = HR_int/60;           // from BPM to BPS (Beats per second)
+    delayer = 1000000/tussen;                   // from BPS to delay after each flash trigger
   }
   
-  Serial.print("Delayer: ");
+  /*Serial.print("Delayer: ");
   Serial.print(delayer);
   Serial.print(", HR: ");
-  Serial.println(HR_int/1000);
+  Serial.println(HR_int/1000);*/
   
-  timer = millis()-timeoffset;
+  timer = millis()-timeoffset;                  // time since last flash = current time - timestamp last flash
   
-  if (ledOFF && timer > delayer){
+  if (ledOFF && timer > delayer){               // if the flash is not active and current time > delay
     ledOFF = false;
     digitalWrite(13, HIGH);
-    ringDO(0,255,0,0);
-    timeoffset = millis();
-    timer = 0;
+    ringDO(0,255,0,0);                          // flash LED
+    timeoffset = millis();                      // set timestamp last flash
+    timer = 0;                                  // reset timer
   }
-  if(ledOFF == false && timer > ontime){
+  if(ledOFF == false && timer > ontime){        // turn the LED off after 'ontime' seconds
     ledOFF = true;
     digitalWrite(13, LOW);
     ringDO(0,80,0,0);
