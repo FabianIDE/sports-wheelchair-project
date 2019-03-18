@@ -132,7 +132,7 @@ if(Serial.available() > 0){                   // Read serial port
 
 
 
-//delay(BNO055_SAMPLERATE_DELAY_MS);
+delay(BNO055_SAMPLERATE_DELAY_MS);
 
 }
 
