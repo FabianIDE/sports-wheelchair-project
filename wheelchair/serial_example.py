@@ -24,7 +24,7 @@ my_thing = Thing(thing_id=THING_ID, token=THING_TOKEN)
 # We can read the details of our thing,
 # i.e. retrieving its information from the hub
 my_thing.read()
-
+print('Read Thing')
 # Start reading the serial port
 ser = serial.Serial(
     port = os.environ['SERIAL'],
@@ -36,6 +36,7 @@ ser = serial.Serial(
 def serial_to_property_values():
     # Read one line
     line_bytes = ser.readline()
+    print('line read: ' + line_bytes)
     # If the line is not empty
     if len(line_bytes) > 0:
         # Convert the bytes into string
