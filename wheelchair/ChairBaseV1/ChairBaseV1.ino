@@ -1,4 +1,4 @@
-0// libraries for NeoPixel
+// libraries for NeoPixel
 #include <Adafruit_NeoPixel.h>
 #ifdef __AVR__
   #include <avr/power.h>
