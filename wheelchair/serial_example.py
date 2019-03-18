@@ -50,7 +50,6 @@ def serial_to_property_values():
             property_id = values.pop(0)
             # Get the property from the thing
             prop = my_thing.properties[property_id]
-            print(values)
             # If we find the property, we update the values (rest of the list)
             if prop is not None:
                 prop.update_values([float(x) for x in values])
