@@ -59,14 +59,14 @@ Serial.print("chair-base-99fa");
 Serial.print( F(",") );
 
 imu::Vector<3> euler = bno.getVector(Adafruit_BNO055::VECTOR_EULER);
-Serial.print(euler.x());
-Serial.print( F(",") );
-Serial.print(euler.y());
-Serial.print( F(",") );
+Serial.println(euler.x());
+//Serial.print( F(",") );
+//Serial.print(euler.y());
+//Serial.print( F(",") );
 
 
 imu::Vector<3> Gyro = bno.getVector(Adafruit_BNO055::VECTOR_GYROSCOPE);
-Serial.println(Gyro.x());
+//Serial.println(Gyro.x());
 
 //Left Right warning light
 
