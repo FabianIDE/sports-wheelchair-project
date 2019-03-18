@@ -108,7 +108,7 @@ signal.signal(signal.SIGINT, keyboard_interrupt_handler)
 # Start reading the serial port
 ser = serial.Serial(
     port = os.environ['SERIAL'],
-    baudrate = 115200,
+    baudrate = 9600,
     timeout = 2)
 
 # Read the next line from the serial port
