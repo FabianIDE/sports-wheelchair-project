@@ -66,7 +66,7 @@ ringDO(0,25,0,0,0,NUMring);
 void loop() {
 
 // add property marker
-Serial.print("chair-base-15e3");
+Serial.print("chair-base-mega-811c");
 Serial.print( F(",") );
 
 imu::Vector<3> euler = bno.getVector(Adafruit_BNO055::VECTOR_EULER);
@@ -80,26 +80,15 @@ Serial.println(Gyro.x());
 
 //Left Right warning light
 
-if (Gyro.x() < -2){ //LEDs 1-4,12-21,34-36 go on if right
-  /*for(int i=12;i<=20;i++){                       // for each LED, set color
-    ring.setPixelColor(i, ring.Color(20,50,0,0));
-  }
-  for(int i=33;i<=36;i++){                       // for each LED, set color
-    ring.setPixelColor(i, ring.Color(20,50,0,0));
-  }
-  ring.show();*/
-  ringDO(20,50,0,0,13,21);
+if (Gyro.x() < -2){ //LEDs 13-21,34-36 go on if right
+  ringDO(20,50,0,0,12,21);
   ringDO(20,50,0,0,33,36);
 }
 else if (Gyro.x() > 2){
-  /*for(int i=21;i<33;i++){                       // for each LED, set color
-    ring.setPixelColor(i, ring.Color(40,50,0,0));
-  }
-  ring.show();*/
   ringDO(40,50,0,0,21,33);
 }
 else{
-  ringDO(0,25,0,0,13,36);
+  ringDO(0,25,0,0,12,36);
 }
 
 // HR flash
@@ -132,7 +121,7 @@ if(Serial.available() > 0){                   // Read serial port
 
 
 
-//delay(BNO055_SAMPLERATE_DELAY_MS);
+delay(BNO055_SAMPLERATE_DELAY_MS);
 
 }
 
