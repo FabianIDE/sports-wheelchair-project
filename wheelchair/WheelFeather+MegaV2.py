@@ -223,10 +223,11 @@ def start_HRM():
             child.expect("\r\n", timeout=5)
             print(child.before)
             intvalue = hexStrToInt(child.before)
+            intvalue_brackets = [intvalue]
             #print statement to check the hrm reading
             print(intvalue)
             #udate new readings to grafana
-            my_property_HRM.update_values(intvalue)
+            my_property_HRM.update_values(intvalue_brackets)
             ser.write(str(intvalue).encode())
             ser.write(",".encode()) # this one gave no errors
 
