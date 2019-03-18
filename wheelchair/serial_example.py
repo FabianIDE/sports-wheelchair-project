@@ -59,4 +59,5 @@ def serial_to_property_values():
             print('Could not parse: ' + line)
 
 while True:
+    print('test')
     serial_to_property_values()
