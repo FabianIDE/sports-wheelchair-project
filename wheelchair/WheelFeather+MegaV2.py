@@ -143,7 +143,7 @@ def hexStrToInt(hexstr):
     val = int(hexstr[3:5], 16) #
     if ((val & 0x8000) == 0x8000): # treat signed 16bits
         val = -((val ^ 0xffff) + 1)
-        val = float(val)
+        val = int(val)
     return val
 
 #put your hrm mac address here
