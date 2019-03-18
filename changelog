@@ -1,0 +1,100 @@
+Changelog for the sports wheelchair project.
+
+Most updated versions
+
+bno055_gatt_orientation.Arduino     1.0.0
+Chairbase.ino                       1.0.0
+subscribe_hrm_pexpect.py            1.0.1
+wieldraaiing.ino                    2.0.0
+Arduino_code_BNO055.Arduino         1.1.0
+subscribe_gatt_hrm.py               1.0.4
+DC-1561_magnetic_surface_mount.ino  1.0.0
+readme.md                           1.1.0
+serial_example.py                   1.0.0
+Heartrateexample.ino                1.1.0
+wheeliemeter.ino                    1.0.0
+project description                 1.0.0   REDUNDANT
+
+
+2019.03.11  bno055_gatt_orientation.Arduino 1.0.0
+  Allows connection between Adafruit_bluefruit and raspberry pi.
+
+2019.03.11  ADDED Chairbase.ino 1.0.0 (ChairBaseV1.ino)
+  Added LED colour display possibilities.
+  Added Flashing in a set pattern.
+  Added rainbow colour display.
+  Added wheel rotation display by led colour change.
+
+2019.03.11  ADDED wielverdraaiing.ino 2.1.0 (wielverdraaiingV2_gyro)
+  Added IMU gyroscope measurement outputs.
+
+2019.03.11  CHANGED subscribe_gatt_hrm.py 1.0.8
+  Changes bluetooth name.
+
+2019.03.11  CHANGED wielverdraaiing.ino 2.1.0
+  Change the output to print euler.x() and euler.y().
+
+2019.03.11  CHANGED wielverdraaiing.ino 2.0.0 (wielverdraaiingV2.ino)
+  Change the use of quaternations to the use of euler angles.
+
+2019.03.08  FIXED subscribe_hrm_pexpect.py 1.0.1
+  Change "RETRY_CONNECTION = 1" to "RETRY_CONNECTION = 2".
+
+2019.03.08  CHANGED Arduino_code_BNO055.ino 1.1.0
+  Added functionality which allows a LED ring to display the euler.x() angle.
+
+2019.03.08  ADDED wieldraaiing.ino 1.0.0
+  Enables rotation measurement of the right wheelchair wheel.
+  The meaning of outputted data is unclear.
+
+2019.03.08 ADDED subscribe_hrm_pexpect.py 1.0.0
+  Subscribes to the heartrate monitor.
+  Corrected the MAC address.
+
+2019.03.08 ADDED Arduino_code_BNO055.Arduino 1.0.0
+  Enables IMU to output quaternion based angles in X,Y,Z direction.
+  The meaning of outputted data is unclear.
+
+2019.03.05 FIXED subscribe_gatt_hrm.py 1.0.4
+  Changes GATT charactericts.
+
+2019.03.04 FIXED subscribe_gatt_hrm.py 1.0.3
+  Solve naming issues
+  Solve GATT charactericts.
+
+2019.03.04 ADDED README.md 1.1.0
+  Added actuator description.
+
+2019.03.04  FIXED subscribe_gatt_hrm.pu 1.0.2
+  Solved naming issues to connect to the Heartrate monitor.
+
+2019.03.04  FIXED subscribe_gatt_hrm.py 1.0.1
+  Changed the property_type to "ONE_DIMENSION".
+
+2019.03.04  ADDED subscribe_gatt_hrm.py 1.0.0
+  Enables communication between heartrate monitor and raspberry pi.
+  Changed name to "Heartrate monitor"
+  Changed property_type to "ONE DIMENSIONS"
+
+2019.03.04  ADDED DC-1561_magnetic_surface_mount.ino 1.0.0
+  Enables wheel rotation measurement by logging magnet passages.
+
+2019.03.04  ADDED readme.md 1.0.0
+  Converted project description to readme.md.
+
+2019.03.04  CHANGED  Heartrateexample.ino 1.1.0
+  Changed the name of used Adafruit_bluefruit to Bluefruit_sportswheelchair.
+
+2019.03.04  ADDED serial_example.py 1.0.0
+  Enables communication between Arduino and DCD HUB using raspberry pi.
+
+2019.03.04  ADDED Heartrateexample.ino 1.0.0
+  Enables bluetooth connection for Adafruit_bluefruit.
+  Measures heartrate from heartrate monitor.
+
+2019.02.26  ADDED Wheeliemeter.ino 1.0.0
+  Measures euler.y from BNO055.
+  Measures button press.
+
+2019.02.25  ADDED project description 1.0.0
+  Defines goals and required materials.
