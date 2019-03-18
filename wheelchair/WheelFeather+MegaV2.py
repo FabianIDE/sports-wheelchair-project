@@ -227,8 +227,8 @@ def start_HRM():
             #udate new readings to grafana
             my_property_HRM.update_values(intvalue)
             ser.write(str(intvalue).encode())
-            ser.write(",")
-            
+            ser.write(",".encode)
+
         #    ser.write(','.encode())
             print("HRM sent to arduino")
         except KeyboardInterrupt:
