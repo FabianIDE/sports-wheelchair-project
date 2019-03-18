@@ -36,6 +36,7 @@ ser = serial.Serial(
 def serial_to_property_values():
     # Read one line
     line_bytes = ser.readline()
+    print(line_bytes.decode('utf-8'))
     # If the line is not empty
     if len(line_bytes) > 0:
         # Convert the bytes into string
@@ -59,5 +60,4 @@ def serial_to_property_values():
             print('Could not parse: ' + line)
 
 while True:
-    print('test')
     serial_to_property_values()
