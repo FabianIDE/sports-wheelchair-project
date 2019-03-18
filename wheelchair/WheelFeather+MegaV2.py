@@ -228,6 +228,7 @@ def start_HRM():
             my_property_HRM.update_values(intvalue)
             ser.write(str(intvalue).encode())
             print("HRM sent to arduino")
+            time.sleep(5)
         except KeyboardInterrupt:
             print("Exiting...")
             # Unsubscribe from characteristic before exiting program
