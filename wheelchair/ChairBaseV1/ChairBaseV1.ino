@@ -56,7 +56,7 @@ ringDO(0,25,0,0);
 void loop() {
 
 // add property marker
-Serial.print("chair-base-c332");
+Serial.print("chair-base-mega-811c");
 Serial.print( F(",") );
 
 imu::Vector<3> euler = bno.getVector(Adafruit_BNO055::VECTOR_EULER);
