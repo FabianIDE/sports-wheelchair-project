@@ -59,8 +59,8 @@ delay(1500); //delay to startup the BNO otherwise we always read a 0 the first s
 //Setting calibration value for the wheeliemeter
 imu::Vector<3> euler = bno.getVector(Adafruit_BNO055::VECTOR_EULER); 
 WheelieZero = euler.y();
-Serial.println(WheelieZero);
-Serial.println(euler.y());
+//Serial.println(WheelieZero);
+//Serial.println(euler.y());
 
 for(int i=0;i<NUMring;i++){                       // LED startup animation -- REPLACE WITH DELAY(1000) IF YOU WANT TO REMOVE
     ring.setPixelColor(i, ring.Color(0,25,0,0));
@@ -91,10 +91,10 @@ void loop() {
 
 imu::Vector<3> euler = bno.getVector(Adafruit_BNO055::VECTOR_EULER);
 WheelieAngle = euler.y() - WheelieZero; //calculate wheelie angle based on startup value
-//Serial.print(euler.x());
-//Serial.print( F(",") );
-//Serial.print(WheelieAngle);
-//Serial.print( F(",") );
+Serial.print(euler.x());
+Serial.print( F(",") );
+Serial.print(WheelieAngle);
+Serial.print( F(",") );
 
 imu::Vector<3> Gyro = bno.getVector(Adafruit_BNO055::VECTOR_GYROSCOPE);
 
