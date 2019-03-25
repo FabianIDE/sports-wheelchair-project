@@ -128,7 +128,7 @@ def serial_to_property_values():
 
         try:
             # Use the first element of the list as property id
-            property_serial_id = values.pop(0)
+            # property_serial_id = values.pop(0)
             # Get the property from the thing
             find_or_create("Chair base", PropertyType.THREE_DIMENSIONS).update_values([float(x) for x in values])
 
@@ -209,7 +209,7 @@ child.sendline("char-write-req 0x000f 0100")
 #start threading
 
 def start_gatt():
-    # Subscribe to the GATT service
+    # Subscribe to the GATT service of the wheel
     left_wheel.subscribe(GATT_CHARACTERISTIC_ORIENTATION,
                          callback=handle_orientation_data)
 
