@@ -14,6 +14,9 @@
 float angle = 0;
 float AngleBaseY = 0;
 float AngleDeltaY = 0;
+float WheelieZero = 10;
+float WheelieAngle = 10;
+int HR_color = 0;
 
 
 #define BNO055_SAMPLERATE_DELAY_MS (100)
@@ -42,6 +45,7 @@ unsigned long ontime = 200;                     // time the LED is on at blinkin
 
 void setup() {
   Serial.begin(9600);
+
   ring.begin();
   ring.show();
 
@@ -49,6 +53,14 @@ void setup() {
   {
     while(1);
   }
+
+delay(1500); //delay to startup the BNO otherwise we always read a 0 the first second(s)
+
+//Setting calibration value for the wheeliemeter
+imu::Vector<3> euler = bno.getVector(Adafruit_BNO055::VECTOR_EULER); 
+WheelieZero = euler.y();
+Serial.println(WheelieZero);
+Serial.println(euler.y());
 
 for(int i=0;i<NUMring;i++){                       // LED startup animation -- REPLACE WITH DELAY(1000) IF YOU WANT TO REMOVE
     ring.setPixelColor(i, ring.Color(0,25,0,0));
@@ -63,28 +75,39 @@ ringDO(0,25,0,0,0,NUMring);
   timeStart = millis();
 }
 
+ 
+
 void loop() {
 
+  // Possible vector values can be:
+  // - VECTOR_ACCELEROMETER - m/s^2
+  // - VECTOR_MAGNETOMETER  - uT
+  // - VECTOR_GYROSCOPE     - rad/s
+  // - VECTOR_EULER         - degrees
+  // - VECTOR_LINEARACCEL   - m/s^2
+  // - VECTOR_GRAVITY       - m/s^2
+
 // add property marker
-Serial.print("chair-base-mega-811c");
-Serial.print( F(",") );
 
 imu::Vector<3> euler = bno.getVector(Adafruit_BNO055::VECTOR_EULER);
-Serial.print(euler.x());
-Serial.print( F(",") );
-Serial.print(euler.y());
-Serial.print( F(",") );
+WheelieAngle = euler.y() - WheelieZero; //calculate wheelie angle based on startup value
+//Serial.print(euler.x());
+//Serial.print( F(",") );
+//Serial.print(WheelieAngle);
+//Serial.print( F(",") );
 
 imu::Vector<3> Gyro = bno.getVector(Adafruit_BNO055::VECTOR_GYROSCOPE);
-Serial.println(Gyro.x());
+
+imu::Vector<3> Accel = bno.getVector(Adafruit_BNO055::VECTOR_LINEARACCEL);
+Serial.println(Accel.x());
 
 //Left Right warning light
 
-if (Gyro.x() < -2){ //LEDs 13-21,34-36 go on if right
+if (Gyro.x() < -3){ //LEDs 13-21,34-36 go on if right
   ringDO(20,50,0,0,12,21);
   ringDO(20,50,0,0,33,36);
 }
-else if (Gyro.x() > 2){
+else if (Gyro.x() > 3){
   ringDO(40,50,0,0,21,33);
 }
 else{
@@ -95,27 +118,29 @@ else{
 
 if(Serial.available() > 0){                   // Read serial port
     String HR = Serial.readStringUntil(',');
-    HR_int = HR.toInt()*1000;                   // long & int discard anything beyond the decimal point, so before dividing multiply by 1000 
+    HR_int = HR.toInt()*1000;                   // long & int discard anything beyond the decimal point, so before dividing multiply by 1000
     unsigned long tussen = HR_int/60;           // from BPM to BPS (Beats per second)
     delayer = 1000000/tussen;                   // from BPS to delay after each flash trigger
   }
-  
+
   /*Serial.print("Delayer: ");
   Serial.print(delayer);
   Serial.print(", HR: ");
   Serial.println(HR_int/1000);*/
-  
+
   timer = millis()-timeoffset;                  // time since last flash = current time - timestamp last flash
-  
+
   if (ledOFF && timer > delayer){               // if the flash is not active and current time > delay
     ledOFF = false;
-    ringDO(0,255,0,0,0,12);                          // flash LED
+    HR_color = map (HR_int/1000, 30 , 200 , 0 , 255);
+    
+    ringDO(255-HR_color,HR_color,0,0,0,12);                          // flash LED
     timeoffset = millis();                      // set timestamp last flash
     timer = 0;                                  // reset timer
   }
   if(ledOFF == false && timer > ontime){        // turn the LED off after 'ontime' seconds
     ledOFF = true;
-    ringDO(0,25,0,0,0,12);
+    ringDO((255-HR_color)/10,HR_color/10,0,0,0,12);
   }
 
 
