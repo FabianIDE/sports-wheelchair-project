@@ -35,6 +35,14 @@ float wheel_angle_original = 0;
 float wheel_angle_previous = 0;
 float wheel_angle_rotation = 0;
 float wheel_distance = 0;
+int Weight = 80;
+float radiuswiel = 0.294;
+float DeltaX = 0;
+float LinearAccel = 0;
+float ArbeidDiff = 0;
+float ArbeidOld = 0;
+float ArbeidTotal = 0;
+
 
 #if SOFTWARE_SERIAL_AVAILABLE
   #include <SoftwareSerial.h>
@@ -150,14 +158,14 @@ void orientation() {
     wheel_angle_poll  = euler.x();
 
 // wheel moving backwards
-    if (wheel_angle_previous<100 && wheel_angle_poll>200) 
+    if (wheel_angle_previous<100 && wheel_angle_poll>200)
       {
         wheel_angle_difference = 360-wheel_angle_poll+wheel_angle_previous;
                 //Serial.println ("backward");
       }
 
 // wheel moving forwards
-    else if (wheel_angle_previous>200 && wheel_angle_poll<100) 
+    else if (wheel_angle_previous>200 && wheel_angle_poll<100)
       {
         wheel_angle_difference = -1*(wheel_angle_poll+360-wheel_angle_previous);
         //Serial.println ("forward");
@@ -166,18 +174,29 @@ void orientation() {
      else {
           wheel_angle_difference = wheel_angle_previous - wheel_angle_poll;
      }
-    
+
 
     wheel_angle_rotation = (wheel_angle_rotation + wheel_angle_difference);
 
-    wheel_distance = -1*wheel_angle_rotation/360*1,850;
-  
+    wheel_distance = -1*wheel_angle_rotation/360*1.850;
+
 
 
   // Get Gyro data
   imu::Vector<3> Gyro = bno.getVector(Adafruit_BNO055::VECTOR_GYROSCOPE);
   float GyroZ = Gyro.z();
 
+  //arbeid in joule is W = m * a * delta_x
+
+  DeltaX = wheel_angle_difference/360*1.850; //convert angular diff to linear diff
+  LinearAccel = GyroZ*radiuswiel;
+  ArbeidDiff = abs(Weight*LinearAccel*DeltaX);
+  ArbeidTotal = ArbeidDiff + ArbeidOld;
+  Serial.println(DeltaX);
+  Serial.println(LinearAccel);
+  Serial.println(ArbeidOld);
+  Serial.println(ArbeidDiff);
+  Serial.println(ArbeidTotal);
 
   // Command is sent when \n (\r) or println is called
   // AT+GATTCHAR=CharacteristicID,value
@@ -186,13 +205,16 @@ void orientation() {
   ble.print( F(",") );
   ble.print(String(wheel_distance));
   ble.print( F(",") );
-  ble.println(String(GyroZ));
+  ble.print(String(GyroZ));
+  ble.print( F(",") );
+  ble.println(String(ArbeidTotal));
+
 
 
   //ble.println(String(eulerY));
 
   wheel_angle_previous = wheel_angle_poll;
-
+  ArbeidOld = ArbeidTotal;
 
 
 }
