@@ -59,6 +59,7 @@ def handle_orientation_data(handle, value_bytes):
                    PropertyType.TWO_DIMENSIONS).update_values(values)
 
 
+
 def discover_characteristic(device):
     """List characteristics of a device"""
     for uuid in device.discover_characteristics().keys():
