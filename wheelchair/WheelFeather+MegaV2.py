@@ -225,7 +225,7 @@ def start_serial():
 def start_HRM():
     while True:
         try:
-            child.expect("Notification handle = 0x000e value: ", timeout=5)
+            child.expect("Notification handle = 0x000e value: ", timeout=10)
             child.expect("\r\n", timeout=5)
             print(child.before)
             global intvalue
