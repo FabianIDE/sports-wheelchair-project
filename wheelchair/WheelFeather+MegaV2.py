@@ -231,6 +231,8 @@ def start_HRM():
             global intvalue
             intvalue = hexStrToInt(child.before)
             intvalue_brackets = [intvalue]
+            print (intvalue)
+            print (DeltaX)
             # #print statement to check the hrm reading
             # print("HRM =" + intvalue)
             #udate new readings to grafana
