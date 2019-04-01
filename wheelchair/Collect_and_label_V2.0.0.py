@@ -59,6 +59,7 @@ def handle_orientation_data(handle, value_bytes): # print wheel values, send to 
     """
     print("Received data: %s (handle %d)" % (str(value_bytes), handle))
     values = [float(x) for x in value_bytes.decode('utf-8').split(",")]
+    values.pop(2)
     prop_orientation.update_values(values)
 
 def discover_characteristic(device): # Provide UUID
@@ -123,7 +124,7 @@ def serial_to_property_values(class_index, ser): #Add label to data
         # Split the string using commas as separator, we get a list of strings
         str_values = line.split(',')
         # Remove the first id
-        # str_values.pop(0)
+        str_values.pop(1)
         # Transform the array of string values into float values (numbers)
         values = [float(x) for x in str_values]
 
