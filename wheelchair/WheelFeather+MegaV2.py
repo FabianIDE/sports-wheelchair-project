@@ -4,8 +4,6 @@
 import pygatt  # To access BLE GATT support
 import signal  # To catch the Ctrl+C and end the program properly
 import os  # To access environment variables
-from dotenv import \
-    load_dotenv  # To load the environment variables from the .env file
 
 # Import required library for serial
 from random import random
@@ -55,9 +53,10 @@ def handle_orientation_data(handle, value_bytes):
     """
     print("Received data: %s (handle %d)" % (str(value_bytes), handle))
     values = [float(x) for x in value_bytes.decode('utf-8').split(",")]
-    find_or_create("Right Sports Wheel",
+    Arbeid = values[0]
+    print("arbeid=" + Arbeid)
+    find_or_create("Right Sports Wheel Arbeid",
                    PropertyType.THREE_DIMENSIONS).update_values(values)
-
 
 
 def discover_characteristic(device):
@@ -124,13 +123,13 @@ def serial_to_property_values():
 
         line = line_bytes.decode('utf-8')
         # Split the string using commas as separator, we get a list of strings
-        values = line.split(',')
+        serialvalues = line.split(',')
 
         try:
             # Use the first element of the list as property id
             # property_serial_id = values.pop(0)
             # Get the property from the thing
-            find_or_create("Chair base", PropertyType.THREE_DIMENSIONS).update_values([float(x) for x in values])
+            find_or_create("Chair base", PropertyType.THREE_DIMENSIONS).update_values([float(x) for x in serialvalues])
 
         except:
             print('Could not parse: ' + line)
@@ -195,9 +194,11 @@ while True:
             continue
         else:
             print("timeout, giving up.")
+            time.sleep(1)
             break
     else:
         print("Connected!")
+        time.sleep(1)
         break
 
 #enable notification. 0x000f is found experimentally. You do not need to know this bit
@@ -212,6 +213,7 @@ def start_gatt():
     # Subscribe to the GATT service of the wheel
     left_wheel.subscribe(GATT_CHARACTERISTIC_ORIENTATION,
                          callback=handle_orientation_data)
+
 
 def start_serial():
     while True:
