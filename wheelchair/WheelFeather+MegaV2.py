@@ -19,6 +19,9 @@ import serial
 import pexpect
 import sys
 
+#global variabels
+Arbeid = 0
+
 # DCD Hub
 from dcd.entities.thing import Thing
 from dcd.entities.property_type import PropertyType
@@ -53,8 +56,8 @@ def handle_orientation_data(handle, value_bytes):
     """
     print("Received data: %s (handle %d)" % (str(value_bytes), handle))
     values = [float(x) for x in value_bytes.decode('utf-8').split(",")]
-    Arbeid = values[0]
-    print(Arbeid)
+    global Arbeid
+    Arbeid = int(values[2])
     find_or_create("Right Sports Wheel Arbeid",
                    PropertyType.THREE_DIMENSIONS).update_values(values)
 
@@ -181,12 +184,12 @@ print("Searching for HRM")
 print("Connecting...")
 
 # The number of times you want to retry connecting before you give up
-RETRY_CONNECTION = 2
+RETRY_CONNECTION = 3
 
 while True:
     try:
         child.sendline("connect")
-        child.expect("Connection successful", timeout=5)
+        child.expect("Connection successful", timeout=10)
     except pexpect.TIMEOUT:
         RETRY_CONNECTION = RETRY_CONNECTION - 1
         if (RETRY_CONNECTION > 0):
@@ -233,6 +236,9 @@ def start_HRM():
             my_property_HRM.update_values(intvalue_brackets)
             ser.write(str(intvalue).encode())
             ser.write(",".encode()) # this one gave no errors
+            ser.write(str(Arbeid).encode())
+            ser.write(",".encode()) # this one gave no errors
+
 
         #    ser.write(','.encode())
             print("HRM sent to arduino")

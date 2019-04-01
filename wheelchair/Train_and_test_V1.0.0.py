@@ -58,14 +58,20 @@ prop_hrm = my_thing.find_or_create(PROPERTY_HRM_NAME, PropertyType.ONE)
 prop_wheelchair = my_thing.find_or_create(PROPERTY_WHEELCHAIR_NAME, PropertyType.THREE_DIMENSIONS)
 
 
-fsr.read(START_TS, END_TS)
-sitting.read(START_TS, END_TS)
+prop_orientation.read(START_TS, END_TS)
+prop_label.read(START_TS, END_TS)
 
-fsr.align(sitting)
-fsr.merge(sitting)
 
-data = fsr.values
-label = sitting.values
+prop_orientation.align(prop_hrm)
+prop_orientation_hrm = prop_orientation.merge(prop_hrm)
+
+prop_orientation_hrm.align(prop_wheelchair)
+prop_all = prop_orientation_hrm.merge(prop_wheelchair)
+
+prop_all.align(prop_label)
+
+data = prop_all.values
+label = prop_label.values
 
 # Split the data into training data (80%) and test data (20%)
 train_data = []
