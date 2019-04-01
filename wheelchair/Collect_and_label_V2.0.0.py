@@ -7,7 +7,7 @@ import time
 from threading import Thread
 import pexpect
 import sys
-from dcd.entities.thing import Thing # DCD Hub
+from dcd.entities.thing import thing # DCD Hub
 from dcd.entities.property_type import PropertyType
 
 
@@ -19,7 +19,7 @@ CLASSES = ["Passing", "Adjustment", "Fakeout", "Throw", "Sprint"] # Movement cla
 LABEL_PROP_NAME = "Movement"
 PROPERTY_HRM_NAME = "My heart rate measurement 1"
 PROPERTY_ORIENTATION_NAME = "Right Sports Wheel Arbeid"
-PROPETY_WHEELCHAIR_NAME = "Chair base"
+PROPERTY_WHEELCHAIR_NAME = "Chair base"
 MAX_SAMPLES = 100 # How many samples do we want for each class
 DELAY_BETWEEN_MOVEMENT = 15 # How much time (in seconds) to leave between the collection of each class
 
@@ -34,7 +34,7 @@ my_thing = Thing(thing_id=THING_ID, token=THING_TOKEN)
 my_thing.read()
 
 # Find label and data property by name
-#prop_label = my_thing.find_or_create_property(LABEL_PROP_NAME, PropertyType.CLASS)
+prop_label = my_thing.find_or_create_property(LABEL_PROP_NAME, PropertyType.CLASS)
 prop_orientation = my_thing.find_or_create_property(PROPERTY_ORIENTATION_NAME, PropertyType.THREE_DIMENSIONS)
 prop_hrm = my_thing.find_or_create_property(PROPERTY_HRM_NAME, PropertyType.ONE_DIMENSION)
 prop_wheelchair = my_thing.find_or_create_property(PROPERTY_WHEELCHAIR_NAME, PropertyType.THREE_DIMENSIONS)
