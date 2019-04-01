@@ -180,12 +180,12 @@ print("Searching for HRM")
 print("Connecting...")
 
 # The number of times you want to retry connecting before you give up
-RETRY_CONNECTION = 2
+RETRY_CONNECTION = 3
 
 while True:
     try:
         child.sendline("connect")
-        child.expect("Connection successful", timeout=5)
+        child.expect("Connection successful", timeout=10)
     except pexpect.TIMEOUT:
         RETRY_CONNECTION = RETRY_CONNECTION - 1
         if (RETRY_CONNECTION > 0):
@@ -232,7 +232,7 @@ def start_HRM():
             my_property_HRM.update_values(intvalue_brackets)
             ser.write(str(intvalue).encode())
             ser.write(",".encode()) # this one gave no errors
-            ser.write(str(Arbeid).encode())
+            ser.write(Arbeid)
             ser.write(",".encode()) # this one gave no errors
 
 
