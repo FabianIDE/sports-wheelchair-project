@@ -21,7 +21,7 @@ CLASSES = ["Passing", "Adjustment", "Fakeout", "Throw", "Sprint"] # Movement cla
 LABEL_PROP_NAME = "Movement"
 PROPERTY_HRM_NAME = "My heart rate measurement 1"
 PROPERTY_ORIENTATION_NAME = "Right Sports Wheel"
-PROPERTY_WHEELCHAIR_NAME = "Chair base"
+PROPERTY_WHEELCHAIR_NAME = "Chair base collect"
 MAX_SAMPLES = 100 # How many samples do we want for each class
 DELAY_BETWEEN_MOVEMENT = 15 # How much time (in seconds) to leave between the collection of each class
 
