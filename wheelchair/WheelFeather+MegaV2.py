@@ -54,9 +54,11 @@ def handle_orientation_data(handle, value_bytes):
     value_bytes -- bytearray, the data returned in the notification
     """
     print("Received data: %s (handle %d)" % (str(value_bytes), handle))
-    values = [float(x) for x in value_bytes.decode('utf-8').split(",")]
+    BLEvalues = [float(x) for x in value_bytes.decode('utf-8').split(",")]
+    Arbeid = BLEvalues[0]
+    print(Arbeid)
     find_or_create("Right Sports Wheel",
-                   PropertyType.THREE_DIMENSIONS).update_values(values)
+                   PropertyType.THREE_DIMENSIONS).update_values(BLEvalues)
 
 
 
@@ -124,13 +126,13 @@ def serial_to_property_values():
 
         line = line_bytes.decode('utf-8')
         # Split the string using commas as separator, we get a list of strings
-        values = line.split(',')
+        serialvalues = line.split(',')
 
         try:
             # Use the first element of the list as property id
             # property_serial_id = values.pop(0)
             # Get the property from the thing
-            find_or_create("Chair base", PropertyType.THREE_DIMENSIONS).update_values([float(x) for x in values])
+            find_or_create("Chair base", PropertyType.THREE_DIMENSIONS).update_values([float(x) for x in serialvalues])
 
         except:
             print('Could not parse: ' + line)
@@ -212,6 +214,7 @@ def start_gatt():
     # Subscribe to the GATT service of the wheel
     left_wheel.subscribe(GATT_CHARACTERISTIC_ORIENTATION,
                          callback=handle_orientation_data)
+
 
 def start_serial():
     while True:
