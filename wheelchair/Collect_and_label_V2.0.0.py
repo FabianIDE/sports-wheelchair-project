@@ -17,8 +17,8 @@ THING_TOKEN = os.environ['THING_TOKEN']
 
 CLASSES = ["Passing", "Adjustment", "Fakeout", "Throw", "Sprint"] # Movement classes
 LABEL_PROP_NAME = "Movement"
-PROPETY_HRM_NAME = "My heart rate measurement 1"
-PROPETY_ORIENTATION_NAME = "Right Sports Wheel Arbeid"
+PROPERTY_HRM_NAME = "My heart rate measurement 1"
+PROPERTY_ORIENTATION_NAME = "Right Sports Wheel Arbeid"
 PROPETY_WHEELCHAIR_NAME = "Chair base"
 MAX_SAMPLES = 100 # How many samples do we want for each class
 DELAY_BETWEEN_MOVEMENT = 15 # How much time (in seconds) to leave between the collection of each class
@@ -36,10 +36,10 @@ my_thing.read()
 # Find label and data property by name
 prop_label = my_thing.find_or_create_property(LABEL_PROP_NAME, PropertyType.CLASS)
 prop_orientation = my_thing.find_or_create_property(PROPERTY_ORIENTATION_NAME, PropertyType.THREE_DIMENSIONS)
-prop_hrm = my_thing.find_or_create_property(PROPERTY_HRM_NAME, PropertyType.ONE)
+prop_hrm = my_thing.find_or_create_property(PROPERTY_HRM_NAME, PropertyType.ONE_DIMENSION)
 prop_wheelchair = my_thing.find_or_create_property(PROPERTY_WHEELCHAIR_NAME, PropertyType.THREE_DIMENSIONS)
 
-
+s
 # OPEN Serial
 def open_serial(): # Open a serial connection
     # Start reading the serial port
