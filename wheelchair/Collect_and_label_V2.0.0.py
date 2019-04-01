@@ -7,8 +7,10 @@ import time
 from threading import Thread
 import pexpect
 import sys
+import serial
 from dcd.entities.thing import Thing # DCD Hub
 from dcd.entities.property import PropertyType
+
 
 
 load_dotenv() # The thing ID and access token
