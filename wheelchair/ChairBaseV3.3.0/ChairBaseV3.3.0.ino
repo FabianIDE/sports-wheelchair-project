@@ -43,7 +43,7 @@ unsigned long ontime = 200;                     // time the LED is on at blinkin
 
 //Variables for energy counter
 int Weight = 75; //set weight of athlete incl chair
-long DeltaX_int = 0;
+float DeltaX_float = 0;
 long Joules_max = 50000; // set Joules amount of 1 full LED ring //defide by 4184 to get Kcal
 long Energy = 0;
 int Energy_ON = 0;
@@ -129,7 +129,7 @@ else{
 
 // HR flash
     
-DeltaX_int = 0; //set to zero to prevent non updating values
+DeltaX_float = 0; //set to zero to prevent non updating values
 Joules = 0;     //set to zero to prevent non updating values
 
 if(Serial.available() > 0){                   // Read serial port
@@ -139,10 +139,10 @@ if(Serial.available() > 0){                   // Read serial port
     delayer = 1000000/tussen;                   // from BPS to delay after each flash trigger
     
     String DeltaX = Serial.readStringUntil(','); // read second string from serial port
-    DeltaX_int = DeltaX.toInt();
+    DeltaX_float = DeltaX.toFloat();
   }
   
-  Joules = abs(Weight*DeltaX_int*Accel.x());
+  Joules = abs(Weight*DeltaX_float*Accel.x());
     
   Kcal = Joules/4184;                   // converting Joules to Kcal
   KcalTotal = KcalOld + Kcal;           //increase total joules used
@@ -151,9 +151,9 @@ if(Serial.available() > 0){                   // Read serial port
   Energy_ON = map(Energy, 0, Joules_max, 0, 24)+12; // convert to LEDs to turn on
 
 
-  if (Joules > 100) {                    //set amount of joule defined as inactvity of wheelchair
+  if (Joules > 5) {                    //set amount of joule defined as inactvity of wheelchair
     Inactive = 0;                         //set counter to 0
-    Fitness = KcalTotal/HR_int*4184*100;      //Only update when active
+    Fitness = KcalTotal/HR_int*4184*10000;      //Only update when active
 
   }
 
@@ -222,8 +222,7 @@ Serial.print(Joules);
 Serial.print( F(",") );
 Serial.print(KcalTotal,3);
 Serial.print( F(",") );
-Serial.print(Fitness);
-Serial.println( F(",") );
+Serial.println(Fitness);
 
 KcalOld = KcalTotal;
   ring.show();                                  // send data (color etc from entire loop) to LED ring
