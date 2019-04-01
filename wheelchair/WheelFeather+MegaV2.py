@@ -236,7 +236,7 @@ def start_HRM():
             my_property_HRM.update_values(intvalue_brackets)
             ser.write(str(intvalue).encode())
             ser.write(",".encode()) # this one gave no errors
-            ser.write(Arbeid)
+            ser.write(str(Arbeid).encode())
             ser.write(",".encode()) # this one gave no errors
 
 
