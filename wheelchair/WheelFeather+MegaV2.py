@@ -58,7 +58,7 @@ def handle_orientation_data(handle, value_bytes):
     #Arbeid = BLEvalues[0]
     #print("arbeid=" + Arbeid)
     find_or_create("Right Sports Wheel",
-                   PropertyType.THREE_DIMENSIONS).update_values(values)
+                   PropertyType.TWO_DIMENSIONS).update_values(values)
 
 
 
