@@ -104,7 +104,7 @@ def collect(class_index): #Collect data
         port=os.environ['SERIAL'],
         baudrate=9600,
         timeout=2)
-        time.sleep(2)
+    time.sleep(2)
 
 
     # Start reading serial port with the MOVEMENT index, start at sample 0.
