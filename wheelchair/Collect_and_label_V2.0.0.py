@@ -43,7 +43,7 @@ prop_wheelchair = my_thing.find_or_create_property(PROPERTY_WHEELCHAIR_NAME, Pro
 # OPEN Serial
 def open_serial(): # Open a serial connection
     # Start reading the serial port
-    return serial.Serial(
+    return ser.Serial(
         port=os.environ['SERIAL'],
         baudrate=9600,
         timeout=2)
