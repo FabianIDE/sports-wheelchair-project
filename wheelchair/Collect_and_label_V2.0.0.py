@@ -37,9 +37,9 @@ my_thing.read()
 
 # Find label and data property by name
 prop_label = my_thing.find_or_create_property(LABEL_PROP_NAME, PropertyType.CLASS)
-prop_orientation = my_thing.find_or_create_property(PROPERTY_ORIENTATION_NAME, PropertyType.THREE_DIMENSIONS)
-prop_hrm = my_thing.find_or_create_property(PROPERTY_HRM_NAME, PropertyType.ONE_DIMENSION)
-prop_wheelchair = my_thing.find_or_create_property(PROPERTY_WHEELCHAIR_NAME, PropertyType.THREE_DIMENSIONS)
+prop_orientation = my_thing.find_or_create_property(PROPERTY_ORIENTATION_NAME, PropertyType.TWO_DIMENSIONS)
+#prop_hrm = my_thing.find_or_create_property(PROPERTY_HRM_NAME, PropertyType.ONE_DIMENSION)
+prop_wheelchair = my_thing.find_or_create_property(PROPERTY_WHEELCHAIR_NAME, PropertyType.TWO_DIMENSIONS)
 
 
 # OPEN Serial
@@ -198,7 +198,7 @@ child.sendline("char-write-req 0x000f 0100")
 try:
     collect(0)
 except UnicodeDecodeError:
-    print('Could not parse: ' + line)    
+    print('Could not parse: ' + line)
 
 # END OF COLLECTING
 
