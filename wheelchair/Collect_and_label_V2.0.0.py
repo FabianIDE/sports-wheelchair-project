@@ -125,15 +125,18 @@ def serial_to_property_values(class_index, ser): #Add label to data
         str_values = line.split(',')
         # Remove the first id
         # str_values.pop(1)
-        # Transform the array of string values into float values (numbers)
-        values = [float(x) for x in str_values]
+        try:
+            # Transform the array of string values into float values (numbers)
+            values = [float(x) for x in str_values]
 
-        # get the current time in milliseconds
-        current_ts_ms = int(round(time.time() * 1000))
-        # Update values of data and label properties (send them to the DCD Hub)
-        # With the same timestamp, so we can easily connect label and raw data later
-        prop_label.update_values([class_index], current_ts_ms)
-        prop_wheelchair.update_values(values, current_ts_ms)
+            # get the current time in milliseconds
+            current_ts_ms = int(round(time.time() * 1000))
+            # Update values of data and label properties (send them to the DCD Hub)
+            # With the same timestamp, so we can easily connect label and raw data later
+            prop_label.update_values([class_index], current_ts_ms)
+            prop_wheelchair.update_values(values, current_ts_ms)
+        except ValueError:
+            return False
 
         return True
     return False
