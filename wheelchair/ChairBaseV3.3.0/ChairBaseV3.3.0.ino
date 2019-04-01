@@ -53,7 +53,8 @@ float KcalOld = 0;
 float KcalTotal = 0;
 
 //Fitness variables
-int Fitness = 0;
+int Inactive =0;
+float Fitness = 0;
 
 int n = 0;
 int m = 12;                                     // Wheelie rotating light loop counter
@@ -128,8 +129,8 @@ else{
 
 // HR flash
     
-DeltaX_int = 0;
-Joules = 0;
+DeltaX_int = 0; //set to zero to prevent non updating values
+Joules = 0;     //set to zero to prevent non updating values
 
 if(Serial.available() > 0){                   // Read serial port
     String HR = Serial.readStringUntil(',');
@@ -148,6 +149,28 @@ if(Serial.available() > 0){                   // Read serial port
 
   Energy = Energy - Joules;                     // substract used energy from stack
   Energy_ON = map(Energy, 0, Joules_max, 0, 24)+12; // convert to LEDs to turn on
+
+
+  if (Joules > 100) {                    //set amount of joule defined as inactvity of wheelchair
+    Inactive = 0;                         //set counter to 0
+    Fitness = KcalTotal/HR_int*4184*100;      //Only update when active
+
+  }
+
+  else {
+    Inactive ++;
+  }
+
+  if (Inactive >= 200){                 //set interactivy counter in 10ths of sec.
+    KcalTotal = 0;
+    Inactive = 200;
+  }
+
+  
+  
+  if (isnan(Fitness)) {                     // removes NaN (not a number) print from dividing a zero
+    Fitness = 0;
+  }
 
   ringDO(0,0,20,40,12,Energy_ON);
   ringDO(0,0,0,0,Energy_ON,36);
@@ -198,9 +221,9 @@ Serial.print( F(",") );
 Serial.print(Joules);
 Serial.print( F(",") );
 Serial.print(KcalTotal,3);
+Serial.print( F(",") );
+Serial.print(Fitness);
 Serial.println( F(",") );
-
-
 
 KcalOld = KcalTotal;
   ring.show();                                  // send data (color etc from entire loop) to LED ring
