@@ -195,7 +195,10 @@ child.sendline("char-write-req 0x000f 0100")
 
 
 # Start collecting data for the first class
-collect(0)
+try:
+    collect(0)
+except UnicodeDecodeError:
+        
 
 # END OF COLLECTING
 
