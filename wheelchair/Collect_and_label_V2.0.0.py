@@ -41,12 +41,12 @@ prop_wheelchair = my_thing.find_or_create_property(PROPERTY_WHEELCHAIR_NAME, Pro
 
 
 # OPEN Serial
-def open_serial(): # Open a serial connection
-    # Start reading the serial port
-    return ser.Serial(
-        port=os.environ['SERIAL'],
-        baudrate=9600,
-        timeout=2)
+# def open_serial(): # Open a serial connection
+#     # Start reading the serial port
+#     return serial.Serial(
+#         port=os.environ['SERIAL'],
+#         baudrate=9600,
+#         timeout=2)
 
 # BLE
 
@@ -99,7 +99,13 @@ def collect(class_index): #Collect data
 
     # Open the serial connection
     print("Collecting data for MOVEMENT " + CLASSES[class_index])
-    ser = open_serial()
+
+    ser = serial.Serial(
+        port=os.environ['SERIAL'],
+        baudrate=9600,
+        timeout=2)
+        time.sleep(2)
+
 
     # Start reading serial port with the MOVEMENT index, start at sample 0.
     sample = 0
