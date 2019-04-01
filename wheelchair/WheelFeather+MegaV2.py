@@ -242,8 +242,8 @@ def start_HRM():
 
 
         #    ser.write(','.encode())
-            print("HRM sent to arduino" + intvalue)
-            print("DeltaX sent to arduino" + DeltaX)
+            print("HRM sent to arduino")
+            print("DeltaX sent to arduino")
         except KeyboardInterrupt:
             print("Exiting...")
             # Unsubscribe from characteristic before exiting program
