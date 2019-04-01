@@ -56,8 +56,7 @@ def handle_orientation_data(handle, value_bytes):
     print("Received data: %s (handle %d)" % (str(value_bytes), handle))
     BLEvalues = [float(x) for x in value_bytes.decode('utf-8').split(",")]
     Arbeid = BLEvalues[0]
-    print("arbeid=")
-    print(Arbeid)
+    print("arbeid=" + Arbeid)
     find_or_create("Right Sports Wheel",
                    PropertyType.THREE_DIMENSIONS).update_values(BLEvalues)
 
