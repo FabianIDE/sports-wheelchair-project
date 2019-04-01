@@ -53,20 +53,22 @@ def unix_time_millis(dt):
 # print(my_thing.to_json())
 
 prop_label = my_thing.find_or_create(LABEL_PROP_NAME, PropertyType.CLASS)
-prop_orientation = my_thing.find_or_create(PROPERTY_ORIENTATION_NAME, PropertyType.THREE_DIMENSIONS)
-prop_hrm = my_thing.find_or_create(PROPERTY_HRM_NAME, PropertyType.ONE)
-prop_wheelchair = my_thing.find_or_create(PROPERTY_WHEELCHAIR_NAME, PropertyType.THREE_DIMENSIONS)
+prop_orientation = my_thing.find_or_create(PROPERTY_ORIENTATION_NAME, PropertyType.TWO_DIMENSIONS)
+#prop_hrm = my_thing.find_or_create(PROPERTY_HRM_NAME, PropertyType.ONE)
+prop_wheelchair = my_thing.find_or_create(PROPERTY_WHEELCHAIR_NAME, PropertyType.TWO_DIMENSIONS)
 
 
 prop_orientation.read(START_TS, END_TS)
 prop_label.read(START_TS, END_TS)
 
 
-prop_orientation.align(prop_hrm)
-prop_orientation_hrm = prop_orientation.merge(prop_hrm)
+# prop_orientation.align(prop_hrm)
+# prop_orientation_hrm = prop_orientation.merge(prop_hrm)
 
-prop_orientation_hrm.align(prop_wheelchair)
-prop_all = prop_orientation_hrm.merge(prop_wheelchair)
+
+
+prop_orientation.align(prop_wheelchair)
+prop_all = prop_orientation.merge(prop_wheelchair)
 
 prop_all.align(prop_label)
 
