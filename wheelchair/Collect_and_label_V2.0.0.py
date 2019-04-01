@@ -34,7 +34,7 @@ my_thing = Thing(thing_id=THING_ID, token=THING_TOKEN)
 my_thing.read()
 
 # Find label and data property by name
-prop_label = my_thing.find_or_create_property(LABEL_PROP_NAME, PropertyType.CLASS)
+#prop_label = my_thing.find_or_create_property(LABEL_PROP_NAME, PropertyType.CLASS)
 prop_orientation = my_thing.find_or_create_property(PROPERTY_ORIENTATION_NAME, PropertyType.THREE_DIMENSIONS)
 prop_hrm = my_thing.find_or_create_property(PROPERTY_HRM_NAME, PropertyType.ONE)
 prop_wheelchair = my_thing.find_or_create_property(PROPERTY_WHEELCHAIR_NAME, PropertyType.THREE_DIMENSIONS)
