@@ -103,9 +103,9 @@ def collect(class_index): #Collect data
     print("Collecting data for MOVEMENT " + CLASSES[class_index])
 
     ser = serial.Serial(
-        port=os.environ['SERIAL'],
-        baudrate=9600,
-        timeout=2)
+        port = os.environ['SERIAL'],
+        baudrate = 9600,
+        timeout = 2)
     time.sleep(2)
 
 
