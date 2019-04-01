@@ -132,7 +132,7 @@ def serial_to_property_values():
             # Use the first element of the list as property id
             # property_serial_id = values.pop(0)
             # Get the property from the thing
-            find_or_create("Chair base with Kcal", PropertyType.FOUR_DIMENSIONS).update_values([float(x) for x in serialvalues])
+            find_or_create("Chair base with Fitness", PropertyType.FIVE_DIMENSIONS).update_values([float(x) for x in serialvalues])
 
         except:
             print('Could not parse: ' + line)
