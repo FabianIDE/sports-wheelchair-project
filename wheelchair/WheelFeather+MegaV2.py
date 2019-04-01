@@ -197,9 +197,11 @@ while True:
             continue
         else:
             print("timeout, giving up.")
+            time.sleep(1)
             break
     else:
         print("Connected!")
+        time.sleep(1)
         break
 
 #enable notification. 0x000f is found experimentally. You do not need to know this bit
