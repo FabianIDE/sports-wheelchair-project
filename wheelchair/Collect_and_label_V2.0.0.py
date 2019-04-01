@@ -198,7 +198,7 @@ child.sendline("char-write-req 0x000f 0100")
 try:
     collect(0)
 except UnicodeDecodeError:
-        
+    print('Could not parse: ' + line)    
 
 # END OF COLLECTING
 
