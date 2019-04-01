@@ -233,6 +233,8 @@ def start_HRM():
             ser.write(str(intvalue).encode())
             ser.write(",".encode()) # this one gave no errors
             ser.write(str(Arbeid).encode())
+            ser.write(",".encode()) # this one gave no errors
+
 
         #    ser.write(','.encode())
             print("HRM sent to arduino")
