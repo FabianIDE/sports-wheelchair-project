@@ -57,7 +57,7 @@ def handle_orientation_data(handle, value_bytes):
     print("Received data: %s (handle %d)" % (str(value_bytes), handle))
     values = [float(x) for x in value_bytes.decode('utf-8').split(",")]
     global DeltaX
-    DeltaX = int(values[2])
+    DeltaX = float(values[2])
     find_or_create("Right Sports Wheel Arbeid",
                    PropertyType.THREE_DIMENSIONS).update_values(values)
 
