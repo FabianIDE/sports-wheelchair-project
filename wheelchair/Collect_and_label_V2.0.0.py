@@ -39,7 +39,7 @@ prop_orientation = my_thing.find_or_create_property(PROPERTY_ORIENTATION_NAME, P
 prop_hrm = my_thing.find_or_create_property(PROPERTY_HRM_NAME, PropertyType.ONE_DIMENSION)
 prop_wheelchair = my_thing.find_or_create_property(PROPERTY_WHEELCHAIR_NAME, PropertyType.THREE_DIMENSIONS)
 
-s
+
 # OPEN Serial
 def open_serial(): # Open a serial connection
     # Start reading the serial port
