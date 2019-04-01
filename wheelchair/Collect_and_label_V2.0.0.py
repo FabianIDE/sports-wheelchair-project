@@ -124,7 +124,7 @@ def serial_to_property_values(class_index, ser): #Add label to data
         # Split the string using commas as separator, we get a list of strings
         str_values = line.split(',')
         # Remove the first id
-        str_values.pop(1)
+        # str_values.pop(1)
         # Transform the array of string values into float values (numbers)
         values = [float(x) for x in str_values]
 
