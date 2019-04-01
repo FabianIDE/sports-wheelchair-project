@@ -33,8 +33,10 @@ START_TS = 1550946000000
 END_TS = 1550946000000+300000
 
 # Property ID
-PROPERTY_DATA = "fsr-1ebb"
-PROPERTY_LABEL = "sitting-8b25"
+LABEL_PROP_NAME = "Movement"
+PROPETY_HRM_NAME = "My heart rate measurement 1"
+PROPETY_ORIENTATION_NAME = "Right Sports Wheel Arbeid"
+PROPETY_WHEELCHAIR_NAME = "Chair base"
 
 # Instantiate a thing with its credential
 my_thing = Thing(thing_id=THING_ID, token=THING_TOKEN)
@@ -50,10 +52,17 @@ def unix_time_millis(dt):
 # it has only an id, a name and a type.
 # print(my_thing.to_json())
 
-fsr = my_thing.properties[PROPERTY_DATA]
-sitting = my_thing.properties[PROPERTY_LABEL]
+prop_label = my_thing.find_or_create(LABEL_PROP_NAME, PropertyType.CLASS)
+prop_orientation = my_thing.find_or_create(PROPERTY_ORIENTATION_NAME, PropertyType.THREE_DIMENSIONS)
+prop_hrm = my_thing.find_or_create(PROPERTY_HRM_NAME, PropertyType.ONE)
+prop_wheelchair = my_thing.find_or_create(PROPERTY_WHEELCHAIR_NAME, PropertyType.THREE_DIMENSIONS)
+
+
 fsr.read(START_TS, END_TS)
 sitting.read(START_TS, END_TS)
+
+fsr.align(sitting)
+fsr.merge(sitting)
 
 data = fsr.values
 label = sitting.values

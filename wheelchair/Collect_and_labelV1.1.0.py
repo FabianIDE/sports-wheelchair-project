@@ -17,13 +17,28 @@ THING_TOKEN = os.environ['THING_TOKEN']
 
 CLASSES = ["Passing", "Adjustment", "Fakeout", "Throw", "Sprint"] # Movement classes
 LABEL_PROP_NAME = "Movement"
-DATA_PROP_NAME = "fsr"
+PROPETY_HRM_NAME = "My heart rate measurement 1"
+PROPETY_ORIENTATION_NAME = "Right Sports Wheel Arbeid"
+PROPETY_WHEELCHAIR_NAME = "Chair base"
 MAX_SAMPLES = 100 # How many samples do we want for each class
 DELAY_BETWEEN_MOVEMENT = 15 # How much time (in seconds) to leave between the collection of each class
 
 BLUETOOTH_DEVICE_MAC_WHEEL = os.environ['BLUETOOTH_DEVICE_MAC_WHEEL']
 GATT_CHARACTERISTIC_ORIENTATION = "02118833-4455-6677-8899-AABBCCDDEEFF" # UUID of the GATT characteristic to subscribe
 ADDRESS_TYPE = pygatt.BLEAddressType.random # Many devices, e.g. Fitbit, use random addressing, this is required to connect.
+
+# Instantiate a thing with its credential
+my_thing = Thing(thing_id=THING_ID, token=THING_TOKEN)
+
+# Read the details of our Thing from the DCD Hub to get property details
+my_thing.read()
+
+# Find label and data property by name
+prop_label = my_thing.find_or_create(LABEL_PROP_NAME, PropertyType.CLASS)
+prop_orientation = my_thing.find_or_create(PROPERTY_ORIENTATION_NAME, PropertyType.THREE_DIMENSIONS)
+prop_hrm = my_thing.find_or_create(PROPERTY_HRM_NAME, PropertyType.ONE)
+prop_wheelchair = my_thing.find_or_create(PROPERTY_WHEELCHAIR_NAME, PropertyType.THREE_DIMENSIONS)
+
 
 # OPEN Serial
 def open_serial(): # Open a serial connection
@@ -34,12 +49,7 @@ def open_serial(): # Open a serial connection
         timeout=2)
 
 # BLE
-def find_or_create(property_name, property_type): # create property for BLE
-    """Search a property by name, create it if not found, then return it."""
-    if my_thing.find_property_by_name(property_name) is None:
-        my_thing.create_property(name=property_name,
-                                 property_type=property_type)
-    return my_thing.find_property_by_name(property_name)
+
 def handle_orientation_data(handle, value_bytes): # print wheel values, send to server
     """
     handle -- integer, characteristic read handle the data was received on
@@ -47,8 +57,8 @@ def handle_orientation_data(handle, value_bytes): # print wheel values, send to 
     """
     print("Received data: %s (handle %d)" % (str(value_bytes), handle))
     values = [float(x) for x in value_bytes.decode('utf-8').split(",")]
-    find_or_create("Right Sports Wheel",
-                   PropertyType.THREE_DIMENSIONS).update_values(values)
+    prop_orientation.update_values(values)
+
 def discover_characteristic(device): # Provide UUID
     """List characteristics of a device"""
     for uuid in device.discover_characteristics().keys():
@@ -99,6 +109,7 @@ def collect(class_index): #Collect data
             print()
     ser.close()
     collect(class_index + 1)
+
 def serial_to_property_values(class_index, ser): #Add label to data
     # Read one line
     line_bytes = ser.readline()
@@ -112,24 +123,17 @@ def serial_to_property_values(class_index, ser): #Add label to data
         # str_values.pop(0)
         # Transform the array of string values into float values (numbers)
         values = [float(x) for x in str_values]
-        values[4] =
 
         # get the current time in milliseconds
         current_ts_ms = int(round(time.time() * 1000))
         # Update values of data and label properties (send them to the DCD Hub)
         # With the same timestamp, so we can easily connect label and raw data later
         prop_label.update_values([class_index], current_ts_ms)
-        prop_data.update_values(values, current_ts_ms)
+        prop_wheelchair.update_values(values, current_ts_ms)
 
         return True
     return False
 
-
-
-# Instantiate a thing with its credential, then read its properties from the DCD Hub
-my_thing = Thing(thing_id=THING_ID, token=THING_TOKEN)
-my_thing.read()
-print(my_thing.to_json())
 
 bleAdapter = pygatt.GATTToolBackend() # Start a BLE adapter
 bleAdapter.start()
@@ -138,20 +142,101 @@ signal.signal(signal.SIGINT, keyboard_interrupt_handler) # Register our Keyboard
 
 #end BLE code
 
+#start of Heartratemonitor CODE
+
+#put your hrm mac address here
+hrmMacAddress = "C5:46:4C:2F:AD:C6"
+
+# Show the property
+#print(my_property.to_json())
+
+# Spawn a child process with gatttool to control your BLE device.
+#Your hrm uses random addressing like most BLE devices.
+#gatttool is the application within debian(your rpi operating system)
+#to communicate with BLE devices. Other single alhabets are flags that you do
+#do not need to know of
+child = pexpect.spawn("sudo gatttool -t random -b {0} -I".format(hrmMacAddress) )
+
+#Connect to hrm
+print("Searching for HRM")
+print("Connecting...")
+
+# The number of times you want to retry connecting before you give up
+RETRY_CONNECTION = 2
+
+while True:
+    try:
+        child.sendline("connect")
+        child.expect("Connection successful", timeout=5)
+    except pexpect.TIMEOUT:
+        RETRY_CONNECTION = RETRY_CONNECTION - 1
+        if (RETRY_CONNECTION > 0):
+            print("timeout, trying again")
+            continue
+        else:
+            print("timeout, giving up.")
+            break
+    else:
+        print("Connected!")
+        break
+
+#enable notification. 0x000f is found experimentally. You do not need to know this bit
+#unless you are curious. 0100 is to switch on notifications for the particular characteristic.
+child.sendline("char-write-req 0x000f 0100")
+
+#end of hrm code
+
 
 # START COLLECTING
 
-# Instantiate a thing with its credential
-my_thing = Thing(thing_id=THING_ID, token=THING_TOKEN)
 
-# Read the details of our Thing from the DCD Hub to get property details
-my_thing.read()
-
-# Find label and data property by name
-prop_label = my_thing.find_property_by_name(LABEL_PROP_NAME)
-prop_data = my_thing.find_property_by_name(DATA_PROP_NAME)
 
 # Start collecting data for the first class
 collect(0)
 
 # END OF COLLECTING
+
+
+def start_gatt():
+    # Subscribe to the GATT service of the wheel
+    left_wheel.subscribe(GATT_CHARACTERISTIC_ORIENTATION,
+                         callback=handle_orientation_data)
+
+def start_serial():
+    while True:
+        serial_to_property_values()
+
+def start_HRM():
+    while True:
+        try:
+            child.expect("Notification handle = 0x000e value: ", timeout=5)
+            child.expect("\r\n", timeout=5)
+            print(child.before)
+            intvalue = hexStrToInt(child.before)
+            intvalue_brackets = [intvalue]
+            #print statement to check the hrm reading
+            print(intvalue)
+            #udate new readings to grafana
+            prop_hrm.update_values(intvalue_brackets)
+            ser.write(str(intvalue).encode())
+            ser.write(",".encode()) # this one gave no errors
+
+        #    ser.write(','.encode())
+            print("HRM sent to arduino")
+        except KeyboardInterrupt:
+            print("Exiting...")
+            # Unsubscribe from characteristic before exiting program
+            child.sendline("char-write-req 0x000f 0000")
+            exit(0)
+
+
+thread_gatt = Thread(target=start_gatt)
+thread_gatt.start()
+
+thread_serial = Thread(target=start_serial)
+thread_serial.start()
+
+thread_HRM = Thread(target=start_HRM)
+thread_HRM.start()
+
+#End of threading
