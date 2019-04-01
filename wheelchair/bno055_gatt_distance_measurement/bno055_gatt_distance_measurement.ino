@@ -207,7 +207,7 @@ void orientation() {
   ble.print( F(",") );
   ble.print(String(GyroZ));
   ble.print( F(",") );
-  ble.println(String(ArbeidTotal));
+  ble.println(String(ArbeidDiff));
 
 
 
