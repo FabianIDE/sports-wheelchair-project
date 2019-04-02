@@ -6,6 +6,39 @@
 
 The goal of this project is to create a smart sports wheelchair which is able to monitor the consumed energy of a wheelchair basketball player in real time. This provides valuable insights for player and coach during training exercises.
 
+INSTALLATION
+
+ARDUINO MEGA
+	Location: the wheelchair main frame
+	Script:	Chairbase.ino
+	Connected to: 	RASPBERRY PI (Physical, wires)
+			LED RING (Physical, wires)
+ADAFRUIT FEATHER BLUEFRUIT 32u4
+	Location: the right wheel
+	Script:Rightsportswheelblefeather.ino
+	Connected to: 	RASPBERRY PI (Bluetooth connection)
+			BNO055
+RASPBERRY PI	
+	Location: the wheelchair main frame
+	Script:Rpi_sportswheelchair.py
+	Connected to: 	ARDUINO MEGA (Physical, wires)
+			
+LED RING
+	Location: the back of wheelchair backseat
+	Connected to:
+BNO055 IMU x2
+	Location: the center turning point of the wheelchair
+	Location: the center turning point of the right wheel
+	Connected to:
+HEARTRATE MONITOR WRISTBAND
+	Location: the user's wrist.
+	Connected to:
+
+
+
+
+
+
 #steps as defined on 08.03.2019
 
 1.  Measure the rotation of the right wheel.
@@ -35,7 +68,7 @@ __*OPTIONAL EXPANTION*__
 
 To archieve the project goal, data will be collected using the following sensors.
 
-__*INPUT*__
+__*INPUT*__	
 * Speedometer (Hall sensor)
 The speedometer collects data by counting the amount of revelations of the wheels during a certain time. The speedometer conists of two Hall sensors connected to the frame of the wheelchair and a magnet connected to one of the spokes of the wheel. The Arduino is able to count the time of each wheel revelation and the direction the revelation is in.
 
