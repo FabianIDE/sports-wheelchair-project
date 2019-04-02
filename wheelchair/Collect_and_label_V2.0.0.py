@@ -21,7 +21,7 @@ CLASSES = ["Passing", "Adjustment", "Fakeout", "Throw", "Sprint"] # Movement cla
 LABEL_PROP_NAME = "Movement"
 PROPERTY_HRM_NAME = "My heart rate measurement 1"
 PROPERTY_ORIENTATION_NAME = "Right Sports Wheel"
-PROPERTY_WHEELCHAIR_NAME = "Chair base"
+PROPERTY_WHEELCHAIR_NAME = "Chair base collect"
 MAX_SAMPLES = 100 # How many samples do we want for each class
 DELAY_BETWEEN_MOVEMENT = 15 # How much time (in seconds) to leave between the collection of each class
 
@@ -121,19 +121,23 @@ def serial_to_property_values(class_index, ser): #Add label to data
     if len(line_bytes) > 0:
         # Convert the bytes into string
         line = line_bytes.decode('utf-8')
+        print("Serial received: " +  line)
         # Split the string using commas as separator, we get a list of strings
         str_values = line.split(',')
         # Remove the first id
-        str_values.pop(1)
-        # Transform the array of string values into float values (numbers)
-        values = [float(x) for x in str_values]
+        # str_values.pop(1)
+        try:
+            # Transform the array of string values into float values (numbers)
+            values = [float(x) for x in str_values]
 
-        # get the current time in milliseconds
-        current_ts_ms = int(round(time.time() * 1000))
-        # Update values of data and label properties (send them to the DCD Hub)
-        # With the same timestamp, so we can easily connect label and raw data later
-        prop_label.update_values([class_index], current_ts_ms)
-        prop_wheelchair.update_values(values, current_ts_ms)
+            # get the current time in milliseconds
+            current_ts_ms = int(round(time.time() * 1000))
+            # Update values of data and label properties (send them to the DCD Hub)
+            # With the same timestamp, so we can easily connect label and raw data later
+            prop_label.update_values([class_index], current_ts_ms)
+            prop_wheelchair.update_values(values, current_ts_ms)
+        except ValueError:
+            return False
 
         return True
     return False

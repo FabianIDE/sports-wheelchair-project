@@ -38,10 +38,10 @@ float wheel_distance = 0;
 int Weight = 80;
 float radiuswiel = 0.294;
 float DeltaX = 0;
-float LinearAccel = 0;
+float Speed = 0;
 float ArbeidDiff = 0;
-float ArbeidOld = 0;
-float ArbeidTotal = 0;
+//float ArbeidOld = 0;
+//float ArbeidTotal = 0;
 
 
 #if SOFTWARE_SERIAL_AVAILABLE
@@ -189,14 +189,14 @@ void orientation() {
   //arbeid in joule is W = m * a * delta_x
 
   DeltaX = wheel_angle_difference/360*1.850; //convert angular diff to linear diff
-  LinearAccel = GyroZ*radiuswiel;
-  ArbeidDiff = abs(Weight*LinearAccel*DeltaX);
-  ArbeidTotal = ArbeidDiff + ArbeidOld;
+  Speed = GyroZ*radiuswiel;
+  //ArbeidDiff = abs(Weight*LinearAccel*DeltaX);
+  //ArbeidTotal = ArbeidDiff + ArbeidOld;
   Serial.println(DeltaX);
-  Serial.println(LinearAccel);
-  Serial.println(ArbeidOld);
-  Serial.println(ArbeidDiff);
-  Serial.println(ArbeidTotal);
+  //Serial.println(LinearAccel);
+  //Serial.println(ArbeidOld);
+  //Serial.println(ArbeidDiff);
+  //Serial.println(ArbeidTotal);
 
   // Command is sent when \n (\r) or println is called
   // AT+GATTCHAR=CharacteristicID,value
@@ -205,16 +205,16 @@ void orientation() {
   ble.print( F(",") );
   ble.print(String(wheel_distance));
   ble.print( F(",") );
-  ble.print(String(GyroZ));
+  ble.print(String(Speed));
   ble.print( F(",") );
-  ble.println(String(ArbeidDiff));
+  ble.println(String(DeltaX));
 
 
 
   //ble.println(String(eulerY));
 
   wheel_angle_previous = wheel_angle_poll;
-  ArbeidOld = ArbeidTotal;
+ // ArbeidOld = ArbeidTotal;
 
 
 }

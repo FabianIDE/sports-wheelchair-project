@@ -20,7 +20,7 @@ import pexpect
 import sys
 
 #global variabels
-Arbeid = 0
+DeltaX = 0
 
 # DCD Hub
 from dcd.entities.thing import Thing
@@ -56,8 +56,8 @@ def handle_orientation_data(handle, value_bytes):
     """
     print("Received data: %s (handle %d)" % (str(value_bytes), handle))
     values = [float(x) for x in value_bytes.decode('utf-8').split(",")]
-    global Arbeid
-    Arbeid = int(values[2])
+    global DeltaX
+    DeltaX = float(values[2])
     find_or_create("Right Sports Wheel Arbeid",
                    PropertyType.THREE_DIMENSIONS).update_values(values)
 
@@ -123,7 +123,7 @@ def serial_to_property_values():
     # If the line is not empty
     if len(line_bytes) > 0:
         # Convert the bytes into string
-
+        print("serial data found")
         line = line_bytes.decode('utf-8')
         # Split the string using commas as separator, we get a list of strings
         serialvalues = line.split(',')
@@ -132,7 +132,7 @@ def serial_to_property_values():
             # Use the first element of the list as property id
             # property_serial_id = values.pop(0)
             # Get the property from the thing
-            find_or_create("Chair base", PropertyType.THREE_DIMENSIONS).update_values([float(x) for x in serialvalues])
+            find_or_create("Chair base with Fitness", PropertyType.FIVE_DIMENSIONS).update_values([float(x) for x in serialvalues])
 
         except:
             print('Could not parse: ' + line)
@@ -225,23 +225,27 @@ def start_serial():
 def start_HRM():
     while True:
         try:
-            child.expect("Notification handle = 0x000e value: ", timeout=5)
+            child.expect("Notification handle = 0x000e value: ", timeout=10)
             child.expect("\r\n", timeout=5)
             print(child.before)
+            global intvalue
             intvalue = hexStrToInt(child.before)
             intvalue_brackets = [intvalue]
-            #print statement to check the hrm reading
-            print(intvalue)
+            print (intvalue)
+            print (DeltaX)
+            # #print statement to check the hrm reading
+            # print("HRM =" + intvalue)
             #udate new readings to grafana
             my_property_HRM.update_values(intvalue_brackets)
             ser.write(str(intvalue).encode())
             ser.write(",".encode()) # this one gave no errors
-            ser.write(str(Arbeid).encode())
+            ser.write(str(DeltaX).encode())
             ser.write(",".encode()) # this one gave no errors
 
 
         #    ser.write(','.encode())
             print("HRM sent to arduino")
+            print("DeltaX sent to arduino")
         except KeyboardInterrupt:
             print("Exiting...")
             # Unsubscribe from characteristic before exiting program
