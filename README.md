@@ -8,35 +8,95 @@ The goal of this project is to create a smart sports wheelchair which is able to
 
 INSTALLATION
 
+The collection of data and the display of user performance is achieved by the use of multiple components.
+
+STEPS
+1.	Download 	the folllowing files from github (wheelchair-design-platform/SportsTracker_V1_Stable):
+							Chairbase.ino
+							Rightsportswheelblefeather.ino
+							Rpi_sportswheelchair.py
+2.  Upload Chairbase.ino to the Arduino Mega.
+3.	Upload Rightsportswheelblefeather.ino to the Adafruit Feather.
+4.	Upload Rpi_sportswheelchair.py to the Raspberry Pi.				
+5.	Secure Arduino Mega to the wheelchair main frame.
+6.	Secure Adafruit Feather to the right wheel.
+7.	Secure Powerbank to the right wheel.
+8.	Secure Powerbank to the wheelchair main frame.
+9.	Secure Raspberry Pi to the wheelchair main frame.
+10.	Secure LED ring to the back of the wheelchair.
+11.	Secure BNO055 to the wheelchair main frame.
+12.	Secure BNO055 on the central turning point of the right wheel.
+13.	Connect the wires between the Arduino Mega and the BNO055 according to image (1).
+14. Connect the wires between the Arduino Mega and the LED ring according to image (2).
+15. Connect the Arduino Mega and Raspberry Pi using datacable [FIXME].
+16. Connect the Raspberry Pi and Powerbank using USB cable.
+17. Connect the wires between the Adafruit Feather and the BNO055 according to image (3).
+18. Connect the Adafruit Feather and Powerbank using Micro USB cable.
+19.	Bluetooth connection settings [FIXME].
+20.	DCD connection settings [FIXME]. TOKENS ETC.
+21. Grafana connection settings [FIXME].
+22.	Equip the heartrate monitor.
+23.	Find the Raspberry Pi on your network.
+24. Connect to the Raspberry Pi using ssh.
+25. Execute the Rpi_sportswheelchair.py file.
+26. Read values from the Grafana webpage.
+
+The components and their connections are listed below.
+
 ARDUINO MEGA
 	Location: the wheelchair main frame
 	Script:	Chairbase.ino
-	Connected to: 	RASPBERRY PI (Physical, wires)
-			LED RING (Physical, wires)
+	Connected to: 	RASPBERRY PI (Physical, SERIAL)
+									LED RING (Physical, wires)
+									BNO055 (Physical, wires)
+
+
 ADAFRUIT FEATHER BLUEFRUIT 32u4
 	Location: the right wheel
 	Script:Rightsportswheelblefeather.ino
 	Connected to: 	RASPBERRY PI (Bluetooth connection)
-			BNO055
-RASPBERRY PI	
+									BNO055 (Physical, wires)
+									POWERBANK (Physical, USB)
+
+RASPBERRY PI
 	Location: the wheelchair main frame
 	Script:Rpi_sportswheelchair.py
 	Connected to: 	ARDUINO MEGA (Physical, wires)
-			
+									POWERBANK (Physical, USB)
 LED RING
 	Location: the back of wheelchair backseat
-	Connected to:
+	Connected to:		ARDUINO MEGA (Physical, wires)
+
 BNO055 IMU x2
 	Location: the center turning point of the wheelchair
 	Location: the center turning point of the right wheel
-	Connected to:
+	Connected to:		ARDUINO MEGA (Physical, wires)
+									ADAFRUIT FEATHER (Physical, wires)
+
 HEARTRATE MONITOR WRISTBAND
 	Location: the user's wrist.
-	Connected to:
+	Connected to:		RASPBERRY PI (Bluetooth)
 
+POWERBANK x2
+	Location:	the wheelchair main frame
+	Location: the right wheel
+	Connected to:		RASPBERRY PI (Physical, USB)
+									ADAFRUIT FEATHER (Physical, Micro USB)
 
+USB CABLE
+	Location: between Raspberry Pi and Powerbank
 
+MICRO USB CABLE
+	Location: between Adafruit Bluefruit and Powerbank
 
+SERIAL DATACABLE
+	Location: between Raspberry Pi and Arduino Mega.
+
+MALE - MALE WIRES
+
+FEMALE - MALE WIRES
+
+PINSTRIP BNO055
 
 
 #steps as defined on 08.03.2019
@@ -68,7 +128,7 @@ __*OPTIONAL EXPANTION*__
 
 To archieve the project goal, data will be collected using the following sensors.
 
-__*INPUT*__	
+__*INPUT*__
 * Speedometer (Hall sensor)
 The speedometer collects data by counting the amount of revelations of the wheels during a certain time. The speedometer conists of two Hall sensors connected to the frame of the wheelchair and a magnet connected to one of the spokes of the wheel. The Arduino is able to count the time of each wheel revelation and the direction the revelation is in.
 
