@@ -4,7 +4,7 @@
 ## PROJECT DESCRIPTION
 *by Max, Fabian and Daniël*
 
-The goal of this project is to create a smart sports wheelchair which is able to monitor the consumed energy of a wheelchair basketball player in real time. This provides valuable insights for player and coach during training exercises.
+The goal of this project is to create a smart sports wheelchair which is able to monitor the consumed energy of a wheelchair basketball player in real time. This provides valuable insights for player and coach during training exercises. For example, the current system allows a coach to view the energy the player has spent in relation to the heartrate of the user. The system then determines the fitness level of the user based on these parameters.
 
 INSTALLATION
 
@@ -15,31 +15,35 @@ STEPS
 							Chairbase.ino
 							Rightsportswheelblefeather.ino
 							Rpi_sportswheelchair.py
-2.  Upload Chairbase.ino to the Arduino Mega.
-3.	Upload Rightsportswheelblefeather.ino to the Adafruit Feather.
-4.	Upload Rpi_sportswheelchair.py to the Raspberry Pi.				
-5.	Secure Arduino Mega to the wheelchair main frame.
-6.	Secure Adafruit Feather to the right wheel.
-7.	Secure Powerbank to the right wheel.
-8.	Secure Powerbank to the wheelchair main frame.
-9.	Secure Raspberry Pi to the wheelchair main frame.
-10.	Secure LED ring to the back of the wheelchair.
-11.	Secure BNO055 to the wheelchair main frame.
-12.	Secure BNO055 on the central turning point of the right wheel.
-13.	Connect the wires between the Arduino Mega and the BNO055 according to image (1).
-14. Connect the wires between the Arduino Mega and the LED ring according to image (2).
-15. Connect the Arduino Mega and Raspberry Pi using datacable [FIXME].
-16. Connect the Raspberry Pi and Powerbank using USB cable.
-17. Connect the wires between the Adafruit Feather and the BNO055 according to image (3).
-18. Connect the Adafruit Feather and Powerbank using Micro USB cable.
-19.	Bluetooth connection settings [FIXME].
-20.	DCD connection settings [FIXME]. TOKENS ETC.
-21. Grafana connection settings [FIXME].
-22.	Equip the heartrate monitor.
-23.	Find the Raspberry Pi on your network.
-24. Connect to the Raspberry Pi using ssh.
-25. Execute the Rpi_sportswheelchair.py file.
-26. Read values from the Grafana webpage.
+							BluefruitConfig.h
+2.	Download Libraries: [FIMXE]
+3.	Install Libraries:	[FIXME]
+4.  Upload Chairbase.ino to the Arduino Mega.
+5.	Upload Rightsportswheelblefeather.ino to the Adafruit Feather.
+6.	Upload Rpi_sportswheelchair.py to the Raspberry Pi.				
+7.	Secure Arduino Mega to the wheelchair main frame.
+8.	Secure Adafruit Feather to the right wheel.
+9.	Secure Powerbank to the right wheel.
+10.	Secure Powerbank to the wheelchair main frame.
+11.	Secure Raspberry Pi to the wheelchair main frame.
+12.	Secure LED ring to the back of the wheelchair.
+13.	Secure BNO055 to the wheelchair main frame.
+14.	Secure BNO055 on the central turning point of the right wheel.
+15.	Connect the wires between the Arduino Mega and the BNO055 according to image (1).
+16. Connect the wires between the Arduino Mega and the LED ring according to image (2).
+17. Connect the Arduino Mega and Raspberry Pi using datacable [FIXME].
+18. Connect the Raspberry Pi and Powerbank using USB cable.
+19. Connect the wires between the Adafruit Feather and the BNO055 according to image (3).
+20. Connect the Adafruit Feather and Powerbank using Micro USB cable.
+21.	Bluetooth connection settings [FIXME].
+22.	DCD connection settings [FIXME]. TOKENS ETC.
+23. Grafana connection settings [FIXME].
+24.	Equip the heartrate monitor.
+25.	Start the heartrate monitor.
+26.	Find the Raspberry Pi on your network.
+27. Connect to the Raspberry Pi using ssh.
+28. Execute the Rpi_sportswheelchair.py file.
+29. Read values from the Grafana webpage.
 
 The components and their connections are listed below.
 
@@ -92,33 +96,31 @@ MICRO USB CABLE
 SERIAL DATACABLE
 	Location: between Raspberry Pi and Arduino Mega.
 
-MALE - MALE WIRES
+MALE - MALE JUMPERWIRES
 
-FEMALE - MALE WIRES
+FEMALE - MALE JUMPERWIRES
 
 PINSTRIP BNO055
 
 
-#steps as defined on 08.03.2019
+#Program steps
 
 1.  Measure the rotation of the right wheel.
-2.  Measure the rotation of the whole wheelchair.
-3.  Combine both measurements to define the movement of both wheels.
-4.  Use the movement of both wheels to determine how much energy is used by the user.
-5.  Measure the heartrate of the user.
-6.  Combine the collected data to define how much energy the user has spend so far.   
+2.  Measure the travelled distance of the wheelchair.
+3.  Measure the heartrate of the user.
+4.  Combine the collected data to define how much energy the user has spend so far.
+5.	Judge fitness based on heartrate and energy usage.
 7.  Use the LED ring to display this data to the coach.
 
 
 __*INPUT*__
-* Relative Position (speed, acceleration)
-* Rotation
-* Weight
+* Relative Position (speed, linear acceleration)
+* Rotation, Rotational acceleration
 * Heartbeat
 
 __*OUTPUT*__
 * Basic information on Grafana
-* LED strip indicating fatigue and heartbeat
+* LED ring indicating fatigue and heartbeat
 
 __*OPTIONAL EXPANTION*__
 * A webapp showing the live position and direction of players
@@ -129,14 +131,8 @@ __*OPTIONAL EXPANTION*__
 To archieve the project goal, data will be collected using the following sensors.
 
 __*INPUT*__
-* Speedometer (Hall sensor)
-The speedometer collects data by counting the amount of revelations of the wheels during a certain time. The speedometer conists of two Hall sensors connected to the frame of the wheelchair and a magnet connected to one of the spokes of the wheel. The Arduino is able to count the time of each wheel revelation and the direction the revelation is in.
-
 * Orientation sensor
 The orientation sensor consists of a gyroscope, accelerometers and magnetometers. The standard module from Adafruit will provide the relative position the sensor is in, with which the direction of travel, can be determined. Combined with the speedometer, the position relative to the starting position can be determined.
-
-* Pressure sensors
-With a pressure sensor the weight of the player can be determined, which, in combination with the sensors above, can be used for calculations in energy usage.
 
 * Heartrate sensor
 An expansion on the wheelchair project is a heartrate monitor wearable. This can be placed on the arm of the athlete in order to more reliably predict the energy usage.
@@ -152,9 +148,6 @@ __*OUTPUT*__
 * RGB LED ring (Neopixel)
 To display fatigue, heart rate and more, an LED ring will be used, preferably Adafruit's Neopixel ring. The ease of the Neopixel is that it is expandable to almost infinite length while still using only three cables (positive, ground and data) and thus three pins on the Arduino. A disadvantage is that it can only be controlled by the Arduino, not for the Raspberry Pi.
 With the Neopixel ring, it is possible to create patterns of coloured LED's, which allow for easy communication to the end user.
-
-* Speaker
-A speaker can be used to send the user audio signals regarding the performance at a certain time. For example, when a player's heartrate exceeds a certain threshold for a prolonged time.
 
 *Of the actuators above, the RGB LED Ring can be provided by us if neccesairy.*
 
