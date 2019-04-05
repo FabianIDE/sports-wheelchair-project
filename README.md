@@ -6,51 +6,20 @@
 
 The goal of this project is to create a smart sports wheelchair which is able to monitor the consumed energy of a wheelchair basketball player in real time. This provides valuable insights for player and coach during training exercises. For example, the current system allows a coach to view the energy the player has spent in relation to the heartrate of the user. The system then determines the fitness level of the user based on these parameters.
 
-INSTALLATION
+#Features
 
-The collection of data and the display of user performance is achieved by the use of multiple components.
+-	Displays heartrate and fitness level on LED ring.
+- Enables insight in multiple variables of movement on Grafana.
+- Displays wheelie angle.
 
-STEPS
-1.	Download 	the folllowing files from github (wheelchair-design-platform/SportsTracker_V1_Stable):
-							Chairbase.ino
-							Rightsportswheelblefeather.ino
-							Rpi_sportswheelchair.py
-							BluefruitConfig.h
-2.	Download Libraries: [FIMXE]
-3.	Install Libraries:	[FIXME]
-4.  Upload Chairbase.ino to the Arduino Mega.
-5.	Upload Rightsportswheelblefeather.ino to the Adafruit Feather.
-6.	Upload Rpi_sportswheelchair.py to the Raspberry Pi.				
-7.	Secure Arduino Mega to the wheelchair main frame.
-8.	Secure Adafruit Feather to the right wheel.
-9.	Secure Powerbank to the right wheel.
-10.	Secure Powerbank to the wheelchair main frame.
-11.	Secure Raspberry Pi to the wheelchair main frame.
-12.	Secure LED ring to the back of the wheelchair.
-13.	Secure BNO055 to the wheelchair main frame.
-14.	Secure BNO055 on the central turning point of the right wheel.
-15.	Connect the wires between the Arduino Mega and the BNO055 according to image (1).
-16. Connect the wires between the Arduino Mega and the LED ring according to image (2).
-17. Connect the Arduino Mega and Raspberry Pi using datacable [FIXME].
-18. Connect the Raspberry Pi and Powerbank using USB cable.
-19. Connect the wires between the Adafruit Feather and the BNO055 according to image (3).
-20. Connect the Adafruit Feather and Powerbank using Micro USB cable.
-21.	Bluetooth connection settings [FIXME].
-22.	DCD connection settings [FIXME]. TOKENS ETC.
-23. Grafana connection settings [FIXME].
-24.	Equip the heartrate monitor.
-25.	Start the heartrate monitor.
-26.	Find the Raspberry Pi on your network.
-27. Connect to the Raspberry Pi using ssh.
-28. Execute the Rpi_sportswheelchair.py file.
-29. Read values from the Grafana webpage.
+#COMPONENTS
 
 The components and their connections are listed below.
 
 ARDUINO MEGA
 	Location: the wheelchair main frame
 	Script:	Chairbase.ino
-	Connected to: 	RASPBERRY PI (Physical, SERIAL)
+	Connected to: 	RASPBERRY PI (Physical, USB B)
 									LED RING (Physical, wires)
 									BNO055 (Physical, wires)
 
@@ -60,7 +29,7 @@ ADAFRUIT FEATHER BLUEFRUIT 32u4
 	Script:Rightsportswheelblefeather.ino
 	Connected to: 	RASPBERRY PI (Bluetooth connection)
 									BNO055 (Physical, wires)
-									POWERBANK (Physical, USB)
+									POWERBANK (Physical, USB C)
 
 RASPBERRY PI
 	Location: the wheelchair main frame
@@ -93,17 +62,59 @@ USB CABLE
 MICRO USB CABLE
 	Location: between Adafruit Bluefruit and Powerbank
 
-SERIAL DATACABLE
+USB B CABLE
 	Location: between Raspberry Pi and Arduino Mega.
 
 MALE - MALE JUMPERWIRES
 
 FEMALE - MALE JUMPERWIRES
 
-PINSTRIP BNO055
+HEADERS BNO055
 
+#INSTALLATION
 
-#Program steps
+The collection of data and the display of user performance is achieved by the use of multiple components.
+
+STEPS
+1.	Download 	the folllowing files from github (wheelchair-design-platform/SportsTracker_V1_Stable):
+							Chairbase.ino
+							Rightsportswheelblefeather.ino
+							Rpi_sportswheelchair.py
+							BluefruitConfig.h
+2.	Download Libraries: BNO055
+												ADAFRUIT NEOPIXEL
+												ADAFRUIT nRF51 BLE
+3.	Install Libraries:	BNO055
+												ADAFRUIT NEOPIXEL
+												ADAFRUIT nRF51 BLE
+4.  Upload Chairbase.ino to the Arduino Mega.
+5.	Upload Rightsportswheelblefeather.ino to the Adafruit Feather.
+6.	Upload Rpi_sportswheelchair.py to the Raspberry Pi.				
+7.	Secure Arduino Mega to the wheelchair main frame.
+8.	Secure Adafruit Feather to the right wheel.
+9.	Secure Powerbank to the right wheel.
+10.	Secure Powerbank to the wheelchair main frame.
+11.	Secure Raspberry Pi to the wheelchair main frame.
+12.	Secure LED ring to the back of the wheelchair.
+13.	Secure BNO055 to the wheelchair main frame.
+14.	Secure BNO055 on the central turning point of the right wheel.
+15.	Connect the wires between the Arduino Mega and the BNO055 according to image (1).
+16. Connect the wires between the Arduino Mega and the LED ring according to image (2).
+17. Connect the Arduino Mega and Raspberry Pi using USB B cable.
+18. Connect the Raspberry Pi and Powerbank using USB cable.
+19. Connect the wires between the Adafruit Feather and the BNO055 according to image (3).
+20. Connect the Adafruit Feather and Powerbank using Micro USB cable.
+21.	Bluetooth connection settings [FIXME].
+22.	DCD connection settings [FIXME]. TOKENS ETC.
+23. Grafana connection settings [FIXME].
+24.	Equip the heartrate monitor.
+25.	Start the heartrate monitor.
+26.	Find the Raspberry Pi on your network.
+27. Connect to the Raspberry Pi using ssh.
+28. Execute the Rpi_sportswheelchair.py file.
+29. Read values from the Grafana webpage.
+
+The steps which the program takes in order to display the fitness rating to the coach are:
 
 1.  Measure the rotation of the right wheel.
 2.  Measure the travelled distance of the wheelchair.
