@@ -29,13 +29,13 @@ ADAFRUIT FEATHER BLUEFRUIT 32u4
 	Script:Rightsportswheelblefeather.ino
 	Connected to: 	RASPBERRY PI (Bluetooth connection)
 									BNO055 (Physical, wires)
-									POWERBANK (Physical, USB C)
+									POWERBANK (Physical, Micro USB)
 
 RASPBERRY PI
 	Location: the wheelchair main frame
 	Script:Rpi_sportswheelchair.py
 	Connected to: 	ARDUINO MEGA (Physical, wires)
-									POWERBANK (Physical, USB)
+									POWERBANK (Physical, Micro USB)
 LED RING
 	Location: the back of wheelchair backseat
 	Connected to:		ARDUINO MEGA (Physical, wires)
@@ -46,7 +46,7 @@ BNO055 IMU x2
 	Connected to:		ARDUINO MEGA (Physical, wires)
 									ADAFRUIT FEATHER (Physical, wires)
 
-HEARTRATE MONITOR WRISTBAND
+HEARTRATE MONITOR WRISTBAND (MIO LINK)
 	Location: the user's wrist.
 	Connected to:		RASPBERRY PI (Bluetooth)
 
@@ -81,10 +81,7 @@ STEPS
 							Rightsportswheelblefeather.ino
 							Rpi_sportswheelchair.py
 							BluefruitConfig.h
-2.	Download Libraries: BNO055
-												ADAFRUIT NEOPIXEL
-												ADAFRUIT nRF51 BLE
-3.	Install Libraries:	BNO055
+2.	Download & install Libraries: BNO055
 												ADAFRUIT NEOPIXEL
 												ADAFRUIT nRF51 BLE
 4.  Upload Chairbase.ino to the Arduino Mega.
@@ -104,9 +101,9 @@ STEPS
 18. Connect the Raspberry Pi and Powerbank using USB cable.
 19. Connect the wires between the Adafruit Feather and the BNO055 according to image (3).
 20. Connect the Adafruit Feather and Powerbank using Micro USB cable.
-21.	Bluetooth connection settings [FIXME].
-22.	DCD connection settings [FIXME]. TOKENS ETC.
-23. Grafana connection settings [FIXME].
+21.	Find & set Feather UUID.
+22.	Find & set DCD thing token (see DCD website).
+23. Find and select the correct data to display in Grafana.
 24.	Equip the heartrate monitor.
 25.	Start the heartrate monitor.
 26.	Find the Raspberry Pi on your network.
