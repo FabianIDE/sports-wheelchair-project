@@ -1,30 +1,72 @@
 Changelog for the sports wheelchair project.
 
+2019.04.02
+
 Most updated versions
 
-WheelFeather+Mega.py                2.0.0
-BluefruitConfig.h                   1.0.0
-WheelFeatherEulerx_Gyroz.ino        1.0.0
-Subscribe_GATT_orientation.py       1.0.0   REDUNDANT
-bno055_gatt_orientation.ino         1.0.0   REDUNDANT
-Chairbase.ino                       3.0.0 
-subscribe_hrm_pexpect.py            1.0.1
-wieldraaiing.ino                    2.0.0   REDUNDANT
-Arduino_code_BNO055.Arduino         1.1.0   REDUNDANT
-subscribe_gatt_hrm.py               1.0.4
-DC-1561_magnetic_surface_mount.ino  1.0.0   REDUNDANT
-readme.md                           1.1.0
-serial_example.py                   1.0.0   REDUNDANT
-Heartrateexample.ino                1.1.0
-wheeliemeter.ino                    1.0.0   REDUNDANT
-project description                 1.0.0   REDUNDANT
+bno055_gatt_distance_measurement.ino 	1.0.0
+Collect_and_label.py 		    	1.0.0   REDUNDANT
+WheelFeather+Mega.py                	2.2.0
+BluefruitConfig.h                   	1.0.0
+WheelFeatherEulerx_Gyroz.ino        	1.0.0   REDUNDANT
+Subscribe_GATT_orientation.py       	1.0.0   REDUNDANT
+bno055_gatt_orientation.ino         	1.0.0   REDUNDANT
+Chairbase.ino                       	3.1.0 
+subscribe_hrm_pexpect.py            	1.0.1
+wieldraaiing.ino                    	2.0.0   REDUNDANT
+Arduino_code_BNO055.Arduino         	1.1.0   REDUNDANT
+subscribe_gatt_hrm.py               	1.0.4
+DC-1561_magnetic_surface_mount.ino  	1.0.0   REDUNDANT
+readme.md                           	1.1.0
+serial_example.py                   	1.0.0   REDUNDANT
+Heartrateexample.ino                	1.1.0
+wheeliemeter.ino                    	1.0.0   REDUNDANT
+project description                 	1.0.0   REDUNDANT
+
+
+
+2019.04.02  CHANGED WheelFeather+Mega.py 2.2.0
+  Changed the value arbeid to DeltaX.
+  Changed output from gyro values to speed calculation.
+  Changed dimensions to facilitate Kcal sending.
+
+2019.04.01  Chairbase.ino                       	3.3.0 
+  Added calculation of used Joules based on Accel X.
+  Added convertion to Kcal.
+
+2019.04.01  CHANGED bno055_gatt_distance_measurement.ino 1.1.0
+  Removed sending arbeid value, only send DeltaX to Raspberry Pi.
+
+2019.04.01  CHANGED Collect_and_label.py 2.0.0
+  Combined example collect and label with wheelfeather+mega file.
+  Rewrite property creation and dimensions.
+  PROBLEM data collection over Serial and Bluetooth cannot run simultaneously.
+
+2019.04.01  DEBUG WheelFeather+Mega.py 2.1.1
+  Debugged the arbeid value format.
+  
+2019.03.25  ADDED WheelFeather+Mega.py 2.1.0
+  Added dimension to correctly communicate with Bluefruit Feather.
+
+2019.03.25  ADDED bno055_gatt_distance_measurement.ino 1.0.0
+  Added arbeid calculation.
+  Sends arbeid value to Raspberry Pi.
+
+2019.03.25  ADDED Collect_and_label.py 1.0.0
+  Added correct labels.
+
+2019.03.25  ADDED Chairbase.ino 3.1.0
+  Wheelie angle calibration.
+  Wheelie angle accuracy.
 
 2019.03.18  CHANGED Chairbase.ino 3.0.0
   Added heartrate display by LED ring.
 
 2019.03.18  CHANGED WheelFeather+Mega.py 2.0.0 (WheelFeather+MegaV1.py)
   Fixed numerous connectivity issues.
+  Solved data formatting issues.
   Confirmed working prototype.
+  Added threading.
 
 2019.03.11 CHANGED ChairBase.ino 2.1.0
   Added property marker.
