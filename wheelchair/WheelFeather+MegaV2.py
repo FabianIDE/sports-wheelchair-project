@@ -172,42 +172,41 @@ my_property_HRM = my_thing.find_property_by_name("My heart rate measurement 1")
 # Show the property
 #print(my_property.to_json())
 
-def startHRM():
-    # Spawn a child process with gatttool to control your BLE device.
-    #Your hrm uses random addressing like most BLE devices.
-    #gatttool is the application within debian(your rpi operating system)
-    #to communicate with BLE devices. Other single alhabets are flags that you do
-    #do not need to know of
-    child = pexpect.spawn("sudo gatttool -t random -b {0} -I".format(hrmMacAddress) )
+# Spawn a child process with gatttool to control your BLE device.
+#Your hrm uses random addressing like most BLE devices.
+#gatttool is the application within debian(your rpi operating system)
+#to communicate with BLE devices. Other single alhabets are flags that you do
+#do not need to know of
+child = pexpect.spawn("sudo gatttool -t random -b {0} -I".format(hrmMacAddress) )
 
-    #Connect to hrm
-    print("Searching for HRM")
-    print("Connecting...")
+#Connect to hrm
+print("Searching for HRM")
+print("Connecting...")
 
-    # The number of times you want to retry connecting before you give up
-    RETRY_CONNECTION = 3
+# The number of times you want to retry connecting before you give up
+RETRY_CONNECTION = 3
 
-    while True:
-        try:
-            child.sendline("connect")
-            child.expect("Connection successful", timeout=10)
-        except pexpect.TIMEOUT:
-            RETRY_CONNECTION = RETRY_CONNECTION - 1
-            if (RETRY_CONNECTION > 0):
-                print("timeout, trying again")
-                continue
-            else:
-                print("timeout, giving up.")
-                time.sleep(1)
-                break
+while True:
+    try:
+        child.sendline("connect")
+        child.expect("Connection successful", timeout=10)
+    except pexpect.TIMEOUT:
+        RETRY_CONNECTION = RETRY_CONNECTION - 1
+        if (RETRY_CONNECTION > 0):
+            print("timeout, trying again")
+            continue
         else:
-            print("Connected!")
+            print("timeout, giving up.")
             time.sleep(1)
             break
+    else:
+        print("Connected!")
+        time.sleep(1)
+        break
 
-    #enable notification. 0x000f is found experimentally. You do not need to know this bit
-    #unless you are curious. 0100 is to switch on notifications for the particular characteristic.
-    child.sendline("char-write-req 0x000f 0100")
+#enable notification. 0x000f is found experimentally. You do not need to know this bit
+#unless you are curious. 0100 is to switch on notifications for the particular characteristic.
+child.sendline("char-write-req 0x000f 0100")
 
 #end of hrm code
 
@@ -252,9 +251,6 @@ def start_HRM():
             # Unsubscribe from characteristic before exiting program
             child.sendline("char-write-req 0x000f 0000")
             exit(0)
-            
-
-
 
 thread_gatt = Thread(target=start_gatt)
 thread_gatt.start()
