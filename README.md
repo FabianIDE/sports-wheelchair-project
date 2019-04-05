@@ -130,13 +130,9 @@ __*OUTPUT*__
 * Basic information on Grafana
 * LED ring indicating fatigue and heartbeat
 
-__*OPTIONAL EXPANTION*__
-* A webapp showing the live position and direction of players
-
-
 ## SENSORS
 
-To archieve the project goal, data will be collected using the following sensors.
+To achieve the project goal, data will be collected using the following sensors.
 
 __*INPUT*__
 * Orientation sensor
