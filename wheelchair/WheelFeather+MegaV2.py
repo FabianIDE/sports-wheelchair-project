@@ -252,7 +252,7 @@ def start_HRM():
             child.sendline("char-write-req 0x000f 0000")
             exit(0)
         if (intvalue == 0):
-
+            print("HRM is ZERO")
             # Spawn a child process with gatttool to control your BLE device.
             #Your hrm uses random addressing like most BLE devices.
             #gatttool is the application within debian(your rpi operating system)
