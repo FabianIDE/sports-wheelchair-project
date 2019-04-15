@@ -10,7 +10,7 @@ The components and their connections are listed below.
 
 **Location**
 
-The wheelchair main frame  .
+The wheelchair main frame.
 
 **Script**
 
