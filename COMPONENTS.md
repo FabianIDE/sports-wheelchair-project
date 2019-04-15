@@ -11,66 +11,124 @@
 
 The components and their connections are listed below.
 
-* ARDUINO MEGA
+##### ARDUINO MEGA
 
-   Location: the wheelchair main frame  
-   Script:	Chairbase.ino  
-   Connected to: 	RASPBERRY PI (Physical, USB B)  
-    							RING (Physical, wires)  
-   								BNO055 (Physical, wires)  
+*Location*
+
+The wheelchair main frame  
+
+*Script*
+
+Chairbase.ino  
+
+*Connected to*
+
+1.	RASPBERRY PI (Physical, USB B
+1.	RING (Physical, wires
+1.	BNO055 (Physical, wires)  
 
 
-* ADAFRUIT FEATHER BLUEFRUIT
-   Location: the right wheel
-   Script:Rightsportswheelblefeather.ino  
-   Connected to: 		RASPBERRY PI (Bluetooth connection)
-  									BNO055 (Physical, wires)
-  									POWERBANK (Physical, Micro USB)
+##### ADAFRUIT FEATHER BLUEFRUIT
 
-* RASPBERRY PI
+*Location*
 
-   Location: the wheelchair main frame
-   Script:Rpi_sportswheelchair.py
-   Connected to: 	ARDUINO MEGA (Physical, wires)
-  								POWERBANK (Physical, Micro USB)
+The right wheel.
 
-* LED RING
-   Location: the back of wheelchair backseat
-   Connected to:		ARDUINO MEGA (Physical, wires)
+*Script*
 
-* BNO055 IMU x2
+Rightsportswheelblefeather.ino  
 
-   Location: the center turning point of the wheelchair
-   Location: the center turning point of the right wheel
-   Connected to:		ARDUINO MEGA (Physical, wires)
-  									ADAFRUIT FEATHER (Physical, wires)
+*Connected to*
 
-* HEARTRATE MONITOR WRISTBAND (MIO LINK)
+1. RASPBERRY PI (Bluetooth connection
+1. BNO055 (Physical, wires)
+1. POWERBANK (Physical, Micro USB)
 
-   Location: the user's wrist.
-   Connected to:		RASPBERRY PI (Bluetooth)
+##### RASPBERRY PI
 
-* POWERBANK x2
+*Location*
 
-   Location:	the wheelchair main frame
-   Location: the right wheel
-   Connected to:		RASPBERRY PI (Physical, USB)
-  									ADAFRUIT FEATHER (Physical, Micro USB)
+The wheelchair main frame.
 
-* USB CABLE
+*Script*
 
-   Location: between Raspberry Pi and Powerbank
+Rpi_sportswheelchair.py
 
-* MICRO USB CABLE
+*Connected to*
 
-   Location: between Adafruit Bluefruit and Powerbank
+1. ARDUINO MEGA (Physical, wires)
+1. POWERBANK (Physical, Micro USB)
 
-* USB B CABLE
+##### LED RING
 
-   Location: between Raspberry Pi and Arduino Mega.
+*Location*
 
-* MALE - MALE JUMPERWIRES
+The back of the wheelchair backseat.
 
-* FEMALE - MALE JUMPERWIRES
+*Connected to*
 
-* HEADERS BNO055
+1. ARDUINO MEGA (Physical, wires)
+
+##### BNO055 IMU x2
+
+*Location*
+
+The center turning point of the wheelchair.
+
+*Location*
+
+The center turning point of the right wheel.
+
+*Connected to*		
+
+1. ARDUINO MEGA (Physical, wires)
+1. ADAFRUIT FEATHER (Physical, wires)
+
+##### HEARTRATE MONITOR WRISTBAND (MIO LINK)
+
+*Location*
+
+The user's wrist.
+
+*Connected to*
+
+1. RASPBERRY PI (Bluetooth)
+
+##### POWERBANK x2
+
+*Location*
+
+The wheelchair main frame.
+
+*Location*
+
+The right wheel.
+
+*Connected to*		
+
+1. RASPBERRY PI (Physical, USB)
+1. ADAFRUIT FEATHER (Physical, Micro USB)
+
+##### USB CABLE
+
+*Location*
+
+Between the Raspberry Pi and the Powerbank.
+
+##### MICRO USB CABLE
+
+*Location*
+
+Between the Adafruit Bluefruit and the Powerbank
+
+##### USB B CABLE
+
+*Location*
+
+Between the Raspberry Pi and the Arduino Mega.
+
+##### MALE - MALE JUMPERWIRES
+
+##### FEMALE - MALE JUMPERWIRES
+
+##### HEADERS BNO055
