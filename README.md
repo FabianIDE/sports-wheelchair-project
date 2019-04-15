@@ -32,6 +32,10 @@ __*OUTPUT*__
    * fitness rating (calculated from spent kcal versus heartrate)
    * tilt angle (wheelie meter)					
 
+   ![](Images/grafanascreenshot.png)
+
+
+# System architecture
 
 	 ![](Images/System-architecture_v2.png)
 
