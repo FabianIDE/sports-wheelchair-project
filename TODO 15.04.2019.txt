@@ -1,15 +1,18 @@
 -	Update GitHub documentation
 	-	A person should be able to read and reproduce the prototype in a few hours
 
--	What does the prototype do
+-	What does the prototype do	FABIAN
 	-	Story
 	-	Video
 	-	Poster
 
--	What code is running where
-	-	What is the purpose of the code
-	-	Remove unneccesary code
 
--	Instructions to install python dependencies
+-	What code is running where	DANIEL
+	-	What is the purpose of the code
+	-	Remove unnecessary code
+
+
+-	Instructions to install python dependencies MAX
+
 
 -	Wiring of hardware
