@@ -17,7 +17,7 @@
 Download and install the (latest) Arduino software from the Arduino website (we used v 1.8.5) https://www.arduino.cc/en/Main/Software
 
 
-#### Boards
+##### Boards
 The Arduino IDE already comes with everything needed for the Arduino Mega.
 
 The Bluefruit board does need to be added manually:
@@ -28,12 +28,12 @@ Install both the "adafruit AVR boards" and the "Adafruit nRF52".
 
 Now the bluefruit should show up in your Tools -> Boards listed.
 
-#### Libraries
+##### Libraries
 In order to run the arduino sketches on this repository, the following libraries need to be install through Sketch -> Include Library -> Manage Libraries.
 Search for "bluefruit nFF51" and click install.
 Search for "adafruit BNO055" and click install.
 
-#### Upload sketches
+##### Upload sketches
 Upload the latest code in the SportsTracker_V1_Stable -> Arduino Mega folder to the Arduino Mega through the Arduino IDE.
 
 Upload the latest code in the SportsTracker_V1_Stable -> BLE_Feather folder to the Bluefruit through the Arduino IDE.
@@ -43,7 +43,8 @@ Upload the latest code in the SportsTracker_V1_Stable -> BLE_Feather folder to t
 
 Power up and connect to your Raspberry Pi in the way you prefer (i.e. over SSH or connect it to a monitor)
 
-Then install the requirements as listed in the requirements.txt file through its terminal
+##### Install python requirements
+Install the requirements as listed in the requirements.txt file through its terminal
 
 On Mac:
 ```bash
