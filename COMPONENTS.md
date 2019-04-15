@@ -15,117 +15,117 @@ The components and their connections are listed below.
 
 *Location*
 
-	 the wheelchair main frame  
+The wheelchair main frame  
 
 *Script*
 
-	 Chairbase.ino  
+Chairbase.ino  
 
 *Connected to*
 
-	 1.	RASPBERRY PI (Physical, USB B
-	 1.	RING (Physical, wires
-	 1.	BNO055 (Physical, wires)  
+1.	RASPBERRY PI (Physical, USB B
+1.	RING (Physical, wires
+1.	BNO055 (Physical, wires)  
 
 
 ##### ADAFRUIT FEATHER BLUEFRUIT
 
 *Location*
 
-	 the right wheel
+The right wheel
 
 *Script*
 
-	 Rightsportswheelblefeather.ino  
+Rightsportswheelblefeather.ino  
 
 *Connected to*
 
-	 RASPBERRY PI (Bluetooth connection
-	 BNO055 (Physical, wires)
-   POWERBANK (Physical, Micro USB)
+RASPBERRY PI (Bluetooth connection
+BNO055 (Physical, wires)
+POWERBANK (Physical, Micro USB)
 
 ##### RASPBERRY PI
 
 *Location*
 
-	 the wheelchair main frame
+The wheelchair main frame
 
 *Script*
 
-	 Rpi_sportswheelchair.py
+Rpi_sportswheelchair.py
 
 *Connected to*
 
-	 ARDUINO MEGA (Physical, wires)
+ARDUINO MEGA (Physical, wires)
    POWERBANK (Physical, Micro USB)
 
 ##### LED RING
 
 *Location*
 
-	 the back of wheelchair backseat
+The back of wheelchair backseat
 
 *Connected to*
 
-	 ARDUINO MEGA (Physical, wires)
+ARDUINO MEGA (Physical, wires)
 
 ##### BNO055 IMU x2
 
 *Location*
 
-		the center turning point of the wheelchair
+The center turning point of the wheelchair
 
 *Location*
 
-		the center turning point of the right wheel
+The center turning point of the right wheel
 
 *Connected to*		
 
-		ARDUINO MEGA (Physical, wires)
-  	ADAFRUIT FEATHER (Physical, wires)
+ARDUINO MEGA (Physical, wires)
+ADAFRUIT FEATHER (Physical, wires)
 
 ##### HEARTRATE MONITOR WRISTBAND (MIO LINK)
 
 *Location*
 
-	 the user's wrist.
+The user's wrist.
 
 *Connected to*
 
-	 RASPBERRY PI (Bluetooth)
+RASPBERRY PI (Bluetooth)
 
 ##### POWERBANK x2
 
 *Location*
 
-	 the wheelchair main frame
+The wheelchair main frame
 
 *Location*
 
-	 the right wheel
+The right wheel
 
 *Connected to*		
 
-	 RASPBERRY PI (Physical, USB)
+RASPBERRY PI (Physical, USB)
    ADAFRUIT FEATHER (Physical, Micro USB)
 
 ##### USB CABLE
 
 *Location*
 
-	 between Raspberry Pi and Powerbank
+between Raspberry Pi and Powerbank
 
 ##### MICRO USB CABLE
 
 *Location*
 
-	 between Adafruit Bluefruit and Powerbank
+between Adafruit Bluefruit and Powerbank
 
 ##### USB B CABLE
 
 *Location*
 
-	 between Raspberry Pi and Arduino Mega.
+between Raspberry Pi and Arduino Mega.
 
 ##### MALE - MALE JUMPERWIRES
 
