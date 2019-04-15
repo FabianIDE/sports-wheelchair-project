@@ -11,8 +11,6 @@
 
 To achieve the project goal, data will be collected using the following sensors.
 
-__*INPUT*__
-
 *Orientation sensor*
 
 The orientation sensor consists of a gyroscope, accelerometers and magnetometers. The standard module from Adafruit will provide the relative position the sensor is in, with which the direction of travel, can be determined. Combined with the speedometer, the position relative to the starting position can be determined.
@@ -27,8 +25,6 @@ An expansion on the wheelchair project is a heartrate monitor wearable. This can
 ## ACTUATORS
 
 To communicate the gained insights back to the user, the wheelchair will use certain actuators to notify the user.
-
-__*OUTPUT*__
 
 *RGB LED ring (Neopixel)*
 
