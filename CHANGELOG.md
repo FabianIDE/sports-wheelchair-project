@@ -1,3 +1,11 @@
+## PROJECT DOCUMENTATION
+
+* [Sensors & Actuators](SENSORS_ACTUATORS.md)
+* [Components](COMPONENTS.md)
+* [Installation](INSTALLATION.md)
+* [Testing](TESTING.md)
+* [Changelog](changelog.md)
+
 Changelog for the sports wheelchair project.
 
 2019.04.02
@@ -11,7 +19,7 @@ BluefruitConfig.h                   	1.0.0
 WheelFeatherEulerx_Gyroz.ino        	1.0.0   REDUNDANT
 Subscribe_GATT_orientation.py       	1.0.0   REDUNDANT
 bno055_gatt_orientation.ino         	1.0.0   REDUNDANT
-Chairbase.ino                       	3.1.0 
+Chairbase.ino                       	3.1.0
 subscribe_hrm_pexpect.py            	1.0.1
 wieldraaiing.ino                    	2.0.0   REDUNDANT
 Arduino_code_BNO055.Arduino         	1.1.0   REDUNDANT
@@ -30,7 +38,7 @@ project description                 	1.0.0   REDUNDANT
   Changed output from gyro values to speed calculation.
   Changed dimensions to facilitate Kcal sending.
 
-2019.04.01  Chairbase.ino                       	3.3.0 
+2019.04.01  Chairbase.ino                       	3.3.0
   Added calculation of used Joules based on Accel X.
   Added convertion to Kcal.
 
@@ -44,7 +52,7 @@ project description                 	1.0.0   REDUNDANT
 
 2019.04.01  DEBUG WheelFeather+Mega.py 2.1.1
   Debugged the arbeid value format.
-  
+
 2019.03.25  ADDED WheelFeather+Mega.py 2.1.0
   Added dimension to correctly communicate with Bluefruit Feather.
 
