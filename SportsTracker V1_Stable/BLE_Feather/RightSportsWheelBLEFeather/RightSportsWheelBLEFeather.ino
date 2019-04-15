@@ -42,6 +42,7 @@ float Speed = 0;
 float ArbeidDiff = 0;
 //float ArbeidOld = 0;
 //float ArbeidTotal = 0;
+int Inactive = 0;
 
 
 #if SOFTWARE_SERIAL_AVAILABLE
@@ -100,13 +101,14 @@ void setup(void) {
   analogWrite(LED_PIN, LOW);
   Serial.begin(115200);
 
+  
+   // Setup the BNO055 sensor
+  initSensor();
+
   // Initialise the module
   if ( !ble.begin(VERBOSE_MODE) ) {
     error(F("Couldn't find Bluefruit, make sure it's in CoMmanD mode & check wiring."));
   }
-
-   // Setup the BNO055 sensor
-  initSensor();
 
   // Perform a factory reset to make sure everything is in a known state
   if (!ble.factoryReset() ){
@@ -180,7 +182,24 @@ void orientation() {
 
     wheel_distance = -1*wheel_angle_rotation/360*1.850;
 
+Serial.print("wheel angle diff=");
+Serial.println(wheel_angle_difference);
+  if (wheel_angle_difference > 2) {                    //set amount of joule defined as inactvity of wheelchair
+     Inactive = 0;                         //set counter to 0
+  }
 
+  else {
+    Inactive ++;
+  }
+
+  if (Inactive >= 100){                 //set interactivy counter in 10ths of sec.
+    wheel_angle_rotation = 0;
+    Inactive = 100;
+  }
+Serial.print("inactive=");
+Serial.println (Inactive);
+Serial.print("wheel distance=");
+Serial.println(wheel_distance);
 
   // Get Gyro data
   imu::Vector<3> Gyro = bno.getVector(Adafruit_BNO055::VECTOR_GYROSCOPE);
@@ -189,7 +208,7 @@ void orientation() {
   //arbeid in joule is W = m * a * delta_x
 
   DeltaX = wheel_angle_difference/360*1.850; //convert angular diff to linear diff
-  Speed = GyroZ*radiuswiel;
+  Speed = -GyroZ*radiuswiel/57.2958*3.6;
   //ArbeidDiff = abs(Weight*LinearAccel*DeltaX);
   //ArbeidTotal = ArbeidDiff + ArbeidOld;
   Serial.println(DeltaX);

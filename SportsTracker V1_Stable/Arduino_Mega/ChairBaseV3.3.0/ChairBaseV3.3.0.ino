@@ -44,7 +44,7 @@ unsigned long ontime = 200;                     // time the LED is on at blinkin
 //Variables for energy counter
 int Weight = 75; //set weight of athlete incl chair
 float DeltaX_float = 0;
-long Joules_max = 50000; // set Joules amount of 1 full LED ring //defide by 4184 to get Kcal
+long Joules_max = 5000; // set Joules amount of 1 full LED ring //defide by 4184 to get Kcal
 long Energy = 0;
 int Energy_ON = 0;
 float Joules = 0;
@@ -153,7 +153,8 @@ if(Serial.available() > 0){                   // Read serial port
 
   if (Joules > 5) {                    //set amount of joule defined as inactvity of wheelchair
     Inactive = 0;                         //set counter to 0
-    Fitness = KcalTotal/HR_int*4184*10000;      //Only update when active
+    
+    Fitness = ((KcalTotal*4184)/(HR_int-40*10)*10000);      //Only update when active
 
   }
 
@@ -163,6 +164,7 @@ if(Serial.available() > 0){                   // Read serial port
 
   if (Inactive >= 200){                 //set interactivy counter in 10ths of sec.
     KcalTotal = 0;
+    Energy = Joules_max;
     Inactive = 200;
   }
 
