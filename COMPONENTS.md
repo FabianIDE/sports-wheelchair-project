@@ -15,9 +15,10 @@ The components and their connections are listed below.
 
    Location: the wheelchair main frame  
    Script:	Chairbase.ino  
-   Connected to: 	RASPBERRY PI (Physical, USB B)  
-    							RING (Physical, wires)  
-   								BNO055 (Physical, wires)  
+   Connected to:
+	 1.	RASPBERRY PI (Physical, USB B
+	 1.	RING (Physical, wires
+	 1.	BNO055 (Physical, wires)  
 
 
 * ADAFRUIT FEATHER BLUEFRUIT
