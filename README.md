@@ -10,7 +10,7 @@ For example, the current system allows a coach to view the energy the player has
 
 ![](Images/Poster_v1.0.0.jpg)
 
-<center><iframe width="560" height="315" src="https://www.youtube.com/embed/18dqL9SPFqQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/18dqL9SPFqQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 # Current functionality
 
