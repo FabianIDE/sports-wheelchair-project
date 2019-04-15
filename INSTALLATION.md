@@ -4,7 +4,7 @@
 
 ## INSTALLATION
 
- After collecting all the components as specified in [Components](COMPONENTS.md), follow these steps how to set everything up!
+ After collecting all the components as specified in [Components](COMPONENTS.md), follow these steps how to set everything up.
 
 ### Arduino
 
