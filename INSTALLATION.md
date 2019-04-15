@@ -40,7 +40,6 @@ Power up and connect to your Raspberry Pi in the way you prefer (i.e. over SSH o
 ###### Install python requirements
 Install the requirements as listed in the requirements.txt file through its terminal
 
-On Mac:
 ```bash
 pip3 install -r requirements.txt --user
 ```
