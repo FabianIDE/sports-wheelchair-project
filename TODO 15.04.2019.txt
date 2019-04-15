@@ -5,7 +5,7 @@
 	-	Story													CHECK
 	-	Video													NEEDS TO BE UPLOADED BY DANIEL
 	-	Poster
-	- What tests have we done				
+	- What tests have we done				CHECK
 	- Who contributed
 	-	Github markup
 	- Github pages???
