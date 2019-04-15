@@ -15,7 +15,7 @@ The components and their connections are listed below.
 
 **Location**
 
-The wheelchair main frame  
+The wheelchair main frame  .
 
 **Script**
 
@@ -119,7 +119,7 @@ Between the Raspberry Pi and the Powerbank.
 
 **Location**
 
-Between the Adafruit Bluefruit and the Powerbank
+Between the Adafruit Bluefruit and the Powerbank.
 
 ##### USB B CABLE
 
