@@ -103,9 +103,6 @@ Put the Heartbeat sensor on your wrist, then push and hold the button to turn it
 ![](Images/Photos/IMG_20190405_153005.jpg)
 
 
-
-
-
 ##### Below the chair
 
 The Arduino Mega must be connected to the other BNO055 and the LED ring. Use the following schematics to do so:
