@@ -2,7 +2,7 @@
 
 [Project Description](README.md) - [Sensors & Actuators](SENSORS_ACTUATORS.md) - [Components](COMPONENTS.md) - [Installation](INSTALLATION.md) - [Testing](TESTING.md) -* [Changelog](CHANGELOG.md)
 
-Changelog for the sports wheelchair project.
+## CHANGELOG
 
 2019.04.02
 

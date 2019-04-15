@@ -2,7 +2,6 @@
 
 [Project Description](README.md) - [Sensors & Actuators](SENSORS_ACTUATORS.md) - [Components](COMPONENTS.md) - [Installation](INSTALLATION.md) - [Testing](TESTING.md) -  [Changelog](CHANGELOG.md)
 
-
 ## INSTALLATION
 
  After collecting all the components as specified in [Components](COMPONENTS.md), follow these steps how to set everything up!
