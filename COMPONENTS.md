@@ -13,16 +13,16 @@ The components and their connections are listed below.
 
 * ARDUINO MEGA
 
-   Location: the wheelchair main frame
-   Script:	Chairbase.ino
-   Connected to: 	RASPBERRY PI (Physical, USB B)
-									LED RING (Physical, wires)
-									BNO055 (Physical, wires)
+   Location: the wheelchair main frame  
+   Script:	Chairbase.ino  
+   Connected to: 	RASPBERRY PI (Physical, USB B)  
+    							RING (Physical, wires)  
+   								BNO055 (Physical, wires)  
 
 
 * ADAFRUIT FEATHER BLUEFRUIT
    Location: the right wheel
-   Script:Rightsportswheelblefeather.ino
+   Script:Rightsportswheelblefeather.ino  
    Connected to: 		RASPBERRY PI (Bluetooth connection)
   									BNO055 (Physical, wires)
   									POWERBANK (Physical, Micro USB)
