@@ -40,8 +40,6 @@ float radiuswiel = 0.294;
 float DeltaX = 0;
 float Speed = 0;
 float ArbeidDiff = 0;
-//float ArbeidOld = 0;
-//float ArbeidTotal = 0;
 int Inactive = 0;
 
 
@@ -84,24 +82,15 @@ void initSensor(void) {
   bno.setExtCrystalUse(true);
 }
 
-// Sets up the HW an the BLE module (this function is called
-// automatically on startup)
-
-
-
-
 
 void setup(void) {
   delay(500);
-  boolean success;
-
-  // Set LED error flag
+  boolean success;  // Set LED error flag
 
   pinMode(LED_PIN, OUTPUT);
   analogWrite(LED_PIN, LOW);
   Serial.begin(115200);
 
-  
    // Setup the BNO055 sensor
   initSensor();
 
@@ -163,14 +152,12 @@ void orientation() {
     if (wheel_angle_previous<100 && wheel_angle_poll>200)
       {
         wheel_angle_difference = 360-wheel_angle_poll+wheel_angle_previous;
-                //Serial.println ("backward");
       }
 
 // wheel moving forwards
     else if (wheel_angle_previous>200 && wheel_angle_poll<100)
       {
         wheel_angle_difference = -1*(wheel_angle_poll+360-wheel_angle_previous);
-        //Serial.println ("forward");
       }
 
      else {
@@ -205,20 +192,11 @@ Serial.println(wheel_distance);
   imu::Vector<3> Gyro = bno.getVector(Adafruit_BNO055::VECTOR_GYROSCOPE);
   float GyroZ = Gyro.z();
 
-  //arbeid in joule is W = m * a * delta_x
-
   DeltaX = wheel_angle_difference/360*1.850; //convert angular diff to linear diff
   Speed = -GyroZ*radiuswiel/57.2958*3.6;
-  //ArbeidDiff = abs(Weight*LinearAccel*DeltaX);
-  //ArbeidTotal = ArbeidDiff + ArbeidOld;
   Serial.println(DeltaX);
-  //Serial.println(LinearAccel);
-  //Serial.println(ArbeidOld);
-  //Serial.println(ArbeidDiff);
-  //Serial.println(ArbeidTotal);
 
   // Command is sent when \n (\r) or println is called
-  // AT+GATTCHAR=CharacteristicID,value
   ble.print( F("AT+GATTCHAR=") );
   ble.print( orientationCharId );
   ble.print( F(",") );
@@ -228,17 +206,8 @@ Serial.println(wheel_distance);
   ble.print( F(",") );
   ble.println(String(DeltaX));
 
-
-
-  //ble.println(String(eulerY));
-
   wheel_angle_previous = wheel_angle_poll;
- // ArbeidOld = ArbeidTotal;
-
-
 }
-
-
 
 
 void loop(void) {
