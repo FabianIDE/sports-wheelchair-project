@@ -1,6 +1,7 @@
-#INSTALLATION
+##INSTALLATION
 
-The collection of data and the display of user performance is achieved by the use of multiple components.
+ After collecting all the components as specified in [Components](workshops/GettingStarted.md)
+
 
 STEPS
 1.	Download 	the folllowing files from github (wheelchair-design-platform/SportsTracker_V1_Stable):
