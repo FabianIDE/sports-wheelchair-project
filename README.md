@@ -1,5 +1,11 @@
 ﻿#Weelchair tracking for basketball players
 
+* [Sensors & Actuators](SENSORS_ACTUATORS.md)
+* [Components](COMPONENTS.md)
+* [Installation](INSTALLATION.md)
+* [Testing](TESTING.md)
+* [Changelog](changelog.md)
+
 
 ## PROJECT DESCRIPTION
 
