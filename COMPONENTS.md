@@ -1,4 +1,13 @@
+## PROJECT DOCUMENTATION
+
+* [Sensors & Actuators](SENSORS_ACTUATORS.md)
+* [Components](COMPONENTS.md)
+* [Installation](INSTALLATION.md)
+* [Testing](TESTING.md)
+* [Changelog](changelog.md)
+
 #COMPONENTS
+---
 
 The components and their connections are listed below.
 

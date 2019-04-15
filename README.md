@@ -1,4 +1,4 @@
-﻿#Weelchair tracking for basketball players
+## PROJECT DOCUMENTATION
 
 * [Sensors & Actuators](SENSORS_ACTUATORS.md)
 * [Components](COMPONENTS.md)
@@ -6,9 +6,7 @@
 * [Testing](TESTING.md)
 * [Changelog](changelog.md)
 
-
 ## PROJECT DESCRIPTION
-
 
 The goal of this project is to create a smart sports wheelchair which is able to monitor the consumed energy of a wheelchair basketball player in real time. This provides valuable insights for player and coach during training exercises. For example, the current system allows a coach to view the energy the player has spent in relation to the heartrate of the user. The system then determines the fitness level of the user based on these parameters.
 

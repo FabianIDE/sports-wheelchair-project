@@ -1,3 +1,11 @@
+## PROJECT DOCUMENTATION
+
+* [Sensors & Actuators](SENSORS_ACTUATORS.md)
+* [Components](COMPONENTS.md)
+* [Installation](INSTALLATION.md)
+* [Testing](TESTING.md)
+* [Changelog](changelog.md)
+
 ## SENSORS
 
 To achieve the project goal, data will be collected using the following sensors.
