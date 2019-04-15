@@ -1,23 +1,24 @@
 -	Update GitHub documentation
 	-	A person should be able to read and reproduce the prototype in a few hours
 
--	What does the prototype do	FABIAN
-	-	Story													CHECK
-	-	Video													NEEDS TO BE UPLOADED BY DANIEL
-	-	Poster
-	- What tests have we done				CHECK
-	- Who contributed								CHECK
-	-	Github markup
-	- Github pages 									CHECK
+FABIAN
+	-	Story															CHECK
+	-	Video															NEEDS TO BE UPLOADED BY DANIEL
+	-	Poster														CHECK
+	- What tests have we done						CHECK
+	- Who contributed										CHECK
+	-	Github markup											CHECK
+	- Github pages 											CHECK
 
 
--	What code is running where	DANIEL
-	-	What is the purpose of the code
-	-	Remove unnecessary code
+DANIEL
 	- Upload video
+	- Embed video in README.md page
 
 
 MAX
--	Instructions to install python dependencies CKECK
--	Wiring of hardware							CHECK
-		-	LED RING										CHECK
+	-	Instructions python dependencies 	CKECK
+	-	Wiring of hardware								CHECK
+	-	LED RING													CHECK
+	-	What is the purpose of the code
+	-	Remove unnecessary code						CHECK
