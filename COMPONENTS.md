@@ -32,7 +32,7 @@ Chairbase.ino
 
 *Location*
 
-The right wheel
+The right wheel.
 
 *Script*
 
@@ -40,15 +40,15 @@ Rightsportswheelblefeather.ino
 
 *Connected to*
 
-RASPBERRY PI (Bluetooth connection
-BNO055 (Physical, wires)
-POWERBANK (Physical, Micro USB)
+1. RASPBERRY PI (Bluetooth connection
+1. BNO055 (Physical, wires)
+1. POWERBANK (Physical, Micro USB)
 
 ##### RASPBERRY PI
 
 *Location*
 
-The wheelchair main frame
+The wheelchair main frame.
 
 *Script*
 
@@ -56,33 +56,33 @@ Rpi_sportswheelchair.py
 
 *Connected to*
 
-ARDUINO MEGA (Physical, wires)
-   POWERBANK (Physical, Micro USB)
+1. ARDUINO MEGA (Physical, wires)
+1. POWERBANK (Physical, Micro USB)
 
 ##### LED RING
 
 *Location*
 
-The back of wheelchair backseat
+The back of the wheelchair backseat.
 
 *Connected to*
 
-ARDUINO MEGA (Physical, wires)
+1. ARDUINO MEGA (Physical, wires)
 
 ##### BNO055 IMU x2
 
 *Location*
 
-The center turning point of the wheelchair
+The center turning point of the wheelchair.
 
 *Location*
 
-The center turning point of the right wheel
+The center turning point of the right wheel.
 
 *Connected to*		
 
-ARDUINO MEGA (Physical, wires)
-ADAFRUIT FEATHER (Physical, wires)
+1. ARDUINO MEGA (Physical, wires)
+1. ADAFRUIT FEATHER (Physical, wires)
 
 ##### HEARTRATE MONITOR WRISTBAND (MIO LINK)
 
@@ -92,40 +92,40 @@ The user's wrist.
 
 *Connected to*
 
-RASPBERRY PI (Bluetooth)
+1. RASPBERRY PI (Bluetooth)
 
 ##### POWERBANK x2
 
 *Location*
 
-The wheelchair main frame
+The wheelchair main frame.
 
 *Location*
 
-The right wheel
+The right wheel.
 
 *Connected to*		
 
-RASPBERRY PI (Physical, USB)
-   ADAFRUIT FEATHER (Physical, Micro USB)
+1. RASPBERRY PI (Physical, USB)
+1. ADAFRUIT FEATHER (Physical, Micro USB)
 
 ##### USB CABLE
 
 *Location*
 
-between Raspberry Pi and Powerbank
+Between the Raspberry Pi and the Powerbank.
 
 ##### MICRO USB CABLE
 
 *Location*
 
-between Adafruit Bluefruit and Powerbank
+Between the Adafruit Bluefruit and the Powerbank
 
 ##### USB B CABLE
 
 *Location*
 
-between Raspberry Pi and Arduino Mega.
+Between the Raspberry Pi and the Arduino Mega.
 
 ##### MALE - MALE JUMPERWIRES
 
