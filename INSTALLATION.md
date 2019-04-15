@@ -1,11 +1,6 @@
-## PROJECT DOCUMENTATION
+#### MENU
 
-* [Project Description](README.md)
-* [Sensors & Actuators](SENSORS_ACTUATORS.md)
-* [Components](COMPONENTS.md)
-* [Installation](INSTALLATION.md)
-* [Testing](TESTING.md)
-* [Changelog](CHANGELOG.md)
+[Project Description](README.md) - [Sensors & Actuators](SENSORS_ACTUATORS.md) - [Components](COMPONENTS.md) - [Installation](INSTALLATION.md) - [Testing](TESTING.md) -  [Changelog](CHANGELOG.md)
 
 
 ## INSTALLATION
