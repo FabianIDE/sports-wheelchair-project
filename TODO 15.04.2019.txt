@@ -4,11 +4,11 @@
 -	What does the prototype do	FABIAN
 	-	Story													CHECK
 	-	Video													NEEDS TO BE UPLOADED BY DANIEL
-	-	Poster												
+	-	Poster
 	- What tests have we done				CHECK
-	- Who contributed
+	- Who contributed								CHECK
 	-	Github markup
-	- Github pages???
+	- Github pages 									CHECK
 
 
 -	What code is running where	DANIEL
@@ -17,6 +17,7 @@
 	- Upload video
 
 
--	Instructions to install python dependencies MAX
--	Wiring of hardware
-		-	LED RING
+MAX
+-	Instructions to install python dependencies CKECK
+-	Wiring of hardware							CHECK
+		-	LED RING										CHECK
