@@ -2,7 +2,7 @@
 
 [Project Description](README.md) - [Sensors & Actuators](SENSORS_ACTUATORS.md) - [Components](COMPONENTS.md) - [Installation](INSTALLATION.md) - [Testing](TESTING.md) -  [Changelog](CHANGELOG.md)
 
-## SENSORS
+## SENSORS & ACTUATORS
 
 To achieve the project goal, data will be collected using the following sensors.
 

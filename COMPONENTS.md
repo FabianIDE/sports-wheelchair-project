@@ -2,7 +2,7 @@
 
 [Project Description](README.md) - [Sensors & Actuators](SENSORS_ACTUATORS.md) - [Components](COMPONENTS.md) - [Installation](INSTALLATION.md) - [Testing](TESTING.md) -  [Changelog](CHANGELOG.md)
 
-# COMPONENTS
+## COMPONENTS
 
 The components and their connections are listed below.
 

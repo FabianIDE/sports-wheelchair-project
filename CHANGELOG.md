@@ -2,7 +2,7 @@
 
 [Project Description](README.md) - [Sensors & Actuators](SENSORS_ACTUATORS.md) - [Components](COMPONENTS.md) - [Installation](INSTALLATION.md) - [Testing](TESTING.md) -* [Changelog](CHANGELOG.md)
 
-Changelog for the sports wheelchair project.
+## CHANGELOG
 
 2019.04.02
 
@@ -29,44 +29,44 @@ project description | 1.0.0 | REDUNDANT
 
 
 
-2019.04.02* CHANGED WheelFeather+Mega.py 2.2.0
+2019.04.02 CHANGED WheelFeather+Mega.py 2.2.0
 * Changed the value arbeid to DeltaX.
 * Changed output from gyro values to speed calculation.
 * Changed dimensions to facilitate Kcal sending.
 
-2019.04.01* Chairbase.ino* * * * * * * * * * *  	3.3.0
+2019.04.01 Chairbase.ino 3.3.0
 * Added calculation of used Joules based on Accel X.
 * Added convertion to Kcal.
 
-2019.04.01* CHANGED bno055_gatt_distance_measurement.ino 1.1.0
+2019.04.01 CHANGED bno055_gatt_distance_measurement.ino 1.1.0
 * Removed sending arbeid value, only send DeltaX to Raspberry Pi.
 
-2019.04.01* CHANGED Collect_and_label.py 2.0.0
+2019.04.01 CHANGED Collect_and_label.py 2.0.0
 * Combined example collect and label with wheelfeather+mega file.
 * Rewrite property creation and dimensions.
 * PROBLEM data collection over Serial and Bluetooth cannot run simultaneously.
 
-2019.04.01* DEBUG WheelFeather+Mega.py 2.1.1
+2019.04.01 DEBUG WheelFeather+Mega.py 2.1.1
 * Debugged the arbeid value format.
 
-2019.03.25* ADDED WheelFeather+Mega.py 2.1.0
+2019.03.25 ADDED WheelFeather+Mega.py 2.1.0
 * Added dimension to correctly communicate with Bluefruit Feather.
 
-2019.03.25* ADDED bno055_gatt_distance_measurement.ino 1.0.0
+2019.03.25 ADDED bno055_gatt_distance_measurement.ino 1.0.0
 * Added arbeid calculation.
 * Sends arbeid value to Raspberry Pi.
 
-2019.03.25* ADDED Collect_and_label.py 1.0.0
+2019.03.25 ADDED Collect_and_label.py 1.0.0
 * Added correct labels.
 
-2019.03.25* ADDED Chairbase.ino 3.1.0
+2019.03.25 ADDED Chairbase.ino 3.1.0
 * Wheelie angle calibration.
 * Wheelie angle accuracy.
 
-2019.03.18* CHANGED Chairbase.ino 3.0.0
+2019.03.18 CHANGED Chairbase.ino 3.0.0
 * Added heartrate display by LED ring.
 
-2019.03.18* CHANGED WheelFeather+Mega.py 2.0.0 (WheelFeather+MegaV1.py)
+2019.03.18 CHANGED WheelFeather+Mega.py 2.0.0 (WheelFeather+MegaV1.py)
 * Fixed numerous connectivity issues.
 * Solved data formatting issues.
 * Confirmed working prototype.
@@ -91,37 +91,37 @@ project description | 1.0.0 | REDUNDANT
 * Enabled bluetooth communication of Euler.x() and Gyro.z() data between Adafruit feather and Raspberry Pi.
 * Replaced wheeliemeter, DC-1561_magnetic_surface_mount,Arduino_code_BNO055, wielverdraaiing, bno055_gatt_orientation.
 
-2019.03.11* ADDED Subscribe_GATT_orientation.py 1.0.0
+2019.03.11 ADDED Subscribe_GATT_orientation.py 1.0.0
 * Enabled the transfer of orientation data between Arduino and Raspberry Pi.
 
-* 2019.03.11* bno055_gatt_orientation.Arduino 1.0.0
+* 2019.03.11 bno055_gatt_orientation.Arduino 1.0.0
 * Allowed connection between Adafruit_bluefruit and Raspberry Pi.
 
-2019.03.11* ADDED Chairbase.ino 1.0.0 (ChairBaseV1.ino)
+2019.03.11 ADDED Chairbase.ino 1.0.0 (ChairBaseV1.ino)
 * Added LED colour display possibilities.
 * Added Flashing in a set pattern.
 * Added rainbow colour display.
 * Added wheel rotation display by led colour change.
 
-2019.03.11* ADDED wielverdraaiing.ino 2.1.0 (wielverdraaiingV2_gyro)
+2019.03.11 ADDED wielverdraaiing.ino 2.1.0 (wielverdraaiingV2_gyro)
 * Added IMU gyroscope measurement outputs.
 
-2019.03.11* CHANGED subscribe_gatt_hrm.py 1.0.8
+2019.03.11 CHANGED subscribe_gatt_hrm.py 1.0.8
 * Changed bluetooth device name.
 
-2019.03.11* CHANGED wielverdraaiing.ino 2.1.0
+2019.03.11 CHANGED wielverdraaiing.ino 2.1.0
 * Changed the output to print euler.x() and euler.y().
 
-2019.03.11* CHANGED wielverdraaiing.ino 2.0.0 (wielverdraaiingV2.ino)
+2019.03.11 CHANGED wielverdraaiing.ino 2.0.0 (wielverdraaiingV2.ino)
 * Changed the use of quaternations to the use of euler angles.
 
-2019.03.08* FIXED subscribe_hrm_pexpect.py 1.0.1
+2019.03.08 FIXED subscribe_hrm_pexpect.py 1.0.1
 * Changed "RETRY_CONNECTION = 1" to "RETRY_CONNECTION = 2".
 
-2019.03.08* CHANGED Arduino_code_BNO055.ino 1.1.0
+2019.03.08 CHANGED Arduino_code_BNO055.ino 1.1.0
 * Added functionality which allows a LED ring to display the euler.x() angle.
 
-2019.03.08* ADDED wieldraaiing.ino 1.0.0
+2019.03.08 ADDED wieldraaiing.ino 1.0.0
 * Enabled rotation measurement of the right wheelchair wheel.
 * The meaning of outputted data is unclear.
 
@@ -143,35 +143,35 @@ project description | 1.0.0 | REDUNDANT
 2019.03.04 ADDED README.md 1.1.0
 * Added actuator description.
 
-2019.03.04* FIXED subscribe_gatt_hrm.pu 1.0.2
+2019.03.04 FIXED subscribe_gatt_hrm.pu 1.0.2
 * Solved naming issues to connect to the Heartrate monitor.
 
-2019.03.04* FIXED subscribe_gatt_hrm.py 1.0.1
+2019.03.04 FIXED subscribe_gatt_hrm.py 1.0.1
 * Changed the property_type to "ONE_DIMENSION".
 
-2019.03.04* ADDED subscribe_gatt_hrm.py 1.0.0
+2019.03.04 ADDED subscribe_gatt_hrm.py 1.0.0
 * Enabled communication between heartrate monitor and Raspberry Pi.
 * Changed name to "Heartrate monitor"
 
-2019.03.04* ADDED DC-1561_magnetic_surface_mount.ino 1.0.0
+2019.03.04 ADDED DC-1561_magnetic_surface_mount.ino 1.0.0
 * Enabled wheel rotation measurement by logging magnet passages.
 
-2019.03.04* ADDED readme.md 1.0.0
+2019.03.04 ADDED readme.md 1.0.0
 * Converted project description to readme.md.
 
-2019.03.04* CHANGED* Heartrateexample.ino 1.1.0
+2019.03.04 CHANGED Heartrateexample.ino 1.1.0
 * Changed the name of used Adafruit_bluefruit to Bluefruit_sportswheelchair.
 
-2019.03.04* ADDED serial_example.py 1.0.0
+2019.03.04 ADDED serial_example.py 1.0.0
 * Enabled communication between Arduino and DCD HUB using Raspberry Pi.
 
-2019.03.04* ADDED Heartrateexample.ino 1.0.0
+2019.03.04 ADDED Heartrateexample.ino 1.0.0
 * Enabled bluetooth connection for Adafruit_bluefruit.
 * Measured heartrate from heartrate monitor.
 
-2019.02.26* ADDED Wheeliemeter.ino 1.0.0
+2019.02.26 ADDED Wheeliemeter.ino 1.0.0
 * Measured euler.y from BNO055.
 * Measured button press.
 
-2019.02.25* ADDED project description 1.0.0
+2019.02.25 ADDED project description 1.0.0
 * Defined goals and required materials.
