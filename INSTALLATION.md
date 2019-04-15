@@ -64,6 +64,25 @@ pip3 install bluepy
 pip3 install pexpect
 ```
 
+We can use the command 'blescan' to scan the Bluetooth devices around. This way,
+you can retrieve your Feather 32u4 with its name and identify its MAC address.
+
+```bash
+sudo blescan
+```
+
+Copy the MAC address and paste in your .env file as a new environment variable
+'BLUETOOTH_DEVICE_MAC', for example:
+
+![blescan](Archive/Course_resources/docs/workshops/images/ws2_blescan.png)
+
+```bash
+BLUETOOTH_DEVICE_MAC=fb:48:5b:84:36:4a
+```
+
+
+
+
 
 ### Connecting all the components
 
@@ -85,6 +104,9 @@ Put the Heartbeat sensor on your wrist, then push and hold the button to turn it
 ![](Images/Photos/IMG_20190405_153005.jpg)
 
 
+
+
+
 #### Below the chair
 
 The Arduino Mega must be connected to the other BNO055 and the LED ring. Use the following schematics to do so:
@@ -92,9 +114,10 @@ The Arduino Mega must be connected to the other BNO055 and the LED ring. Use the
 ![](Images/ArduinoMega.png)
 
 Now mount the LED ring to the back of the wheelchair and the BNO055 in the orientation shown in the picture. The location of the Arduino mega itself is not as important.
+![](Images/ArduinoMega.png)
 
 ![](Images/Photos/IMG_20190408_144836.jpg)
-![](Images/ArduinoMega.png)
+
 
 
 Now mount the Raspberry Pi to the chair.
