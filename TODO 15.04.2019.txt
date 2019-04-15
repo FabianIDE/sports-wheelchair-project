@@ -10,6 +10,7 @@
 -	What code is running where	DANIEL
 	-	What is the purpose of the code
 	-	Remove unnecessary code
+	- Upload video
 
 
 -	Instructions to install python dependencies MAX
