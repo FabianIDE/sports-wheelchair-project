@@ -7,26 +7,25 @@ Changelog for the sports wheelchair project.
 2019.04.02
 
 Most updated versions
-First Header                         | version   |  Status
------------------------------------- | --------- |-------------
+
 bno055_gatt_distance_measurement.ino |	1.0.0    |
-Collect_and_label.py 		    	       |  1.0.0    |  REDUNDANT
-WheelFeather+Mega.py                 |  2.2.0    |
-BluefruitConfig.h                    |  1.0.0    |
-WheelFeatherEulerx_Gyroz.ino         |  1.0.0    |  REDUNDANT
-Subscribe_GATT_orientation.py        |  1.0.0    |  REDUNDANT
-bno055_gatt_orientation.ino          |  1.0.0    |  REDUNDANT
-Chairbase.ino                        |  3.1.0    |
-subscribe_hrm_pexpect.py             |  1.0.1    |
-wieldraaiing.ino                     |  2.0.0    |  REDUNDANT
-Arduino_code_BNO055.Arduino          |  1.1.0    |  REDUNDANT
-subscribe_gatt_hrm.py                |  1.0.4    |
-DC-1561_magnetic_surface_mount.ino   |  1.0.0    |  REDUNDANT
-readme.md                            |  1.1.0    |
-serial_example.py                    |  1.0.0    |  REDUNDANT
-Heartrateexample.ino                 |  1.1.0    |
-wheeliemeter.ino                     |  1.0.0    |  REDUNDANT
-project description                  |  1.0.0    |  REDUNDANT
+Collect_and_label.py | 1.0.0 | REDUNDANT
+WheelFeather+Mega.py | 2.2.0 |
+BluefruitConfig.h | 1.0.0 |
+WheelFeatherEulerx_Gyroz.ino | 1.0.0 | REDUNDANT
+Subscribe_GATT_orientation.py | 1.0.0 | REDUNDANT
+bno055_gatt_orientation.ino | 1.0.0    |  REDUNDANT
+Chairbase.ino | 3.1.0 |
+subscribe_hrm_pexpect.py | 1.0.1 |
+wieldraaiing.ino | 2.0.0 | REDUNDANT
+Arduino_code_BNO055.Arduino | 1.1.0 | REDUNDANT
+subscribe_gatt_hrm.py | 1.0.4 |
+DC-1561_magnetic_surface_mount.ino | 1.0.0 | REDUNDANT
+readme.md | 1.1.0 |
+serial_example.py | 1.0.0 | REDUNDANT
+Heartrateexample.ino | 1.1.0 |
+wheeliemeter.ino | 1.0.0 | REDUNDANT
+project description | 1.0.0 | REDUNDANT
 
 
 
