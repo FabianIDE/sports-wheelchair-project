@@ -17,7 +17,7 @@
 Download and install the (latest) Arduino software from the Arduino website (we used v 1.8.5) https://www.arduino.cc/en/Main/Software
 
 
-##### Boards
+###### Boards
 The Arduino IDE already comes with everything needed for the Arduino Mega.
 
 The Bluefruit board does need to be added manually:
@@ -28,12 +28,12 @@ Install both the "adafruit AVR boards" and the "Adafruit nRF52".
 
 Now the bluefruit should show up in your Tools -> Boards listed.
 
-##### Libraries
+###### Libraries
 In order to run the arduino sketches on this repository, the following libraries need to be install through Sketch -> Include Library -> Manage Libraries.
 Search for "bluefruit nFF51" and click install.
 Search for "adafruit BNO055" and click install.
 
-##### Upload sketches
+###### Upload sketches
 Upload the latest code in the SportsTracker_V1_Stable -> Arduino Mega folder to the Arduino Mega through the Arduino IDE.
 
 Upload the latest code in the SportsTracker_V1_Stable -> BLE_Feather folder to the Bluefruit through the Arduino IDE.
@@ -43,7 +43,7 @@ Upload the latest code in the SportsTracker_V1_Stable -> BLE_Feather folder to t
 
 Power up and connect to your Raspberry Pi in the way you prefer (i.e. over SSH or connect it to a monitor)
 
-##### Install python requirements
+###### Install python requirements
 Install the requirements as listed in the requirements.txt file through its terminal
 
 On Mac:
@@ -65,7 +65,7 @@ pip3 install bluepy
 pip3 install pexpect
 ```
 
-##### Scan for BLE for the feather and find its Adress
+###### Scan for BLE for the feather and find its Adress
 
 We can use the command 'blescan' to scan the Bluetooth devices around. This way,
 you can retrieve your Feather 32u4 with its name and identify its MAC address.
@@ -89,7 +89,7 @@ BLUETOOTH_DEVICE_MAC=fb:48:5b:84:36:4a
 
 ### Connecting all the components
 
-#### On the Wheel
+##### On the Wheel
 Connect the Bluefruit with some jumper wires to the BNO055 using this schematic:
 
 ![](Images/Image 3_feather+BNO.png)
@@ -102,7 +102,7 @@ The result should look something like this:
 
 ![](Images/Photos/IMG_20190405_152401.jpg)
 
-#### On your wrist
+##### On your wrist
 
 Put the Heartbeat sensor on your wrist, then push and hold the button to turn it on.
 ![](Images/Photos/IMG_20190405_153005.jpg)
@@ -111,7 +111,7 @@ Put the Heartbeat sensor on your wrist, then push and hold the button to turn it
 
 
 
-#### Below the chair
+##### Below the chair
 
 The Arduino Mega must be connected to the other BNO055 and the LED ring. Use the following schematics to do so:
 
