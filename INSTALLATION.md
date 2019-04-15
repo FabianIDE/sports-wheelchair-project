@@ -58,22 +58,22 @@ pip3 install bluepy
 pip3 install pexpect
 ```
 
-###### Scan for BLE for the feather and find its Adress
+###### Scan for BLE for the feather and HRM to find MAC address
 
-We can use the command 'blescan' to scan the Bluetooth devices around. This way,
-you can retrieve your Feather 32u4 with its name and identify its MAC address.
+We can use the command 'blescan' to scan the Bluetooth devices around. This way,you can retrieve your Feather 32u4 and the HRM (Mio link) and identify its MAC address.
 
 ```bash
 sudo blescan
 ```
 
-Copy the MAC address and paste in your .env file as a new environment variable
-'BLUETOOTH_DEVICE_MAC', for example:
+Copy the MAC addresses and paste in your .env file as a new environment variables
+'BLUETOOTH_DEVICE_MAC_HRM' and 'BLUETOOTH_DEVICE_MAC_WHEEL', **for example**:
 
 ![blescan](Archive/Course_resources/docs/workshops/images/ws2_blescan.png)
 
 ```bash
-BLUETOOTH_DEVICE_MAC=fb:48:5b:84:36:4a
+BLUETOOTH_DEVICE_MAC_HRM=C5:46:4C:2F:AD:C6
+BLUETOOTH_DEVICE_MAC_WHEEL=C5:46:4C:2F:AD:C6
 ```
 
 
@@ -89,8 +89,8 @@ Connect the Bluefruit with some jumper wires to the BNO055 using this schematic:
 
 Connect the Bluefruit to the powerbank using the micro USB cable.
 
-Now attach the whole assembly to the wheel of the wheelchair.
-_Make sure to attach the BNO055 to the center of the wheel's axle!_
+Now attach the whole assembly to the right wheel of the wheelchair.
+**Make sure to attach the BNO055 to the center of the wheel's axle**
 The result should look something like this:
 
 ![](Images/Photos/IMG_20190405_152401.jpg)
