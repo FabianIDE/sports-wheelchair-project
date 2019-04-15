@@ -1,5 +1,7 @@
 ## INSTALLATION
 
+
+
  After collecting all the components as specified in [Components](workshops/GettingStarted.md)
 
 
