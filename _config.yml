@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 theme: jekyll-theme-architect
 
 sidebar:
@@ -8,3 +9,6 @@ sidebar:
   - title: "Another Title"
     text: "More text here."
     nav: sidebar-sample
+=======
+theme: jekyll-theme-slate
+>>>>>>> 98f010ec1112062bc3b06e86ee07be747f1fa57b
