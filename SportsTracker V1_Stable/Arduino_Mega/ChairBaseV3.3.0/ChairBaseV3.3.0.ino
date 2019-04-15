@@ -73,10 +73,8 @@ void setup() {
 delay(1500); //delay to startup the BNO otherwise we always read a 0 the first second(s)
 
 //Setting calibration value for the wheeliemeter
-imu::Vector<3> euler = bno.getVector(Adafruit_BNO055::VECTOR_EULER); 
+imu::Vector<3> euler = bno.getVector(Adafruit_BNO055::VECTOR_EULER);
 WheelieZero = euler.y();
-//Serial.println(WheelieZero);
-//Serial.println(euler.y());
 
 for(int i=0;i<NUMring;i++){                       // LED startup animation -- REPLACE WITH DELAY(1000) IF YOU WANT TO REMOVE
     ring.setPixelColor(i, ring.Color(0,25,0,0));
@@ -93,17 +91,9 @@ ringDO(0,25,0,0,0,NUMring);
   timeStart = millis();
 }
 
- 
+
 
 void loop() {
-
-  // Possible vector values can be:
-  // - VECTOR_ACCELEROMETER - m/s^2
-  // - VECTOR_MAGNETOMETER  - uT
-  // - VECTOR_GYROSCOPE     - rad/s
-  // - VECTOR_EULER         - degrees
-  // - VECTOR_LINEARACCEL   - m/s^2
-  // - VECTOR_GRAVITY       - m/s^2
 
 // add property marker
 
@@ -114,21 +104,6 @@ imu::Vector<3> Gyro = bno.getVector(Adafruit_BNO055::VECTOR_GYROSCOPE);
 
 imu::Vector<3> Accel = bno.getVector(Adafruit_BNO055::VECTOR_LINEARACCEL);
 
-//Left Right warning light
-
-/*if (Gyro.x() < -3){ //LEDs 13-21,34-36 go on if right
-  ringDO(20,50,0,0,12,21);
-  ringDO(20,50,0,0,33,36);
-}
-else if (Gyro.x() > 3){
-  ringDO(40,50,0,0,21,33);
-}
-else{
-  ringDO(0,25,0,0,12,36);
-}*/
-
-// HR flash
-    
 DeltaX_float = 0; //set to zero to prevent non updating values
 Joules = 0;     //set to zero to prevent non updating values
 
@@ -137,13 +112,13 @@ if(Serial.available() > 0){                   // Read serial port
     HR_int = HR.toInt()*1000;                   // long & int discard anything beyond the decimal point, so before dividing multiply by 1000
     unsigned long tussen = HR_int/60;           // from BPM to BPS (Beats per second)
     delayer = 1000000/tussen;                   // from BPS to delay after each flash trigger
-    
+
     String DeltaX = Serial.readStringUntil(','); // read second string from serial port
     DeltaX_float = DeltaX.toFloat();
   }
-  
+
   Joules = abs(Weight*DeltaX_float*Accel.x());
-    
+
   Kcal = Joules/4184;                   // converting Joules to Kcal
   KcalTotal = KcalOld + Kcal;           //increase total joules used
 
@@ -153,7 +128,7 @@ if(Serial.available() > 0){                   // Read serial port
 
   if (Joules > 5) {                    //set amount of joule defined as inactvity of wheelchair
     Inactive = 0;                         //set counter to 0
-    
+
     Fitness = ((KcalTotal*4184)/(HR_int-40*10)*10000);      //Only update when active
 
   }
@@ -168,8 +143,8 @@ if(Serial.available() > 0){                   // Read serial port
     Inactive = 200;
   }
 
-  
-  
+
+
   if (isnan(Fitness)) {                     // removes NaN (not a number) print from dividing a zero
     Fitness = 0;
   }
@@ -182,17 +157,12 @@ if(Serial.available() > 0){                   // Read serial port
     Energy = Joules_max;
   }
 
-  /*Serial.print("Delayer: ");
-  Serial.print(delayer);
-  Serial.print(", HR: ");
-  Serial.println(HR_int/1000);*/
-
   timer = millis()-timeoffset;                  // time since last flash = current time - timestamp last flash
 
   if (ledOFF && timer > delayer){               // if the flash is not active and current time > delay
     ledOFF = false;
     HR_color = map (HR_int/1000, 30 , 200 , 0 , 255);
-    
+
     ringDO(255-HR_color,HR_color,0,0,0,12);                          // flash LED
     timeoffset = millis();                      // set timestamp last flash
     timer = 0;                                  // reset timer
@@ -203,7 +173,7 @@ if(Serial.available() > 0){                   // Read serial port
   }
 
   if (WheelieAngle > 15) {                      // if a wheelie is taking place, do cool LED pattern
-    ringDO(0,255,0,0,n+12,n+14);                
+    ringDO(0,255,0,0,n+12,n+14);
     n = n+3;
     if (n >= 24){
       n = 0;
@@ -236,5 +206,4 @@ void ringDO(int g, int r, int b, int w, int beginled, int endled){
   for(int i=beginled;i<endled;i++){                       // for each LED, set color
     ring.setPixelColor(i, ring.Color(g,r,b,w));
   }
-  //ring.show();
 }

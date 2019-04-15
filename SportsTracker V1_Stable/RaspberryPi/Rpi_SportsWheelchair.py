@@ -139,7 +139,6 @@ def serial_to_property_values():
 
 #end of serial code
 
-
 #start of HRM code
 
 #This function converts hex values received from hrm to integer.
@@ -168,9 +167,6 @@ if my_thing.find_property_by_name("My heart rate measurement 1") is None:
 
 # Retrieve the property
 my_property_HRM = my_thing.find_property_by_name("My heart rate measurement 1")
-
-# Show the property
-#print(my_property.to_json())
 
 # Spawn a child process with gatttool to control your BLE device.
 #Your hrm uses random addressing like most BLE devices.
@@ -233,8 +229,6 @@ def start_HRM():
             intvalue_brackets = [intvalue]
             print (intvalue)
             print (DeltaX)
-            # #print statement to check the hrm reading
-            # print("HRM =" + intvalue)
             #udate new readings to grafana
             my_property_HRM.update_values(intvalue_brackets)
             ser.write(str(intvalue).encode())
@@ -242,8 +236,6 @@ def start_HRM():
             ser.write(str(DeltaX).encode())
             ser.write(",".encode()) # this one gave no errors
 
-
-        #    ser.write(','.encode())
             print("HRM sent to arduino")
             print("DeltaX sent to arduino")
         except KeyboardInterrupt:
