@@ -94,7 +94,8 @@ Connect the Bluefruit with some jumper wires to the BNO055 using this schematic:
 Connect the Bluefruit to the powerbank using the micro USB cable.
 
 Now attach the whole assembly to the wheel of the wheelchair.
-Make sure to attach the BNO055 to the center of the wheel's axle!
+_Make sure to attach the BNO055 to the center of the wheel's axle!_
+The result should look something like this:
 
 ![](Images/Photos/IMG_20190405_152401.jpg)
 
@@ -113,10 +114,14 @@ The Arduino Mega must be connected to the other BNO055 and the LED ring. Use the
 
 ![](Images/ArduinoMega.png)
 
+
+
+
 Now mount the LED ring to the back of the wheelchair and the BNO055 in the orientation shown in the picture. The location of the Arduino mega itself is not as important.
-![](Images/ArduinoMega.png)
 
 ![](Images/Photos/IMG_20190408_144836.jpg)
+
+
 
 
 
