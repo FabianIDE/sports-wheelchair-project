@@ -1,1 +1,10 @@
 theme: jekyll-theme-architect
+
+sidebar:
+  - title: "Title"
+    image: https://image.shutterstock.com/image-photo/herd-cows-green-meadow-below-450w-1352305955.jpg
+    image_alt: "image"
+    text: "Some text here."
+  - title: "Another Title"
+    text: "More text here."
+    nav: sidebar-sample
