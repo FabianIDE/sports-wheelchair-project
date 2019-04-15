@@ -34,4 +34,4 @@ __*OUTPUT*__
    * tilt angle (wheelie meter)					
 
 
-*Project by Max Weetzel, Fabian Bosman and Daniël Eikelenboom*
+*Project by Max Weetzel, Fabian Bosman and Daniël Eikelenboom.*
