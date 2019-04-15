@@ -38,4 +38,4 @@ __*OUTPUT*__
 *Project by Max Weetzel, Fabian Bosman and Daniël Eikelenboom.*
 
 Thanks to the staff of the IoT2 course for organisation and guidance.
-[Datacentric design github] https://datacentricdesign.github.io/wheelchair-design-platform/
+[Datacentric design github](https://datacentricdesign.github.io/wheelchair-design-platform/)
