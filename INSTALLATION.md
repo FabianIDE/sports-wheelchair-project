@@ -2,7 +2,38 @@
 
 
 
- After collecting all the components as specified in [Components](workshops/GettingStarted.md)
+ After collecting all the components as specified in [Components](COMPONENTS.md), follow these steps how to set everything up!
+
+### 2 Arduino
+
+Download and install the (latest) Arduino software from the Arduino website (we used v 1.8.5) https://www.arduino.cc/en/Main/Software
+
+
+
+
+### 1 Python
+
+Power up and connect to your Raspberry Pi in the way you prefer (i.e. over SSH or connect it to a monitor)
+
+Then install the requirements as listed in the requirements.txt file through its terminal
+
+On Mac:
+
+```bash
+pip3 install -r requirements.txt --user
+```
+On Windows:
+
+```bash
+python -m pip install -r requirements.txt --user
+```
+
+
+
+
+
+
+
 
 
 STEPS
