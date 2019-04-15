@@ -126,3 +126,9 @@ Now mount the LED ring to the back of the wheelchair and the BNO055 in the orien
 Now mount the Raspberry Pi to the chair.
 Connect the Raspberry Pi to the Arduino Mega with the USB cable
 And finally mount the powerbank and connect it to the Raspberry Pi.
+
+##### Running the Script
+Make sure the Feather Bluefruit and the Heartbeat sensor is turned on.
+Then run the latest SportsTracker V1_Stable/RaspberryPi -> Rpi_SportsWheelchair.py  script on the Raspberry Pi!
+
+It should automatically detect and connect to all the peripherals. If you encounter an error or a timeout, reset the Bluefruit and the Heartbeat monitor before running the script again.
