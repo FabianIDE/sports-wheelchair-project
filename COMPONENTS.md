@@ -72,7 +72,7 @@ Rpi_SportsWheelchair.py
 * Forwards data to Arduino Mega.
 * Connects to DWD server.
 * Creates required [thing] properties for the DWD connection.
-*
+
 
 **Connected to**
 
