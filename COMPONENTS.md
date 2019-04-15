@@ -13,15 +13,15 @@ The components and their connections are listed below.
 
 ##### ARDUINO MEGA
 
-_*Location*_
+*_Location_*
 
 The wheelchair main frame  
 
-_*Script*_
+*_Script_*
 
 Chairbase.ino  
 
-_*Connected to*_
+*_Connected to_*
 
 1.	RASPBERRY PI (Physical, USB B
 1.	RING (Physical, wires
@@ -30,15 +30,15 @@ _*Connected to*_
 
 ##### ADAFRUIT FEATHER BLUEFRUIT
 
-_*Location*_
+*_Location_*
 
 The right wheel.
 
-_*Script*_
+*_Script_*
 
 Rightsportswheelblefeather.ino  
 
-_*Connected to*_
+*_Connected to_*
 
 1. RASPBERRY PI (Bluetooth connection
 1. BNO055 (Physical, wires)
@@ -46,84 +46,84 @@ _*Connected to*_
 
 ##### RASPBERRY PI
 
-_*Location*_
+*_Location_*
 
 The wheelchair main frame.
 
-_*Script*_
+*_Script_*
 
 Rpi_sportswheelchair.py
 
-_*Connected to*_
+*_Connected to_*
 
 1. ARDUINO MEGA (Physical, wires)
 1. POWERBANK (Physical, Micro USB)
 
 ##### LED RING
 
-_*Location*_
+*_Location_*
 
 The back of the wheelchair backseat.
 
-_*Connected to*_
+*_Connected to_*
 
 1. ARDUINO MEGA (Physical, wires)
 
 ##### BNO055 IMU x2
 
-_*Location*_
+*_Location_*
 
 The center turning point of the wheelchair.
 
-_*Location*_
+*_Location_*
 
 The center turning point of the right wheel.
 
-_*Connected to*_		
+*_Connected to_*		
 
 1. ARDUINO MEGA (Physical, wires)
 1. ADAFRUIT FEATHER (Physical, wires)
 
 ##### HEARTRATE MONITOR WRISTBAND (MIO LINK)
 
-_*Location*_
+*_Location_*
 
 The user's wrist.
 
-_*Connected to*_
+*_Connected to_*
 
 1. RASPBERRY PI (Bluetooth)
 
 ##### POWERBANK x2
 
-_*Location*_
+*_Location_*
 
 The wheelchair main frame.
 
-_*Location*_
+*_Location_*
 
 The right wheel.
 
-_*Connected to*_		
+*_Connected to_*		
 
 1. RASPBERRY PI (Physical, USB)
 1. ADAFRUIT FEATHER (Physical, Micro USB)
 
 ##### USB CABLE
 
-_*Location*_
+*_Location_*
 
 Between the Raspberry Pi and the Powerbank.
 
 ##### MICRO USB CABLE
 
-_*Location*_
+*_Location_*
 
 Between the Adafruit Bluefruit and the Powerbank
 
 ##### USB B CABLE
 
-_*Location*_
+*_Location_*
 
 Between the Raspberry Pi and the Arduino Mega.
 
