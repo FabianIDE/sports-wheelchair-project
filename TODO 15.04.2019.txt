@@ -5,6 +5,8 @@
 	-	Story
 	-	Video
 	-	Poster
+	-	Github markup
+	- Github pages???
 
 
 -	What code is running where	DANIEL
