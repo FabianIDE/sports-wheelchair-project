@@ -1,12 +1,27 @@
+## PROJECT DOCUMENTATION
+
+* [Project Description](README.md)
+* [Sensors & Actuators](SENSORS_ACTUATORS.md)
+* [Components](COMPONENTS.md)
+* [Installation](INSTALLATION.md)
+* [Testing](TESTING.md)
+* [Changelog](CHANGELOG.md)
+
+
 ## INSTALLATION
-
-
 
  After collecting all the components as specified in [Components](COMPONENTS.md), follow these steps how to set everything up!
 
 ### 2 Arduino
 
 Download and install the (latest) Arduino software from the Arduino website (we used v 1.8.5) https://www.arduino.cc/en/Main/Software
+
+The Arduino IDE already comes with everything needed for the Arduino Mega.
+
+The Bluefruit does need to be added manually:
+For this you will also have to install the following library (Bluefruit nRF51), which you can do in Sketch -> Include Library -> Manage Libraries :
+
+![](images/library.png)
 
 
 
