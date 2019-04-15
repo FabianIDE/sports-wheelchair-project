@@ -23,14 +23,15 @@ __*INPUT*__
 __*OUTPUT*__
 -	Displays heartrate and fitness level on LED ring.
 - Enables insight in multiple variables of movement on Grafana.
-						- Velocity
-						-	Acceleration
-						- Distance moved
-						- Rotation angle
-						- Spent kcal
-						- Heartrate
-						- Fitness rating (calculated from spent kcal versus heartrate)
-						- Tilt angle (wheelie meter)					
+
+   * Velocity
+   * Acceleration
+   * Distance moved
+   * Rotation angle
+   * Spent kcal
+   * Heartrate
+   * Fitness rating (calculated from spent kcal versus heartrate)
+   * Tilt angle (wheelie meter)					
 
 
 *Project by Max Weetzel, Fabian Bosman and Daniël Eikelenboom*
