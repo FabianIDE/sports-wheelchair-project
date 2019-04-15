@@ -24,18 +24,22 @@ The Bluefruit board does need to be added manually:
 
 Go to Tools -> Boards -> Boards Manager
 Search for "bluefruit"
-Install both the "adafruit AVR boards" and the "Adafruit nRF52"
+Install both the "adafruit AVR boards" and the "Adafruit nRF52".
 
-Now the bluefruit should show up in your Tools -> Boards listed
+Now the bluefruit should show up in your Tools -> Boards listed.
 
 #### Libraries
 In order to run the arduino sketches on this repository, the following libraries need to be install through Sketch -> Include Library -> Manage Libraries.
 Search for "bluefruit nFF51" and click install.
 Search for "adafruit BNO055" and click install.
 
+#### Upload sketches
+Upload the latest code in the SportsTracker_V1_Stable -> Arduino Mega folder to the Arduino Mega through the Arduino IDE.
+
+Upload the latest code in the SportsTracker_V1_Stable -> BLE_Feather folder to the Bluefruit through the Arduino IDE.
 
 
-### Python
+### Raspberry Pi
 
 Power up and connect to your Raspberry Pi in the way you prefer (i.e. over SSH or connect it to a monitor)
 
@@ -59,6 +63,49 @@ pip3 install bluepy
 
 pip3 install pexpect
 ```
+
+
+### Connecting all the components
+
+#### On the Wheel
+Connect the Bluefruit with some jumper wires to the BNO055 using this schematic:
+
+![](Images/Image 3_feather+BNO.png)
+
+Connect the Bluefruit to the powerbank using the micro USB cable.
+
+Now attach the whole assembly to the wheel of the wheelchair.
+Make sure to attach the BNO055 to the center of the wheel's axle!
+
+![](Images/Photos/IMG_20190405_152401.jpg)
+
+#### On your wrist
+
+Put the Heartbeat sensor on your wrist, then push and hold the button to turn it on.
+![](Images/Photos/IMG_20190405_153005.jpg)
+
+
+#### Below the chair
+
+The Arduino Mega must be connected to the other BNO055 and the LED ring. Use the following schematics to do so:
+
+![](Images/ArduinoMega.png)
+
+Now mount the LED ring to the back of the wheelchair and the BNO055 in the orientation shown in the picture. The location of the Arduino mega itself is not as important.
+
+![](Images/Photos/IMG_20190408_144836.jpg)
+![](Images/ArduinoMega.png)
+
+
+Now mount the Raspberry Pi to the chair.
+Connect the Raspberry Pi to the Arduino Mega with the USB cable
+And finally mount the powerbank and connect it to the Raspberry Pi.
+
+
+
+
+
+
 
 
 
