@@ -41,10 +41,20 @@ unsigned long delayer = 2000;
 unsigned long HR_int = 0;
 unsigned long ontime = 200;                     // time the LED is on at blinking
 
-//Stuff for energy counter
-long Joules_max = 50000;
+//Variables for energy counter
+int Weight = 75; //set weight of athlete incl chair
+float DeltaX_float = 0;
+long Joules_max = 50000; // set Joules amount of 1 full LED ring //defide by 4184 to get Kcal
 long Energy = 0;
 int Energy_ON = 0;
+float Joules = 0;
+float Kcal = 0;
+float KcalOld = 0;
+float KcalTotal = 0;
+
+//Fitness variables
+int Inactive =0;
+float Fitness = 0;
 
 int n = 0;
 int m = 12;                                     // Wheelie rotating light loop counter
@@ -99,15 +109,10 @@ void loop() {
 
 imu::Vector<3> euler = bno.getVector(Adafruit_BNO055::VECTOR_EULER);
 WheelieAngle = euler.y() - WheelieZero; //calculate wheelie angle based on startup value
-Serial.print(euler.x());
-Serial.print( F(",") );
-Serial.print(WheelieAngle);
-Serial.print( F(",") );
 
 imu::Vector<3> Gyro = bno.getVector(Adafruit_BNO055::VECTOR_GYROSCOPE);
 
 imu::Vector<3> Accel = bno.getVector(Adafruit_BNO055::VECTOR_LINEARACCEL);
-Serial.println(Accel.x());
 
 //Left Right warning light
 
@@ -123,6 +128,9 @@ else{
 }*/
 
 // HR flash
+    
+DeltaX_float = 0; //set to zero to prevent non updating values
+Joules = 0;     //set to zero to prevent non updating values
 
 if(Serial.available() > 0){                   // Read serial port
     String HR = Serial.readStringUntil(',');
@@ -130,15 +138,43 @@ if(Serial.available() > 0){                   // Read serial port
     unsigned long tussen = HR_int/60;           // from BPM to BPS (Beats per second)
     delayer = 1000000/tussen;                   // from BPS to delay after each flash trigger
     
-    String Joules = Serial.readStringUntil(','); // read second string from serial port
-    long Joules_int = Joules.toInt();
-    Energy = Energy - Joules_int;                // substract used energy from stack
-    Energy_ON = map(Energy, 0, Joules_max, 0, 24)+12; // convert to LEDs to turn on
-    
+    String DeltaX = Serial.readStringUntil(','); // read second string from serial port
+    DeltaX_float = DeltaX.toFloat();
   }
   
+  Joules = abs(Weight*DeltaX_float*Accel.x());
+    
+  Kcal = Joules/4184;                   // converting Joules to Kcal
+  KcalTotal = KcalOld + Kcal;           //increase total joules used
+
+  Energy = Energy - Joules;                     // substract used energy from stack
+  Energy_ON = map(Energy, 0, Joules_max, 0, 24)+12; // convert to LEDs to turn on
+
+
+  if (Joules > 5) {                    //set amount of joule defined as inactvity of wheelchair
+    Inactive = 0;                         //set counter to 0
+    Fitness = KcalTotal/HR_int*4184*10000;      //Only update when active
+
+  }
+
+  else {
+    Inactive ++;
+  }
+
+  if (Inactive >= 200){                 //set interactivy counter in 10ths of sec.
+    KcalTotal = 0;
+    Inactive = 200;
+  }
+
+  
+  
+  if (isnan(Fitness)) {                     // removes NaN (not a number) print from dividing a zero
+    Fitness = 0;
+  }
+
   ringDO(0,0,20,40,12,Energy_ON);
   ringDO(0,0,0,0,Energy_ON,36);
+
 
   if (Energy < 0){                              // for testing: If energy is empty, refill
     Energy = Joules_max;
@@ -177,6 +213,18 @@ if(Serial.available() > 0){                   // Read serial port
     }
   }
 
+
+Serial.print(euler.x());
+Serial.print( F(",") );
+Serial.print(WheelieAngle);
+Serial.print( F(",") );
+Serial.print(Joules);
+Serial.print( F(",") );
+Serial.print(KcalTotal,3);
+Serial.print( F(",") );
+Serial.println(Fitness);
+
+KcalOld = KcalTotal;
   ring.show();                                  // send data (color etc from entire loop) to LED ring
 delay(BNO055_SAMPLERATE_DELAY_MS);
 
