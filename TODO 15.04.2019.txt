@@ -2,9 +2,11 @@
 	-	A person should be able to read and reproduce the prototype in a few hours
 
 -	What does the prototype do	FABIAN
-	-	Story
-	-	Video
+	-	Story													CHECK
+	-	Video													NEEDS TO BE UPLOADED BY DANIEL
 	-	Poster
+	- What tests have we done				
+	- Who contributed
 	-	Github markup
 	- Github pages???
 

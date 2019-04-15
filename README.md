@@ -6,11 +6,20 @@
 
 The goal of this project is to create a smart sports wheelchair which is able to monitor the consumed energy of a wheelchair basketball player in real time. This provides valuable insights for player and coach during training exercises. For example, the current system allows a coach to view the energy the player has spent in relation to the heartrate of the user. The system then determines the fitness level of the user based on these parameters.
 
-#Features
+#Current functionality
 
 -	Displays heartrate and fitness level on LED ring.
 - Enables insight in multiple variables of movement on Grafana.
-- Displays wheelie angle.
+						- Velocity
+						-	Acceleration
+						- Distance moved
+						- Rotation angle
+						- Spent kcal
+						- Heartrate
+						- Fitness rating (calculated from spent kcal versus heartrate)
+						- Tilt angle (wheelie meter)					
+
+#Data flow
 
 #COMPONENTS
 
@@ -155,8 +164,8 @@ With the Neopixel ring, it is possible to create patterns of coloured LED's, whi
 
 *Of the actuators above, the RGB LED Ring can be provided by us if neccesairy.*
 
-
-
+__*Testing*__
+*
 
 
 
