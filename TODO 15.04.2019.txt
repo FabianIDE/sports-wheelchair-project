@@ -13,6 +13,5 @@
 
 
 -	Instructions to install python dependencies MAX
-
-
 -	Wiring of hardware
+		-	LED RING
