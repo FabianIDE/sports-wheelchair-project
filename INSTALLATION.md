@@ -12,40 +12,53 @@
 
  After collecting all the components as specified in [Components](COMPONENTS.md), follow these steps how to set everything up!
 
-### 2 Arduino
+### Arduino
 
 Download and install the (latest) Arduino software from the Arduino website (we used v 1.8.5) https://www.arduino.cc/en/Main/Software
 
+
+#### Boards
 The Arduino IDE already comes with everything needed for the Arduino Mega.
 
-The Bluefruit does need to be added manually:
-For this you will also have to install the following library (Bluefruit nRF51), which you can do in Sketch -> Include Library -> Manage Libraries :
+The Bluefruit board does need to be added manually:
 
-![](images/library.png)
+Go to Tools -> Boards -> Boards Manager
+Search for "bluefruit"
+Install both the "adafruit AVR boards" and the "Adafruit nRF52"
+
+Now the bluefruit should show up in your Tools -> Boards listed
+
+#### Libraries
+In order to run the arduino sketches on this repository, the following libraries need to be install through Sketch -> Include Library -> Manage Libraries.
+Search for "bluefruit nFF51" and click install.
+Search for "adafruit BNO055" and click install.
 
 
 
-
-### 1 Python
+### Python
 
 Power up and connect to your Raspberry Pi in the way you prefer (i.e. over SSH or connect it to a monitor)
 
 Then install the requirements as listed in the requirements.txt file through its terminal
 
 On Mac:
-
 ```bash
 pip3 install -r requirements.txt --user
 ```
-On Windows:
+
+Now install the Bluetooth dependencies for Python:
 
 ```bash
-python -m pip install -r requirements.txt --user
+apt-get install bluez libbluetooth-dev
+
+pip3 install git+https://github.com/peplin/pygatt
+
+pip3 install "pygatt[GATTTOOL]"
+
+pip3 install bluepy
+
+pip3 install pexpect
 ```
-
-
-
-
 
 
 
